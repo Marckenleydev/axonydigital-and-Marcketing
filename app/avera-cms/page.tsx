@@ -24,11 +24,11 @@ export default function CMS() {
   };
 
   return (
-    <div style={{ background: T.cream, minHeight: "100vh", fontFamily: "'Syne', 'DM Sans', sans-serif" }}>
+    <div style={{ background: T.cream, minHeight: "100vh", fontFamily: "Inter, sans-serif" }}>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
         *{box-sizing:border-box;margin:0;padding:0}
-        input,textarea,select{font-family:'Syne',sans-serif}
+        input,textarea,select{font-family:'Inter',sans-serif}
         input::placeholder,textarea::placeholder{color:${T.sand};opacity:0.75}
         select option{background:${T.cream};color:${T.ink}}
         ::-webkit-scrollbar{width:4px;background:${T.cream}}

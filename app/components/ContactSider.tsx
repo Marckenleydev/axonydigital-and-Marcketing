@@ -33,7 +33,7 @@ export function ContactSidebar(){
         boxSizing: "border-box"
       }}>
         <div style={{
-          fontFamily: "'JetBrains Mono',monospace",
+          fontFamily: "Inter, sans-serif",
           fontSize: "clamp(8px, 1.8vw, 9px)",
           color: `${T.cream}30`,
           letterSpacing: "0.26em",
@@ -58,7 +58,7 @@ export function ContactSidebar(){
             flexWrap: "wrap"
           }}>
             <span style={{
-              fontFamily: "'JetBrains Mono',monospace",
+              fontFamily: "Inter, sans-serif",
               fontSize: "clamp(8px, 1.8vw, 9px)",
               color: `${T.cream}25`,
               letterSpacing: "0.2em",
@@ -70,7 +70,7 @@ export function ContactSidebar(){
             </span>
             
             <span style={{
-              fontFamily: "'Syne',sans-serif",
+              fontFamily: "Inter, sans-serif",
               fontSize: "clamp(11px, 2vw, 12px)",
               color: `${T.cream}55`,
               textAlign: "right",
@@ -91,7 +91,7 @@ export function ContactSidebar(){
         boxSizing: "border-box"
       }}>
         <div style={{
-          fontFamily: "'JetBrains Mono',monospace",
+          fontFamily: "Inter, sans-serif",
           fontSize: "clamp(8px, 1.8vw, 9px)",
           color: `${T.cream}30`,
           letterSpacing: "0.26em",
@@ -115,7 +115,7 @@ export function ContactSidebar(){
             flexWrap: "wrap"
           }}>
             <span style={{
-              fontFamily: "'Syne',sans-serif",
+              fontFamily: "Inter, sans-serif",
               fontSize: "clamp(11px, 2vw, 12px)",
               color: `${T.cream}45`,
               wordBreak: "break-word"
@@ -124,7 +124,7 @@ export function ContactSidebar(){
             </span>
             
             <span style={{
-              fontFamily: "'JetBrains Mono',monospace",
+              fontFamily: "Inter, sans-serif",
               fontSize: "clamp(10px, 2vw, 11px)",
               color: item.c,
               fontWeight: 700,
@@ -160,7 +160,7 @@ export function ContactSidebar(){
           }}/>
           
           <span style={{
-            fontFamily: "'Syne',sans-serif",
+            fontFamily: "Inter, sans-serif",
             fontSize: "clamp(11px, 2vw, 12px)",
             fontWeight: 700,
             color: `${T.cream}65`,
@@ -171,7 +171,7 @@ export function ContactSidebar(){
         </div>
         
         <p style={{
-          fontFamily: "'Syne',sans-serif",
+          fontFamily: "Inter, sans-serif",
           fontSize: "clamp(11px, 2vw, 12px)",
           color: `${T.cream}30`,
           lineHeight: 1.65,
@@ -190,7 +190,7 @@ export function ContactSidebar(){
           {["Dribbble","LinkedIn","GitHub","Twitter"].map(s=>(
             <a key={s} href="#" data-h
               style={{
-                fontFamily: "'JetBrains Mono',monospace",
+                fontFamily: "Inter, sans-serif",
                 fontSize: "clamp(8px, 1.8vw, 9px)",
                 padding: "clamp(4px, 1vh, 6px) clamp(8px, 2vw, 12px)",
                 border: `1px solid ${T.cream}12`,

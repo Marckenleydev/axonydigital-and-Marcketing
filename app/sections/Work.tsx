@@ -200,7 +200,7 @@ export function Work() {
 
             <span
               style={{
-                fontFamily: "'JetBrains Mono', monospace",
+                fontFamily: "Inter, sans-serif",
                 fontSize: 10,
                 color: T.amber,
                 letterSpacing: "0.28em",
@@ -214,7 +214,7 @@ export function Work() {
           <motion.h2
             variants={fadeUp}
             style={{
-              fontFamily: "Georgia, serif",
+              fontFamily: "Inter, sans-serif",
               fontSize: "clamp(2rem, 8vw, 5.5rem)",
               fontWeight: 900,
               color: T.ink,
@@ -375,8 +375,8 @@ function WorkCard({ w, i }) {
       data-h
       style={{
         background: T.inkSoft,
-        minHeight: "clamp(420px, 55vh, 560px)",
-        padding: "clamp(28px, 4vw, 36px)",
+        minHeight: 360,
+        padding: 36,
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
@@ -415,7 +415,7 @@ function WorkCard({ w, i }) {
         >
           <span
             style={{
-              fontFamily: "'JetBrains Mono', monospace",
+              fontFamily: "Inter, sans-serif",
               fontSize: 13,
               color: `${T.cream}70`,
               letterSpacing: "0.18em",
@@ -437,7 +437,7 @@ function WorkCard({ w, i }) {
 
         <h3
           style={{
-            fontFamily: "Georgia, serif",
+            fontFamily: "Inter, sans-serif",
             fontSize: "clamp(2rem, 4vw, 3rem)",
             fontWeight: 900,
             color: T.cream,
@@ -451,7 +451,7 @@ function WorkCard({ w, i }) {
 
         <p
           style={{
-            fontFamily: "'Syne', sans-serif",
+            fontFamily: "Inter, sans-serif",
             fontSize: 12,
             color: `${T.cream}B0`,
             marginBottom: 12,
@@ -470,7 +470,7 @@ function WorkCard({ w, i }) {
             duration: 0.3,
           }}
           style={{
-            fontFamily: "'Syne', sans-serif",
+            fontFamily: "Inter, sans-serif",
             fontSize: 13,
             color: `${T.cream}55`,
             lineHeight: 1.65,
@@ -496,7 +496,7 @@ function WorkCard({ w, i }) {
         {/*
         <span
           style={{
-            fontFamily: "'JetBrains Mono', monospace",
+            fontFamily: "Inter, sans-serif",
             fontSize: 11,
             color: `${w.acc}60`,
           }}
@@ -511,7 +511,7 @@ function WorkCard({ w, i }) {
             opacity: hov ? 1 : 0,
           }}
           style={{
-            fontFamily: "'Syne', sans-serif",
+            fontFamily: "Inter, sans-serif",
             fontWeight: 700,
             fontSize: 12,
             color: T.cream,

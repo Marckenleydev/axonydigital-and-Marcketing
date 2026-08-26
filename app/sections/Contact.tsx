@@ -74,7 +74,7 @@ export function Contact() {
                 display: "block"
               }} />
               <span style={{
-                fontFamily: "'JetBrains Mono',monospace",
+                fontFamily:"Inter, sans-serif",
                 fontSize: "clamp(9px, 2vw, 10px)",
                 color: T.amber,
                 letterSpacing: "0.28em",
@@ -89,7 +89,7 @@ export function Contact() {
               animate={v ? {opacity:1, y:0} : {}} 
               transition={{duration:0.9, delay:0.1, ease}}
               style={{
-                fontFamily: "Georgia,serif",
+                fontFamily:"Inter, sans-serif",
                 fontSize: "clamp(2.2rem, 8vw, 5rem)",
                 fontWeight: 900,
                 color: T.cream,
@@ -109,7 +109,7 @@ export function Contact() {
               animate={v ? {opacity:1, y:0} : {}} 
               transition={{duration:0.7, delay:0.25}}
               style={{
-                fontFamily: "'Syne',sans-serif",
+                fontFamily:"Inter, sans-serif",
                 color: `${T.cream}45`,
                 lineHeight: 1.78,
                 marginBottom: "clamp(32px, 5vh, 44px)",
@@ -133,7 +133,7 @@ export function Contact() {
                 flexWrap: "wrap"
               }}>
                 <span style={{
-                  fontFamily: "'JetBrains Mono',monospace",
+                  fontFamily:"Inter, sans-serif",
                   fontSize: "clamp(9px, 2vw, 10px)",
                   color: `${T.cream}28`,
                   letterSpacing: "0.22em",
@@ -144,7 +144,7 @@ export function Contact() {
                   {item.l}
                 </span>
                 <span style={{
-                  fontFamily: "'Syne',sans-serif",
+                  fontFamily:"Inter, sans-serif",
                   fontSize: "clamp(12px, 2.2vw, 13px)",
                   color: `${T.cream}55`,
                   wordBreak: "break-word",
@@ -177,7 +177,7 @@ export function Contact() {
                 animation: "pulse 2s infinite"
               }} />
               <span style={{
-                fontFamily: "'JetBrains Mono',monospace",
+                fontFamily:"Inter, sans-serif",
                 fontSize: "clamp(9px, 2vw, 10px)",
                 color: `${T.cream}40`,
                 letterSpacing: "0.2em",
@@ -223,7 +223,7 @@ export function Contact() {
                     ✓
                   </div>
                   <h3 style={{
-                    fontFamily: "Georgia,serif",
+                    fontFamily:"Inter, sans-serif",
                     fontSize: "clamp(1.5rem, 5vw, 1.8rem)",
                     fontWeight: 900,
                     color: T.cream,
@@ -232,7 +232,7 @@ export function Contact() {
                     Message Received.
                   </h3>
                   <p style={{
-                    fontFamily: "'Syne',sans-serif",
+                    fontFamily:"Inter, sans-serif",
                     color: `${T.cream}45`,
                     fontSize: "clamp(12px, 2.2vw, 13px)"
                   }}>
@@ -261,7 +261,7 @@ export function Contact() {
                     ].map(f => (
                       <div key={f.k} style={{ width: "100%" }}>
                         <div style={{
-                          fontFamily: "'JetBrains Mono',monospace",
+                          fontFamily:"Inter, sans-serif",
                           fontSize: "clamp(8px, 1.8vw, 9px)",
                           color: `${T.cream}35`,
                           letterSpacing: "0.24em",
@@ -282,7 +282,7 @@ export function Contact() {
                             border: "none",
                             borderBottom: `1px solid ${focus === f.k ? T.amber : `${T.cream}18`}`,
                             padding: "clamp(10px, 2vh, 14px) 0",
-                            fontFamily: "'Syne',sans-serif",
+                            fontFamily:"Inter, sans-serif",
                             color: T.cream,
                             fontSize: "clamp(13px, 2.2vw, 14px)",
                             outline: "none",
@@ -297,7 +297,7 @@ export function Contact() {
                   {/* Service Needed */}
                   <div style={{ width: "100%" }}>
                     <div style={{
-                      fontFamily: "'JetBrains Mono',monospace",
+                      fontFamily:"Inter, sans-serif",
                       fontSize: "clamp(8px, 1.8vw, 9px)",
                       color: `${T.cream}35`,
                       letterSpacing: "0.24em",
@@ -318,7 +318,7 @@ export function Contact() {
                           onClick={() => up("service", s)} 
                           data-h
                           style={{
-                            fontFamily: "'Syne',sans-serif",
+                            fontFamily:"Inter, sans-serif",
                             fontSize: "clamp(10px, 2vw, 11px)",
                             padding: "clamp(6px, 1.5vh, 8px) clamp(12px, 3vw, 16px)",
                             border: `1px solid ${form.service === s ? T.amber : `${T.cream}18`}`,
@@ -338,7 +338,7 @@ export function Contact() {
                   {/* Budget Range */}
                   <div style={{ width: "100%" }}>
                     <div style={{
-                      fontFamily: "'JetBrains Mono',monospace",
+                      fontFamily:"Inter, sans-serif",
                       fontSize: "clamp(8px, 1.8vw, 9px)",
                       color: `${T.cream}35`,
                       letterSpacing: "0.24em",
@@ -359,7 +359,7 @@ export function Contact() {
                           onClick={() => up("budget", b)} 
                           data-h
                           style={{
-                            fontFamily: "'JetBrains Mono',monospace",
+                            fontFamily:"Inter, sans-serif",
                             fontSize: "clamp(10px, 2vw, 11px)",
                             padding: "clamp(8px, 1.5vh, 12px) clamp(4px, 1vw, 8px)",
                             border: `1px solid ${form.budget === b ? T.amber : `${T.cream}12`}`,
@@ -380,7 +380,7 @@ export function Contact() {
                   {/* Project Brief */}
                   <div style={{ width: "100%" }}>
                     <div style={{
-                      fontFamily: "'JetBrains Mono',monospace",
+                      fontFamily:"Inter, sans-serif",
                       fontSize: "clamp(8px, 1.8vw, 9px)",
                       color: `${T.cream}35`,
                       letterSpacing: "0.24em",
@@ -402,7 +402,7 @@ export function Contact() {
                         border: "none",
                         borderBottom: `1px solid ${focus === "msg" ? T.amber : `${T.cream}18`}`,
                         padding: "clamp(10px, 2vh, 14px) 0",
-                        fontFamily: "'Syne',sans-serif",
+                        fontFamily:"Inter, sans-serif",
                         color: T.cream,
                         fontSize: "clamp(13px, 2.2vw, 14px)",
                         outline: "none",
@@ -421,7 +421,7 @@ export function Contact() {
                       width: "100%",
                       background: T.sand,
                       color: T.cream,
-                      fontFamily: "'Syne',sans-serif",
+                      fontFamily:"Inter, sans-serif",
                       fontWeight: 800,
                       fontSize: "clamp(11px, 2.2vw, 12px)",
                       letterSpacing: "0.22em",

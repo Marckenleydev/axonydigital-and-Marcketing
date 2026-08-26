@@ -55,7 +55,7 @@ export function Process() {
                 display: "block"
               }} />
               <span style={{
-                fontFamily: "'JetBrains Mono',monospace",
+                fontFamily: "Inter, sans-serif",
                 fontSize: "clamp(9px, 2vw, 10px)",
                 color: T.amber,
                 letterSpacing: "0.28em",
@@ -68,7 +68,7 @@ export function Process() {
             <motion.h2 
               variants={fadeUp} 
               style={{
-                fontFamily: "Georgia,serif",
+                fontFamily: "Inter, sans-serif",
                 fontSize: "clamp(2rem, 8vw, 5.5rem)",
                 fontWeight: 900,
                 color: T.cream,
@@ -76,7 +76,7 @@ export function Process() {
                 lineHeight: 1.05,
                 maxWidth: "100%"
               }}>
-              Our Process —<br/>
+              Our Process <br/>
               <span style={{fontStyle: "italic", color: T.amber}}>
                 Structured for Results.
               </span>
@@ -86,7 +86,7 @@ export function Process() {
           <motion.p 
             variants={fadeUp} 
             style={{
-              fontFamily: "'Syne',sans-serif",
+              fontFamily: "Inter, sans-serif",
               color: `${T.cream}40`,
               maxWidth: "min(400px, 100%)",
               lineHeight: 1.75,
@@ -146,7 +146,7 @@ function StepCard({s,i}) {
         flexWrap: "wrap"
       }}>
         <span style={{
-          fontFamily: "'JetBrains Mono',monospace",
+          fontFamily: "Inter, sans-serif",
           fontSize: "clamp(32px, 8vw, 52px)",
           fontWeight: 700,
           color: hov ? `${T.amber}85` : `${T.cream}07`,
@@ -157,7 +157,7 @@ function StepCard({s,i}) {
         </span>
         
         <span style={{
-          fontFamily: "'JetBrains Mono',monospace",
+          fontFamily: "Inter, sans-serif",
           fontSize: "clamp(9px, 2vw, 10px)",
           color: `${T.amberLight}100`,
           background: `${T.amber}70`,
@@ -170,7 +170,7 @@ function StepCard({s,i}) {
       </div>
       
       <h3 style={{
-        fontFamily: "Georgia,serif",
+        fontFamily: "Inter, sans-serif",
         fontSize: "clamp(16px, 3.5vw, 18px)",
         fontWeight: 700,
         color: T.cream,
@@ -181,7 +181,7 @@ function StepCard({s,i}) {
       </h3>
       
       <p style={{
-        fontFamily: "'Syne',sans-serif",
+        fontFamily: "Inter, sans-serif",
         fontSize: "clamp(12px, 2.2vw, 13px)",
         color: `${T.cream}50`,
         lineHeight: 1.7,

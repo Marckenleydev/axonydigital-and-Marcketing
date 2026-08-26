@@ -32,10 +32,10 @@ export function PipelineBar({ leads, clients, projects, content, results }: Pipe
         <div key={stat.label} style={{ background: T.cream, padding: "18px 20px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4 }}>
             <span style={{ color: T.amber, fontSize: 11 }}>{stat.icon}</span>
-            <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 8, color: `${T.ink}35`, letterSpacing: "0.2em", textTransform: "uppercase" }}>{stat.label}</span>
+            <span style={{ fontFamily: "Inter, sans-serif", fontSize: 8, color: `${T.ink}35`, letterSpacing: "0.2em", textTransform: "uppercase" }}>{stat.label}</span>
           </div>
-          <div style={{ fontFamily: "Georgia, serif", fontWeight: 900, fontSize: 22, color: T.ink }}>{stat.value}</div>
-          <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 8, color: T.amber, letterSpacing: "0.14em", marginTop: 2 }}>{stat.sub}</div>
+          <div style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, fontSize: 22, color: T.ink }}>{stat.value}</div>
+          <div style={{ fontFamily: "Inter, sans-serif", fontSize: 8, color: T.amber, letterSpacing: "0.14em", marginTop: 2 }}>{stat.sub}</div>
         </div>
       ))}
     </div>

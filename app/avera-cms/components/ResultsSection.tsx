@@ -58,7 +58,7 @@ export function ResultsSection() {
               background: "transparent",
               border: "none",
               borderBottom: filterSvc === service ? `2px solid ${T.amber}` : "2px solid transparent",
-              fontFamily: "'JetBrains Mono', monospace",
+              fontFamily: "Inter, sans-serif",
               fontSize: 9,
               letterSpacing: "0.14em",
               textTransform: "uppercase",
@@ -77,7 +77,7 @@ export function ResultsSection() {
           <form onSubmit={save}>
             <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 24 }}>
               <span style={{ width: 24, height: 1, background: T.amber, display: "block" }} />
-              <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, color: T.amber, letterSpacing: "0.24em", textTransform: "uppercase" }}>
+              <span style={{ fontFamily: "Inter, sans-serif", fontSize: 9, color: T.amber, letterSpacing: "0.24em", textTransform: "uppercase" }}>
                 {editing ? "Edit Result" : "Log Result"}
               </span>
             </div>
@@ -114,7 +114,7 @@ export function ResultsSection() {
                     setEditing(null);
                     setForm({ service: "Web Development" });
                   }}
-                  style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, letterSpacing: "0.18em", textTransform: "uppercase", padding: "13px 18px", background: "transparent", color: `${T.ink}40`, border: `1px solid ${T.sand}50`, cursor: "pointer" }}
+                  style={{ fontFamily: "Inter, sans-serif", fontSize: 9, letterSpacing: "0.18em", textTransform: "uppercase", padding: "13px 18px", background: "transparent", color: `${T.ink}40`, border: `1px solid ${T.sand}50`, cursor: "pointer" }}
                 >
                   Cancel
                 </button>
@@ -140,16 +140,16 @@ export function ResultsSection() {
                 >
                   <div style={{ display: "flex", flexDirection: "column", gap: 5 }}>
                     <div style={{ display: "flex", gap: 10, alignItems: "center", flexWrap: "wrap" }}>
-                      <span style={{ fontFamily: "Georgia, serif", fontWeight: 900, fontSize: 22, color: SERVICE_COLORS[result.service] || T.amber, letterSpacing: "-0.02em" }}>{result.value}</span>
-                      <span style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 13, color: T.ink }}>{result.metric}</span>
+                      <span style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, fontSize: 22, color: SERVICE_COLORS[result.service] || T.amber, letterSpacing: "-0.02em" }}>{result.value}</span>
+                      <span style={{ fontFamily: "Inter, sans-serif", fontWeight: 700, fontSize: 13, color: T.ink }}>{result.metric}</span>
                       <ServiceTag service={result.service} />
                     </div>
                     <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-                      <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, color: `${T.ink}45` }}>{result.clientName}</span>
-                      <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, color: `${T.ink}35` }}>{result.projectTitle}</span>
-                      {result.period && <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, color: T.amber }}>{result.period}</span>}
+                      <span style={{ fontFamily: "Inter, sans-serif", fontSize: 10, color: `${T.ink}45` }}>{result.clientName}</span>
+                      <span style={{ fontFamily: "Inter, sans-serif", fontSize: 10, color: `${T.ink}35` }}>{result.projectTitle}</span>
+                      {result.period && <span style={{ fontFamily: "Inter, sans-serif", fontSize: 10, color: T.amber }}>{result.period}</span>}
                     </div>
-                    {result.notes && <p style={{ fontFamily: "'Syne', sans-serif", fontSize: 12, color: `${T.ink}45`, lineHeight: 1.5 }}>{result.notes}</p>}
+                    {result.notes && <p style={{ fontFamily: "Inter, sans-serif", fontSize: 12, color: `${T.ink}45`, lineHeight: 1.5 }}>{result.notes}</p>}
                   </div>
                 </Row>
               ))

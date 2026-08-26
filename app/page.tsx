@@ -20,7 +20,7 @@ import { Contact } from "./sections/Contact";
 
 export default function App() {
   return (
-    <div className="bg-[#060606] min-h-screen" style={{ fontFamily: "'DM Sans', 'Space Grotesk', system-ui, sans-serif" }}>
+    <div className="bg-[#060606] min-h-screen" style={{ fontFamily: "Inter, sans-serif" }}>
       <Cursor />
       <Navbar />
       <Hero />

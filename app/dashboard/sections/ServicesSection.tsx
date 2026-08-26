@@ -1,4 +1,5 @@
-import { T, SectionPanel, FocusInput, FocusTextarea, Field, FormActions, RecordRow, EmptyState, inputStyle } from './shared';
+import { SectionPanel, FocusInput, FocusTextarea, Field, FormActions, RecordRow, EmptyState, inputStyle } from './shared';
+import { T } from '@/app/data';
 
 interface Service { _id?: string; n: string; icon: string; title: string; tagline: string; desc: string; features: string[]; tech: string[]; tiers: { n: string; p: string; d: string }[]; }
 
@@ -53,7 +54,7 @@ Enterprise | Custom | Complex platform`}
       list={
         <div>
           <div style={{ marginBottom: 24, paddingBottom: 16, borderBottom: `1px solid ${T.sand}25` }}>
-            <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, color: `${T.ink}30`, letterSpacing: "0.26em", textTransform: "uppercase" }}>
+            <span style={{ fontFamily: "Inter, sans-serif", fontSize: 9, color: `${T.ink}30`, letterSpacing: "0.26em", textTransform: "uppercase" }}>
               {services.length} {services.length === 1 ? "service" : "services"}
             </span>
           </div>
@@ -63,15 +64,15 @@ Enterprise | Custom | Complex platform`}
                 <div style={{ display: "flex", alignItems: "flex-start", gap: 16 }}>
                   <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 4, flexShrink: 0, paddingTop: 2 }}>
                     <span style={{ fontSize: 22 }}>{s.icon}</span>
-                    <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, color: `${T.ink}30`, letterSpacing: "0.1em" }}>{s.n}</span>
+                    <span style={{ fontFamily: "Inter, sans-serif", fontSize: 9, color: `${T.ink}30`, letterSpacing: "0.1em" }}>{s.n}</span>
                   </div>
                   <div>
-                    <div style={{ fontFamily: "Georgia, serif", fontWeight: 900, color: T.ink, fontSize: 15, letterSpacing: "-0.01em" }}>{s.title}</div>
-                    <div style={{ fontFamily: "'Syne', sans-serif", fontSize: 12, color: T.amber, marginTop: 3 }}>{s.tagline}</div>
+                    <div style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, color: T.ink, fontSize: 15, letterSpacing: "-0.01em" }}>{s.title}</div>
+                    <div style={{ fontFamily: "Inter, sans-serif", fontSize: 12, color: T.amber, marginTop: 3 }}>{s.tagline}</div>
                     {s.tiers && s.tiers.length > 0 && (
                       <div style={{ display: "flex", gap: 10, marginTop: 8 }}>
                         {s.tiers.map(tier => (
-                          <div key={tier.n} style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, color: `${T.ink}40`, letterSpacing: "0.1em" }}>
+                          <div key={tier.n} style={{ fontFamily: "Inter, sans-serif", fontSize: 9, color: `${T.ink}40`, letterSpacing: "0.1em" }}>
                             {tier.n}: <span style={{ color: T.amber }}>{tier.p}</span>
                           </div>
                         ))}

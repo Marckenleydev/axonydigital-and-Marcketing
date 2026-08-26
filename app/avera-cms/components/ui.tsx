@@ -14,14 +14,14 @@ export const inputStyle: React.CSSProperties = {
   background: "transparent",
   border: "none",
   borderBottom: `1px solid ${T.sand}40`,
-  fontFamily: "'Syne', sans-serif",
+  fontFamily: "Inter, sans-serif",
   color: T.ink,
   fontSize: 13,
   outline: "none",
 };
 
 export const labelStyle: React.CSSProperties = {
-  fontFamily: "'JetBrains Mono', monospace",
+  fontFamily: "Inter, sans-serif",
   fontSize: 9,
   color: `${T.ink}45`,
   letterSpacing: "0.22em",
@@ -51,7 +51,7 @@ export function StatusPill({ status }: { status: string }) {
   return (
     <span
       style={{
-        fontFamily: "'JetBrains Mono', monospace",
+        fontFamily: "Inter, sans-serif",
         fontSize: 9,
         letterSpacing: "0.18em",
         textTransform: "uppercase",
@@ -76,7 +76,7 @@ export function ServiceTag({ service }: { service: string }) {
   return (
     <span
       style={{
-        fontFamily: "'JetBrains Mono', monospace",
+        fontFamily: "Inter, sans-serif",
         fontSize: 8,
         letterSpacing: "0.16em",
         textTransform: "uppercase",
@@ -162,7 +162,7 @@ export function SaveButton({ loading, editing }: { loading: boolean; editing: bo
         gap: 10,
         background: loading ? T.inkSoft : T.ink,
         color: T.cream,
-        fontFamily: "'Syne', sans-serif",
+        fontFamily: "Inter, sans-serif",
         fontWeight: 700,
         fontSize: 10,
         letterSpacing: "0.22em",
@@ -191,7 +191,7 @@ export function DeleteButton({ onClick }: { onClick: () => void }) {
       type="button"
       onClick={onClick}
       style={{
-        fontFamily: "'JetBrains Mono', monospace",
+        fontFamily: "Inter, sans-serif",
         fontSize: 9,
         letterSpacing: "0.18em",
         textTransform: "uppercase",
@@ -223,7 +223,7 @@ export function EditButton({ onClick }: { onClick: () => void }) {
       type="button"
       onClick={onClick}
       style={{
-        fontFamily: "'JetBrains Mono', monospace",
+        fontFamily: "Inter, sans-serif",
         fontSize: 9,
         letterSpacing: "0.18em",
         textTransform: "uppercase",
@@ -252,9 +252,9 @@ export function EditButton({ onClick }: { onClick: () => void }) {
 export function StatCard({ value, label, sub }: { value: string; label: string; sub?: string }) {
   return (
     <div style={{ background: T.creamDark, border: `1px solid ${T.sand}30`, padding: "20px 22px" }}>
-      <div style={{ fontFamily: "Georgia, serif", fontWeight: 900, fontSize: 26, color: T.ink, letterSpacing: "-0.02em" }}>{value}</div>
-      <div style={{ fontFamily: "'Syne', sans-serif", fontWeight: 600, fontSize: 12, color: `${T.ink}70`, marginTop: 2 }}>{label}</div>
-      {sub && <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, color: T.amber, letterSpacing: "0.14em", marginTop: 4 }}>{sub}</div>}
+      <div style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, fontSize: 26, color: T.ink, letterSpacing: "-0.02em" }}>{value}</div>
+      <div style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: 12, color: `${T.ink}70`, marginTop: 2 }}>{label}</div>
+      {sub && <div style={{ fontFamily: "Inter, sans-serif", fontSize: 9, color: T.amber, letterSpacing: "0.14em", marginTop: 4 }}>{sub}</div>}
     </div>
   );
 }
@@ -263,8 +263,8 @@ export function StatCard({ value, label, sub }: { value: string; label: string; 
 export function EmptyState({ label }: { label: string }) {
   return (
     <div style={{ padding: "48px 0", textAlign: "center" }}>
-      <div style={{ fontFamily: "Georgia, serif", fontSize: 28, fontWeight: 900, fontStyle: "italic", color: `${T.ink}10`, marginBottom: 8 }}>—</div>
-      <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, color: `${T.ink}28`, letterSpacing: "0.22em", textTransform: "uppercase" }}>No {label} yet</p>
+      <div style={{ fontFamily: "Inter, sans-serif", fontSize: 28, fontWeight: 900, fontStyle: "italic", color: `${T.ink}10`, marginBottom: 8 }}>—</div>
+      <p style={{ fontFamily: "Inter, sans-serif", fontSize: 9, color: `${T.ink}28`, letterSpacing: "0.22em", textTransform: "uppercase" }}>No {label} yet</p>
     </div>
   );
 }

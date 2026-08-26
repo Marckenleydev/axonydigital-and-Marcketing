@@ -79,7 +79,7 @@ export function Services() {
 
             <span
               style={{
-                fontFamily: "'JetBrains Mono', monospace",
+                fontFamily: "Inter, sans-serif",
                 fontSize: 10,
                 color: T.amber,
                 letterSpacing: "0.28em",
@@ -103,7 +103,7 @@ export function Services() {
             <motion.h2
               variants={fadeUp}
               style={{
-                fontFamily: "Georgia, serif",
+                fontFamily: "Inter, sans-serif",
                 fontSize: "clamp(2.5rem, 6vw, 5.5rem)",
                 fontWeight: 900,
                 color: T.ink,
@@ -127,7 +127,7 @@ export function Services() {
             <motion.p
               variants={fadeUp}
               style={{
-                fontFamily: "'Syne', sans-serif",
+                fontFamily: "Inter, sans-serif",
                 color: `${T.ink}55`,
                 maxWidth: 320,
                 lineHeight: 1.75,
@@ -202,7 +202,7 @@ export function Services() {
                 >
                   <span
                     style={{
-                      fontFamily: "'JetBrains Mono', monospace",
+                      fontFamily: "Inter, sans-serif",
                       fontSize: 11,
                       color: T.sand,
                       letterSpacing: "0.18em",
@@ -213,7 +213,7 @@ export function Services() {
 
                   <span
                     style={{
-                      fontFamily: "Georgia, serif",
+                      fontFamily: "Inter, sans-serif",
                       fontSize: "clamp(1.4rem, 3vw, 2.4rem)",
                       fontWeight: 900,
                       color: open === i ? T.amber : T.ink,
@@ -273,7 +273,7 @@ export function Services() {
                 >
                   <p
                     style={{
-                      fontFamily: "'Syne', sans-serif",
+                      fontFamily: "Inter, sans-serif",
                       color: `${T.ink}55`,
                       lineHeight: 1.75,
                       fontSize: 14,
@@ -294,7 +294,7 @@ export function Services() {
                       <span
                         key={t}
                         style={{
-                          fontFamily: "'JetBrains Mono', monospace",
+                          fontFamily: "Inter, sans-serif",
                           fontSize: 10,
                           padding: "6px 12px",
                           border: `1px solid ${T.sand}60`,

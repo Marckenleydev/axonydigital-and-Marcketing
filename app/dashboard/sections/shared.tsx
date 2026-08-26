@@ -1,13 +1,9 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { T } from "@/app/data";
 
-/* ── DESIGN TOKENS (matches site exactly) ── */
-export const T = {
-  cream: "#F5F0E8", creamDark: "#EDE7D9",
-  ink: "#111008",   inkSoft: "#2A2618",
-  amber: "#C8872A", amberLight: "#E8A23C",
-  sand: "#B8AA92",  sandLight: "#D4CAB8",
-};
+
+
 
 export const ease = [0.22, 1, 0.36, 1];
 
@@ -16,11 +12,11 @@ export const inputStyle: React.CSSProperties = {
   width: "100%", padding: "14px 0",
   background: "transparent", border: "none",
   borderBottom: `1px solid ${T.sand}40`,
-  fontFamily: "'Syne', sans-serif", color: T.ink,
+  fontFamily: "Inter, sans-serif", color: T.ink,
   fontSize: 14, outline: "none",
 };
 export const labelStyle: React.CSSProperties = {
-  fontFamily: "'JetBrains Mono', monospace",
+  fontFamily: "Inter, sans-serif",
   fontSize: 9, color: `${T.ink}45`,
   letterSpacing: "0.24em", textTransform: "uppercase" as const,
   display: "block", marginBottom: 6,
@@ -67,14 +63,14 @@ export function FormActions({ loading, editing, onCancel }: { loading: boolean; 
   return (
     <div style={{ display: "flex", gap: 12, marginTop: 32, paddingTop: 24, borderTop: `1px solid ${T.sand}25` }}>
       <button type="submit" disabled={loading}
-        style={{ display: "flex", alignItems: "center", gap: 12, background: loading ? `${T.inkSoft}` : T.ink, color: T.cream, fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 11, letterSpacing: "0.22em", textTransform: "uppercase", padding: "14px 28px", border: "none", cursor: loading ? "not-allowed" : "pointer", transition: "background 0.3s", opacity: loading ? 0.6 : 1 }}
+        style={{ display: "flex", alignItems: "center", gap: 12, background: loading ? `${T.inkSoft}` : T.ink, color: T.cream, fontFamily: "Inter, sans-serif", fontWeight: 700, fontSize: 11, letterSpacing: "0.22em", textTransform: "uppercase", padding: "14px 28px", border: "none", cursor: loading ? "not-allowed" : "pointer", transition: "background 0.3s", opacity: loading ? 0.6 : 1 }}
         onMouseEnter={e => { if (!loading) (e.currentTarget as HTMLButtonElement).style.background = T.amber; }}
         onMouseLeave={e => { if (!loading) (e.currentTarget as HTMLButtonElement).style.background = T.ink; }}>
         {loading ? "Saving…" : editing ? "Update Entry" : "Add Entry"} {!loading && <span style={{ fontSize: 16 }}>→</span>}
       </button>
       {editing && (
         <button type="button" onClick={onCancel}
-          style={{ background: "transparent", color: `${T.ink}55`, fontFamily: "'Syne', sans-serif", fontWeight: 600, fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", padding: "14px 24px", border: `1px solid ${T.sand}50`, cursor: "pointer", transition: "all 0.25s" }}
+          style={{ background: "transparent", color: `${T.ink}55`, fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", padding: "14px 24px", border: `1px solid ${T.sand}50`, cursor: "pointer", transition: "all 0.25s" }}
           onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.color = T.ink; (e.currentTarget as HTMLButtonElement).style.borderColor = `${T.ink}50`; }}
           onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.color = `${T.ink}55`; (e.currentTarget as HTMLButtonElement).style.borderColor = `${T.sand}50`; }}>
           Cancel
@@ -96,13 +92,13 @@ export function RecordRow({ onEdit, onDelete, children }: { onEdit: () => void; 
       <div style={{ flex: 1 }}>{children}</div>
       <div style={{ display: "flex", gap: 8, flexShrink: 0, marginLeft: 24 }}>
         <button onClick={onEdit}
-          style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, letterSpacing: "0.2em", textTransform: "uppercase", padding: "8px 16px", background: "transparent", color: `${T.ink}50`, border: `1px solid ${T.sand}50`, cursor: "pointer", transition: "all 0.2s" }}
+          style={{ fontFamily: "Inter, sans-serif", fontSize: 9, letterSpacing: "0.2em", textTransform: "uppercase", padding: "8px 16px", background: "transparent", color: `${T.ink}50`, border: `1px solid ${T.sand}50`, cursor: "pointer", transition: "all 0.2s" }}
           onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.color = T.ink; (e.currentTarget as HTMLButtonElement).style.borderColor = T.ink; }}
           onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.color = `${T.ink}50`; (e.currentTarget as HTMLButtonElement).style.borderColor = `${T.sand}50`; }}>
           Edit
         </button>
         <button onClick={onDelete}
-          style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, letterSpacing: "0.2em", textTransform: "uppercase", padding: "8px 16px", background: "transparent", color: "#c0392b80", border: "1px solid #c0392b30", cursor: "pointer", transition: "all 0.2s" }}
+          style={{ fontFamily: "Inter, sans-serif", fontSize: 9, letterSpacing: "0.2em", textTransform: "uppercase", padding: "8px 16px", background: "transparent", color: "#c0392b80", border: "1px solid #c0392b30", cursor: "pointer", transition: "all 0.2s" }}
           onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.color = "#c0392b"; (e.currentTarget as HTMLButtonElement).style.borderColor = "#c0392b80"; }}
           onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.color = "#c0392b80"; (e.currentTarget as HTMLButtonElement).style.borderColor = "#c0392b30"; }}>
           Delete
@@ -120,9 +116,9 @@ export function SectionPanel({ title, subtitle, form, list }: { title: string; s
       <div style={{ borderRight: `1px solid ${T.sand}30`, padding: "48px 48px 48px 0", position: "sticky", top: 80 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 8 }}>
           <span style={{ width: 28, height: 1, background: T.amber, display: "block" }} />
-          <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, color: T.amber, letterSpacing: "0.28em", textTransform: "uppercase" }}>{subtitle}</span>
+          <span style={{ fontFamily: "Inter, sans-serif", fontSize: 9, color: T.amber, letterSpacing: "0.28em", textTransform: "uppercase" }}>{subtitle}</span>
         </div>
-        <h2 style={{ fontFamily: "Georgia, serif", fontWeight: 900, fontSize: 28, color: T.ink, letterSpacing: "-0.03em", lineHeight: 1.1, marginBottom: 32 }}>{title}</h2>
+        <h2 style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, fontSize: 28, color: T.ink, letterSpacing: "-0.03em", lineHeight: 1.1, marginBottom: 32 }}>{title}</h2>
         {form}
       </div>
       {/* List column */}
@@ -135,8 +131,8 @@ export function SectionPanel({ title, subtitle, form, list }: { title: string; s
 export function EmptyState({ label }: { label: string }) {
   return (
     <div style={{ padding: "60px 0", textAlign: "center" }}>
-      <div style={{ fontFamily: "Georgia, serif", fontSize: 32, fontWeight: 900, fontStyle: "italic", color: `${T.ink}10`, marginBottom: 12 }}>—</div>
-      <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, color: `${T.ink}30`, letterSpacing: "0.2em", textTransform: "uppercase" }}>No {label} yet</p>
+      <div style={{ fontFamily: "Inter, sans-serif", fontSize: 32, fontWeight: 900, fontStyle: "italic", color: `${T.ink}10`, marginBottom: 12 }}>—</div>
+      <p style={{ fontFamily: "Inter, sans-serif", fontSize: 10, color: `${T.ink}30`, letterSpacing: "0.2em", textTransform: "uppercase" }}>No {label} yet</p>
     </div>
   );
 }

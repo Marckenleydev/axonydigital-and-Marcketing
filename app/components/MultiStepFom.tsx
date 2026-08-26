@@ -93,7 +93,7 @@ export function MultiStepForm(){
                   flexShrink: 0
                 }}>
                   <span style={{
-                    fontFamily: "'JetBrains Mono',monospace",
+                    fontFamily:"Inter, sans-serif",
                     fontSize: "clamp(8px, 1.8vw, 9px)",
                     color: step>s.id?T.ink:step===s.id?T.amber:`${T.cream}25`,
                     fontWeight: 700
@@ -102,7 +102,7 @@ export function MultiStepForm(){
                   </span>
                 </div>
                 <span style={{
-                  fontFamily: "'Syne',sans-serif",
+                  fontFamily:"Inter, sans-serif",
                   fontSize: "clamp(9px, 2vw, 10px)",
                   color: step>=s.id?`${T.cream}65`:`${T.cream}25`,
                   fontWeight: 600,
@@ -115,7 +115,7 @@ export function MultiStepForm(){
             ))}
           </div>
           <span style={{
-            fontFamily: "'JetBrains Mono',monospace",
+            fontFamily:"Inter, sans-serif",
             fontSize: "clamp(9px, 2vw, 10px)",
             color: `${T.cream}25`,
             letterSpacing: "0.18em",
@@ -147,7 +147,7 @@ export function MultiStepForm(){
             </motion.div>
             
             <h3 style={{
-              fontFamily: "Georgia,serif",
+              fontFamily:"Inter, sans-serif",
               fontSize: "clamp(1.6rem, 5vw, 2rem)",
               fontWeight: 900,
               color: T.cream,
@@ -158,7 +158,7 @@ export function MultiStepForm(){
             </h3>
             
             <p style={{
-              fontFamily: "'Syne',sans-serif",
+              fontFamily:"Inter, sans-serif",
               color: `${T.cream}40`,
               fontSize: "clamp(12px, 2.2vw, 13px)",
               marginBottom: "clamp(2px, 0.5vh, 4px)",
@@ -168,7 +168,7 @@ export function MultiStepForm(){
             </p>
             
             <p style={{
-              fontFamily: "'JetBrains Mono',monospace",
+              fontFamily:"Inter, sans-serif",
               color: T.amber,
               fontSize: "clamp(12px, 2.2vw, 13px)",
               marginBottom: "clamp(16px, 3vh, 20px)",
@@ -178,7 +178,7 @@ export function MultiStepForm(){
             </p>
             
             <p style={{
-              fontFamily: "'Syne',sans-serif",
+              fontFamily:"Inter, sans-serif",
               color: `${T.cream}28`,
               fontSize: "clamp(11px, 2vw, 12px)",
               lineHeight: 1.65
@@ -201,7 +201,7 @@ export function MultiStepForm(){
             {step===1&&(
               <div style={{ width: "100%" }}>
                 <h3 style={{
-                  fontFamily: "Georgia,serif",
+                  fontFamily:"Inter, sans-serif",
                   fontWeight: 900,
                   fontSize: "clamp(1.3rem, 4vw, 1.6rem)",
                   color: T.cream,
@@ -213,7 +213,7 @@ export function MultiStepForm(){
                 </h3>
                 
                 <p style={{
-                  fontFamily: "'Syne',sans-serif",
+                  fontFamily:"Inter, sans-serif",
                   color: `${T.cream}35`,
                   fontSize: "clamp(12px, 2.2vw, 13px)",
                   marginBottom: "clamp(20px, 4vh, 28px)"
@@ -236,7 +236,7 @@ export function MultiStepForm(){
                           border: `1px solid ${sel?T.amber:`${T.cream}12`}`,
                           background: sel?`${T.amber}12`:"transparent",
                           color: sel?T.amber:`${T.cream}45`,
-                          fontFamily: "'Syne',sans-serif",
+                          fontFamily:"Inter, sans-serif",
                           fontSize: "clamp(11px, 2vw, 12px)",
                           fontWeight: 600,
                           cursor: "none",
@@ -244,7 +244,6 @@ export function MultiStepForm(){
                           transition: "all 0.2s",
                           letterSpacing: "0.04em",
                           width: "100%",
-                          // FIX
                           whiteSpace: "normal",
                           lineHeight: "1.2",
                           wordBreak: "break-word"
@@ -266,7 +265,7 @@ export function MultiStepForm(){
               }}>
                 <div>
                   <h3 style={{
-                    fontFamily: "Georgia,serif",
+                    fontFamily:"Inter, sans-serif",
                     fontWeight: 900,
                     fontSize: "clamp(1.3rem, 4vw, 1.6rem)",
                     color: T.cream,
@@ -278,7 +277,7 @@ export function MultiStepForm(){
                   </h3>
                   
                   <p style={{
-                    fontFamily: "'Syne',sans-serif",
+                    fontFamily:"Inter, sans-serif",
                     color: `${T.cream}35`,
                     fontSize: "clamp(12px, 2.2vw, 13px)"
                   }}>
@@ -288,7 +287,7 @@ export function MultiStepForm(){
                 
                 <div style={{ width: "100%" }}>
                   <div style={{
-                    fontFamily: "'JetBrains Mono',monospace",
+                    fontFamily:"Inter, sans-serif",
                     fontSize: "clamp(8px, 1.8vw, 9px)",
                     color: `${T.cream}35`,
                     letterSpacing: "0.24em",
@@ -311,7 +310,7 @@ export function MultiStepForm(){
                       border: "none",
                       borderBottom: `1px solid ${focus==="desc"?T.amber:`${T.cream}15`}`,
                       padding: "clamp(8px, 1.5vh, 12px) 0",
-                      fontFamily: "'Syne',sans-serif",
+                      fontFamily:"Inter, sans-serif",
                       color: T.cream,
                       fontSize: "clamp(13px, 2.2vw, 14px)",
                       outline: "none",
@@ -323,7 +322,7 @@ export function MultiStepForm(){
                 
                 <div style={{ width: "100%" }}>
                   <div style={{
-                    fontFamily: "'JetBrains Mono',monospace",
+                    fontFamily:"Inter, sans-serif",
                     fontSize: "clamp(8px, 1.8vw, 9px)",
                     color: `${T.cream}35`,
                     letterSpacing: "0.24em",
@@ -342,7 +341,7 @@ export function MultiStepForm(){
                     {BUDGETS.map(b=>(
                       <button key={b} onClick={()=>upd("budget",b)} data-h
                         style={{
-                          fontFamily: "'JetBrains Mono',monospace",
+                          fontFamily:"Inter, sans-serif",
                           fontSize: "clamp(9px, 2vw, 10px)",
                           padding: "clamp(8px, 1.5vh, 12px) clamp(6px, 1vw, 8px)",
                           border: `1px solid ${data.budget===b?T.amber:`${T.cream}12`}`,
@@ -372,7 +371,7 @@ export function MultiStepForm(){
               }}>
                 <div>
                   <h3 style={{
-                    fontFamily: "Georgia,serif",
+                    fontFamily:"Inter, sans-serif",
                     fontWeight: 900,
                     fontSize: "clamp(1.3rem, 4vw, 1.6rem)",
                     color: T.cream,
@@ -384,7 +383,7 @@ export function MultiStepForm(){
                   </h3>
                   
                   <p style={{
-                    fontFamily: "'Syne',sans-serif",
+                    fontFamily:"Inter, sans-serif",
                     color: `${T.cream}35`,
                     fontSize: "clamp(12px, 2.2vw, 13px)"
                   }}>
@@ -403,7 +402,7 @@ export function MultiStepForm(){
                   ].map(f=>(
                     <div key={f.k} style={{ width: "100%" }}>
                       <div style={{
-                        fontFamily: "'JetBrains Mono',monospace",
+                        fontFamily:"Inter, sans-serif",
                         fontSize: "clamp(8px, 1.8vw, 9px)",
                         color: `${T.cream}35`,
                         letterSpacing: "0.24em",
@@ -425,7 +424,7 @@ export function MultiStepForm(){
                           border: "none",
                           borderBottom: `1px solid ${focus===f.k?T.amber:`${T.cream}15`}`,
                           padding: "clamp(8px, 1.5vh, 12px) 0",
-                          fontFamily: "'Syne',sans-serif",
+                          fontFamily:"Inter, sans-serif",
                           color: T.cream,
                           fontSize: "clamp(13px, 2.2vw, 14px)",
                           outline: "none",
@@ -438,7 +437,7 @@ export function MultiStepForm(){
                 
                 <div style={{ width: "100%" }}>
                   <div style={{
-                    fontFamily: "'JetBrains Mono',monospace",
+                    fontFamily:"Inter, sans-serif",
                     fontSize: "clamp(8px, 1.8vw, 9px)",
                     color: `${T.cream}35`,
                     letterSpacing: "0.24em",
@@ -460,7 +459,7 @@ export function MultiStepForm(){
                       border: "none",
                       borderBottom: `1px solid ${focus==="company"?T.amber:`${T.cream}15`}`,
                       padding: "clamp(8px, 1.5vh, 12px) 0",
-                      fontFamily: "'Syne',sans-serif",
+                      fontFamily:"Inter, sans-serif",
                       color: T.cream,
                       fontSize: "clamp(13px, 2.2vw, 14px)",
                       outline: "none",
@@ -480,7 +479,7 @@ export function MultiStepForm(){
               }}>
                 <div>
                   <h3 style={{
-                    fontFamily: "Georgia,serif",
+                    fontFamily:"Inter, sans-serif",
                     fontWeight: 900,
                     fontSize: "clamp(1.3rem, 4vw, 1.6rem)",
                     color: T.cream,
@@ -492,7 +491,7 @@ export function MultiStepForm(){
                   </h3>
                   
                   <p style={{
-                    fontFamily: "'Syne',sans-serif",
+                    fontFamily:"Inter, sans-serif",
                     color: `${T.cream}35`,
                     fontSize: "clamp(12px, 2.2vw, 13px)"
                   }}>
@@ -509,7 +508,7 @@ export function MultiStepForm(){
                   {TIMELINES.map(t=>(
                     <button key={t} onClick={()=>upd("timeline",t)} data-h
                       style={{
-                        fontFamily: "'Syne',sans-serif",
+                        fontFamily:"Inter, sans-serif",
                         fontSize: "clamp(11px, 2vw, 12px)",
                         fontWeight: 600,
                         padding: "clamp(12px, 2vh, 16px) clamp(12px, 2vw, 16px)",
@@ -530,7 +529,7 @@ export function MultiStepForm(){
                 
                 <div style={{ width: "100%" }}>
                   <div style={{
-                    fontFamily: "'JetBrains Mono',monospace",
+                    fontFamily:"Inter, sans-serif",
                     fontSize: "clamp(8px, 1.8vw, 9px)",
                     color: `${T.cream}35`,
                     letterSpacing: "0.24em",
@@ -553,7 +552,7 @@ export function MultiStepForm(){
                       border: "none",
                       borderBottom: `1px solid ${focus==="extra"?T.amber:`${T.cream}15`}`,
                       padding: "clamp(8px, 1.5vh, 12px) 0",
-                      fontFamily: "'Syne',sans-serif",
+                      fontFamily:"Inter, sans-serif",
                       color: T.cream,
                       fontSize: "clamp(13px, 2.2vw, 14px)",
                       outline: "none",
@@ -572,7 +571,7 @@ export function MultiStepForm(){
                 background: `${T.amber}10`,
                 border: `1px solid ${T.amber}30`,
                 color: T.amber,
-                fontFamily: "'Syne',sans-serif",
+                fontFamily:"Inter, sans-serif",
                 fontSize: "clamp(11px, 2vw, 12px)",
                 marginBottom: "clamp(16px, 3vh, 20px)",
                 borderRadius: "4px"
@@ -598,7 +597,7 @@ export function MultiStepForm(){
                 style={{
                   opacity: step===1?0:1,
                   pointerEvents: step===1?"none":"auto",
-                  fontFamily: "'Syne',sans-serif",
+                  fontFamily:"Inter, sans-serif",
                   fontSize: "clamp(11px, 2vw, 12px)",
                   color: `${T.cream}35`,
                   background: "none",
@@ -621,7 +620,7 @@ export function MultiStepForm(){
                 style={{
                   background: canNext()&&!submitting?T.amber:`${T.cream}10`,
                   color: canNext()&&!submitting?T.ink:`${T.cream}20`,
-                  fontFamily: "'Syne',sans-serif",
+                  fontFamily:"Inter, sans-serif",
                   fontWeight: 800,
                   fontSize: "clamp(10px, 2vw, 11px)",
                   letterSpacing: "0.22em",

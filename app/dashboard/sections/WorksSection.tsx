@@ -1,4 +1,5 @@
-import { T, SectionPanel, FocusInput, FocusTextarea, Field, FormActions, RecordRow, EmptyState, inputStyle } from './shared';
+import { SectionPanel, FocusInput, FocusTextarea, Field, FormActions, RecordRow, EmptyState, inputStyle } from './shared';
+import { T } from '@/app/data';
 
 interface Work { _id?: string; title: string; sub: string; year: string; tags: string[]; desc: string; bg: string; acc: string; link?: string; }
 
@@ -19,12 +20,12 @@ export default function WorksSection({ works, form, setForm, editing, setEditing
           <Field label="Card Colours">
             <div style={{ display: "flex", gap: 20, paddingTop: 8 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, color: `${T.ink}40`, letterSpacing: "0.16em", textTransform: "uppercase" }}>BG</span>
+                <span style={{ fontFamily: "Inter, sans-serif", fontSize: 9, color: `${T.ink}40`, letterSpacing: "0.16em", textTransform: "uppercase" }}>BG</span>
                 <input type="color" value={form.bg || "#1A1508"} onChange={e => setForm({ ...form, bg: e.target.value })}
                   style={{ width: 36, height: 28, border: `1px solid ${T.sand}40`, background: "transparent", cursor: "pointer", padding: 2 }} />
               </div>
               <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, color: `${T.ink}40`, letterSpacing: "0.16em", textTransform: "uppercase" }}>Accent</span>
+                <span style={{ fontFamily: "Inter, sans-serif", fontSize: 9, color: `${T.ink}40`, letterSpacing: "0.16em", textTransform: "uppercase" }}>Accent</span>
                 <input type="color" value={form.acc || T.amber} onChange={e => setForm({ ...form, acc: e.target.value })}
                   style={{ width: 36, height: 28, border: `1px solid ${T.sand}40`, background: "transparent", cursor: "pointer", padding: 2 }} />
               </div>
@@ -36,7 +37,7 @@ export default function WorksSection({ works, form, setForm, editing, setEditing
       list={
         <div>
           <div style={{ marginBottom: 24, paddingBottom: 16, borderBottom: `1px solid ${T.sand}25` }}>
-            <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, color: `${T.ink}30`, letterSpacing: "0.26em", textTransform: "uppercase" }}>
+            <span style={{ fontFamily: "Inter, sans-serif", fontSize: 9, color: `${T.ink}30`, letterSpacing: "0.26em", textTransform: "uppercase" }}>
               {works.length} {works.length === 1 ? "entry" : "entries"}
             </span>
           </div>
@@ -47,15 +48,15 @@ export default function WorksSection({ works, form, setForm, editing, setEditing
                   {/* colour swatch */}
                   <div style={{ width: 36, height: 36, background: w.bg || "#1A1508", border: `2px solid ${w.acc || T.amber}`, flexShrink: 0 }} />
                   <div>
-                    <div style={{ fontFamily: "Georgia, serif", fontWeight: 900, color: T.ink, fontSize: 15, letterSpacing: "-0.01em" }}>{w.title}</div>
+                    <div style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, color: T.ink, fontSize: 15, letterSpacing: "-0.01em" }}>{w.title}</div>
                     <div style={{ display: "flex", gap: 8, marginTop: 4, alignItems: "center" }}>
-                      <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, color: `${T.ink}40`, letterSpacing: "0.12em" }}>{w.sub}</span>
+                      <span style={{ fontFamily: "Inter, sans-serif", fontSize: 10, color: `${T.ink}40`, letterSpacing: "0.12em" }}>{w.sub}</span>
                       <span style={{ width: 2, height: 2, borderRadius: "50%", background: `${T.ink}25`, display: "inline-block" }} />
-                      <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, color: T.amber }}>{w.year}</span>
+                      <span style={{ fontFamily: "Inter, sans-serif", fontSize: 10, color: T.amber }}>{w.year}</span>
                     </div>
                     {w.tags && w.tags.length > 0 && (
                       <div style={{ display: "flex", gap: 6, marginTop: 6, flexWrap: "wrap" }}>
-                        {w.tags.map(t => <span key={t} style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, padding: "3px 8px", border: `1px solid ${T.sand}50`, color: `${T.ink}40`, letterSpacing: "0.1em" }}>{t}</span>)}
+                        {w.tags.map(t => <span key={t} style={{ fontFamily: "Inter, sans-serif", fontSize: 9, padding: "3px 8px", border: `1px solid ${T.sand}50`, color: `${T.ink}40`, letterSpacing: "0.1em" }}>{t}</span>)}
                       </div>
                     )}
                   </div>

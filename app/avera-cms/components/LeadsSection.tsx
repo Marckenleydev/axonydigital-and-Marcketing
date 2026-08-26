@@ -61,7 +61,7 @@ export function LeadsSection() {
               background: "transparent",
               border: "none",
               borderBottom: filter === status ? `2px solid ${T.amber}` : "2px solid transparent",
-              fontFamily: "'JetBrains Mono', monospace",
+              fontFamily: "Inter, sans-serif",
               fontSize: 9,
               letterSpacing: "0.18em",
               textTransform: "uppercase",
@@ -80,7 +80,7 @@ export function LeadsSection() {
           <form onSubmit={save}>
             <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 24 }}>
               <span style={{ width: 24, height: 1, background: T.amber, display: "block" }} />
-              <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, color: T.amber, letterSpacing: "0.24em", textTransform: "uppercase" }}>
+              <span style={{ fontFamily: "Inter, sans-serif", fontSize: 9, color: T.amber, letterSpacing: "0.24em", textTransform: "uppercase" }}>
                 {editing ? "Edit Lead" : "New Lead"}
               </span>
             </div>
@@ -143,7 +143,7 @@ export function LeadsSection() {
                     setEditing(null);
                     setForm({ status: "New", service: "Web Development" });
                   }}
-                  style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, letterSpacing: "0.18em", textTransform: "uppercase", padding: "13px 18px", background: "transparent", color: `${T.ink}40`, border: `1px solid ${T.sand}50`, cursor: "pointer" }}
+                  style={{ fontFamily: "Inter, sans-serif", fontSize: 9, letterSpacing: "0.18em", textTransform: "uppercase", padding: "13px 18px", background: "transparent", color: `${T.ink}40`, border: `1px solid ${T.sand}50`, cursor: "pointer" }}
                 >
                   Cancel
                 </button>
@@ -170,22 +170,22 @@ export function LeadsSection() {
                   >
                     <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
                       <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
-                        <span style={{ fontFamily: "Georgia, serif", fontWeight: 900, fontSize: 15, color: T.ink }}>{lead.name}</span>
-                        {lead.company && <span style={{ fontFamily: "'Syne', sans-serif", fontSize: 12, color: `${T.ink}50` }}>{lead.company}</span>}
+                        <span style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, fontSize: 15, color: T.ink }}>{lead.name}</span>
+                        {lead.company && <span style={{ fontFamily: "Inter, sans-serif", fontSize: 12, color: `${T.ink}50` }}>{lead.company}</span>}
                         <StatusPill status={lead.status} />
                         <ServiceTag service={lead.service} />
                       </div>
                       <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
-                        <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, color: `${T.ink}40` }}>{lead.email}</span>
-                        {lead.phone && <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, color: `${T.ink}35` }}>{lead.phone}</span>}
-                        {lead.budget && <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, color: T.amber }}>{lead.budget}</span>}
-                        {lead.source && <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, color: `${T.ink}30` }}>via {lead.source}</span>}
+                        <span style={{ fontFamily: "Inter, sans-serif", fontSize: 10, color: `${T.ink}40` }}>{lead.email}</span>
+                        {lead.phone && <span style={{ fontFamily: "Inter, sans-serif", fontSize: 10, color: `${T.ink}35` }}>{lead.phone}</span>}
+                        {lead.budget && <span style={{ fontFamily: "Inter, sans-serif", fontSize: 10, color: T.amber }}>{lead.budget}</span>}
+                        {lead.source && <span style={{ fontFamily: "Inter, sans-serif", fontSize: 10, color: `${T.ink}30` }}>via {lead.source}</span>}
                       </div>
-                      {lead.notes && <p style={{ fontFamily: "'Syne', sans-serif", fontSize: 12, color: `${T.ink}45`, lineHeight: 1.5, marginTop: 2 }}>{lead.notes}</p>}
+                      {lead.notes && <p style={{ fontFamily: "Inter, sans-serif", fontSize: 12, color: `${T.ink}45`, lineHeight: 1.5, marginTop: 2 }}>{lead.notes}</p>}
                       {lead.followUp && (
                         <div style={{ display: "flex", alignItems: "center", gap: 6, marginTop: 2 }}>
-                          <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 8, color: `${T.ink}30`, letterSpacing: "0.16em", textTransform: "uppercase" }}>Follow-up</span>
-                          <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, color: T.amber }}>{lead.followUp}</span>
+                          <span style={{ fontFamily: "Inter, sans-serif", fontSize: 8, color: `${T.ink}30`, letterSpacing: "0.16em", textTransform: "uppercase" }}>Follow-up</span>
+                          <span style={{ fontFamily: "Inter, sans-serif", fontSize: 9, color: T.amber }}>{lead.followUp}</span>
                         </div>
                       )}
                     </div>

@@ -19,7 +19,7 @@ export function Loading() {
         animate={{ opacity: [0.4, 1, 0.4] }}
         transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
         style={{
-          fontFamily: "'JetBrains Mono', monospace",
+          fontFamily: "Inter, sans-serif",
           fontSize: 10,
           color: `${T.ink}50`,
           letterSpacing: "0.18em",

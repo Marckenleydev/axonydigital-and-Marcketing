@@ -18,7 +18,7 @@ function useRev(m:"-70px"){const r=useRef(null);const v=useInView(r,{once:true,m
 export default function ContactPage(){
   const [r,v]=useRev();
   return(
-    <div style={{fontFamily:"'Syne','DM Sans',system-ui,sans-serif",background:T.cream,minHeight:"100vh",cursor:"none"}}>
+    <div style={{fontFamily:"Inter, sans-serif",background:T.cream,minHeight:"100vh",cursor:"none"}}>
       <Cursor/>
       <Navbar />
 
@@ -28,14 +28,14 @@ export default function ContactPage(){
         <div ref={r} style={{maxWidth:1200,margin:"0 auto",position:"relative",zIndex:1}}>
           <motion.div initial={{opacity:0,x:-20}} animate={v?{opacity:1,x:0}:{}} transition={{duration:0.8,delay:0.1}} style={{display:"flex",alignItems:"center",gap:16,marginBottom:28}}>
             <span style={{width:48,height:1,background:T.amber,display:"block"}}/>
-            <span style={{fontFamily:"'JetBrains Mono',monospace",fontSize:11,color:T.amber,letterSpacing:"0.28em",textTransform:"uppercase"}}>Let's Talk</span>
+            <span style={{fontFamily:"Inter, sans-serif",fontSize:11,color:T.amber,letterSpacing:"0.28em",textTransform:"uppercase"}}>Let's Talk</span>
           </motion.div>
           <motion.h1 initial={{opacity:0,y:40}} animate={v?{opacity:1,y:0}:{}} transition={{duration:1,delay:0.2,ease}}
-            style={{fontFamily:"Georgia,'Playfair Display',serif",fontSize:"clamp(3rem,8vw,8rem)",fontWeight:900,lineHeight:0.9,letterSpacing:"-0.03em",color:T.ink,marginBottom:28,maxWidth:900}}>
+            style={{fontFamily:"Inter, sans-serif",fontSize:"clamp(3rem,8vw,8rem)",fontWeight:900,lineHeight:0.9,letterSpacing:"-0.03em",color:T.ink,marginBottom:28,maxWidth:900}}>
             Start Your<br/><span style={{fontStyle:"italic",color:T.amber}}>Next Chapter.</span>
           </motion.h1>
           <motion.p initial={{opacity:0,y:20}} animate={v?{opacity:1,y:0}:{}} transition={{duration:0.8,delay:0.45}}
-            style={{fontFamily:"'Syne',sans-serif",color:`${T.cream}45`,fontSize:17,maxWidth:440,lineHeight:1.75}}>
+            style={{fontFamily:"Inter, sans-serif",color:`${T.cream}45`,fontSize:17,maxWidth:440,lineHeight:1.75}}>
             Tell us about your project. We reply within 24 hours with an honest assessment, rough timeline, and a few ideas.
           </motion.p>
         </div>
@@ -85,7 +85,7 @@ export default function ContactPage(){
         boxSizing: "border-box"
       }}>
         <div style={{
-          fontFamily: "'JetBrains Mono',monospace",
+          fontFamily: "Inter, sans-serif",
           fontSize: 18, // Original size preserved
           marginBottom: 12
         }}>
@@ -93,7 +93,7 @@ export default function ContactPage(){
         </div>
         
         <h3 style={{
-          fontFamily: "Georgia,serif",
+          fontFamily: "Inter",
           fontWeight: 900,
           fontSize: 22, // Original size preserved
           color: T.cream,
@@ -104,7 +104,7 @@ export default function ContactPage(){
         </h3>
         
         <p style={{
-          fontFamily: "'Syne',sans-serif",
+          fontFamily: "Inter, sans-serif",
           fontSize: 12, // Original size preserved
           color: `${T.cream}40`,
           marginBottom: 8,
@@ -115,7 +115,7 @@ export default function ContactPage(){
         </p>
         
         <span style={{
-          fontFamily: "'JetBrains Mono',monospace",
+          fontFamily: "Inter, sans-serif",
           fontSize: 10, // Original size preserved
           color: `${T.amber}80`,
           letterSpacing: "0.18em",

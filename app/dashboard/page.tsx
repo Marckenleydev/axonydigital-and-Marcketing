@@ -10,7 +10,8 @@ import WorksSection from './sections/WorksSection';
 import ProjectsSection from './sections/ProjectsSection';
 import ServicesSection from './sections/ServicesSection';
 import ContentProductionSection from './sections/ContentProductionSection';
-import { T, ease } from './sections/shared';
+import {  ease } from './sections/shared';
+import { T } from "../data";
 
 /* ── TYPES ── */
 interface TeamMember { _id?: string; name: string; role: string; exp: string; ini: string; color: string; }
@@ -141,12 +142,12 @@ export default function Dashboard() {
   ];
 
   return (
-    <div style={{ background: T.cream, minHeight: "100vh", fontFamily: "'Syne', 'DM Sans', sans-serif" }}>
+    <div style={{ background: T.cream, minHeight: "100vh", fontFamily: "Inter, sans-serif" }}>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
         *{box-sizing:border-box;margin:0;padding:0}
         html{scroll-behavior:smooth}
-        input,textarea{font-family:'Syne',sans-serif}
+        input,textarea{font-family:'Inter',sans-serif}
         input::placeholder,textarea::placeholder{color:${T.sand};opacity:0.7}
         ::-webkit-scrollbar{width:4px;background:${T.cream}}
         ::-webkit-scrollbar-thumb{background:${T.amber}}
@@ -154,17 +155,17 @@ export default function Dashboard() {
       `}</style>
 
       {/* ── HEADER ── */}
-      <header style={{ position: "sticky", top: 0, zIndex: 50, background: "rgba(245,240,232,0.95)", backdropFilter: "blur(16px)", borderBottom: `1px solid ${T.sand}30`, padding: "0 48px" }}>
+      <header style={{ position: "sticky", top: 0, zIndex: 50, background: "#fff", backdropFilter: "blur(16px)", borderBottom: `1px solid ${T.sand}30`, padding: "0 48px" }}>
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: 68 }}>
           {/* Logo */}
           <a href="/" style={{ display: "flex", alignItems: "center", gap: 12, textDecoration: "none" }}>
             <div style={{ width: 28, height: 28, background: T.ink, display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <span style={{ color: T.cream, fontFamily: "Georgia, serif", fontWeight: 900, fontSize: 12 }}>C</span>
+              <span style={{ color: T.cream, fontFamily: "Inter, sans-serif", fontWeight: 900, fontSize: 12 }}>C</span>
             </div>
-            <span style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, fontSize: 12, letterSpacing: "0.22em", color: T.ink, textTransform: "uppercase" }}>
+            <span style={{ fontFamily: "Inter, sans-serif", fontWeight: 800, fontSize: 12, letterSpacing: "0.22em", color: T.ink, textTransform: "uppercase" }}>
               VERAA<span style={{ color: T.amber }}>.</span>DIGITAL
             </span>
-            <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, color: `${T.ink}35`, letterSpacing: "0.2em", textTransform: "uppercase", marginLeft: 8, borderLeft: `1px solid ${T.sand}50`, paddingLeft: 12 }}>
+            <span style={{ fontFamily: "Inter, sans-serif", fontSize: 9, color: `${T.ink}35`, letterSpacing: "0.2em", textTransform: "uppercase", marginLeft: 8, borderLeft: `1px solid ${T.sand}50`, paddingLeft: 12 }}>
               Dashboard
             </span>
           </a>
@@ -174,15 +175,15 @@ export default function Dashboard() {
             {TABS.map(tab => (
               <button key={tab.id}
                 onClick={() => { setActiveTab(tab.id); setEditingItem(tab.id, null); clearForm(tab.id); }}
-                style={{ display: "flex", alignItems: "center", gap: 8, padding: "0 20px", height: 68, background: "transparent", border: "none", borderBottom: activeTab === tab.id ? `2px solid ${T.amber}` : "2px solid transparent", color: activeTab === tab.id ? T.ink : `${T.ink}45`, fontFamily: "'Syne', sans-serif", fontWeight: 600, fontSize: 12, letterSpacing: "0.1em", textTransform: "uppercase", cursor: "pointer", transition: "all 0.25s" }}>
+                style={{ display: "flex", alignItems: "center", gap: 8, padding: "0 20px", height: 68, background: "transparent", border: "none", borderBottom: activeTab === tab.id ? `2px solid ${T.amber}` : "2px solid transparent", color: activeTab === tab.id ? T.ink : `${T.ink}45`, fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: 12, letterSpacing: "0.1em", textTransform: "uppercase", cursor: "pointer", transition: "all 0.25s" }}>
                 {tab.label}
-                <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, background: activeTab === tab.id ? `${T.amber}20` : `${T.ink}08`, color: activeTab === tab.id ? T.amber : `${T.ink}35`, padding: "2px 6px", borderRadius: 2 }}>{tab.count}</span>
+                <span style={{ fontFamily: "Inter, sans-serif", fontSize: 9, background: activeTab === tab.id ? `${T.amber}20` : `${T.ink}08`, color: activeTab === tab.id ? T.amber : `${T.ink}35`, padding: "2px 6px", borderRadius: 2 }}>{tab.count}</span>
               </button>
             ))}
           </div>
 
           {/* View site link */}
-          <a href="/" style={{ display: "flex", alignItems: "center", gap: 10, fontFamily: "'JetBrains Mono', monospace", fontSize: 10, color: `${T.ink}45`, textDecoration: "none", letterSpacing: "0.18em", textTransform: "uppercase", transition: "color 0.2s" }}
+          <a href="/" style={{ display: "flex", alignItems: "center", gap: 10, fontFamily: "Inter, sans-serif", fontSize: 10, color: `${T.ink}45`, textDecoration: "none", letterSpacing: "0.18em", textTransform: "uppercase", transition: "color 0.2s" }}
             onMouseEnter={e => (e.currentTarget as HTMLAnchorElement).style.color = T.amber}
             onMouseLeave={e => (e.currentTarget as HTMLAnchorElement).style.color = `${T.ink}45`}>
             View Site <span style={{ fontSize: 14 }}>↗</span>

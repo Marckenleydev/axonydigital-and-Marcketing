@@ -51,7 +51,7 @@ export function ClientsSection() {
           <form onSubmit={save}>
             <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 24 }}>
               <span style={{ width: 24, height: 1, background: T.amber, display: "block" }} />
-              <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, color: T.amber, letterSpacing: "0.24em", textTransform: "uppercase" }}>
+              <span style={{ fontFamily: "Inter, sans-serif", fontSize: 9, color: T.amber, letterSpacing: "0.24em", textTransform: "uppercase" }}>
                 {editing ? "Edit Client" : "New Client"}
               </span>
             </div>
@@ -92,7 +92,7 @@ export function ClientsSection() {
                     setEditing(null);
                     setForm({ service: "Web Development" });
                   }}
-                  style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, letterSpacing: "0.18em", textTransform: "uppercase", padding: "13px 18px", background: "transparent", color: `${T.ink}40`, border: `1px solid ${T.sand}50`, cursor: "pointer" }}
+                  style={{ fontFamily: "Inter, sans-serif", fontSize: 9, letterSpacing: "0.18em", textTransform: "uppercase", padding: "13px 18px", background: "transparent", color: `${T.ink}40`, border: `1px solid ${T.sand}50`, cursor: "pointer" }}
                 >
                   Cancel
                 </button>
@@ -118,17 +118,17 @@ export function ClientsSection() {
                 >
                   <div style={{ display: "flex", flexDirection: "column", gap: 5 }}>
                     <div style={{ display: "flex", gap: 10, alignItems: "center", flexWrap: "wrap" }}>
-                      <span style={{ fontFamily: "Georgia, serif", fontWeight: 900, fontSize: 15, color: T.ink }}>{client.company}</span>
-                      <span style={{ fontFamily: "'Syne', sans-serif", fontSize: 12, color: `${T.ink}50` }}>{client.name}</span>
+                      <span style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, fontSize: 15, color: T.ink }}>{client.company}</span>
+                      <span style={{ fontFamily: "Inter, sans-serif", fontSize: 12, color: `${T.ink}50` }}>{client.name}</span>
                       <ServiceTag service={client.service} />
-                      {client.contractValue && <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, color: T.amber, fontWeight: 700 }}>{client.contractValue}</span>}
+                      {client.contractValue && <span style={{ fontFamily: "Inter, sans-serif", fontSize: 10, color: T.amber, fontWeight: 700 }}>{client.contractValue}</span>}
                     </div>
                     <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
-                      <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, color: `${T.ink}40` }}>{client.email}</span>
-                      {client.industry && <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, color: `${T.ink}30` }}>{client.industry}</span>}
-                      {client.startDate && <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, color: `${T.ink}30` }}>Since {client.startDate}</span>}
+                      <span style={{ fontFamily: "Inter, sans-serif", fontSize: 10, color: `${T.ink}40` }}>{client.email}</span>
+                      {client.industry && <span style={{ fontFamily: "Inter, sans-serif", fontSize: 10, color: `${T.ink}30` }}>{client.industry}</span>}
+                      {client.startDate && <span style={{ fontFamily: "Inter, sans-serif", fontSize: 10, color: `${T.ink}30` }}>Since {client.startDate}</span>}
                     </div>
-                    {client.notes && <p style={{ fontFamily: "'Syne', sans-serif", fontSize: 12, color: `${T.ink}45`, lineHeight: 1.5 }}>{client.notes}</p>}
+                    {client.notes && <p style={{ fontFamily: "Inter, sans-serif", fontSize: 12, color: `${T.ink}45`, lineHeight: 1.5 }}>{client.notes}</p>}
                   </div>
                 </Row>
               ))

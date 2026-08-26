@@ -57,7 +57,7 @@ export function ContentSection() {
               background: "transparent",
               border: "none",
               borderBottom: filter === status ? `2px solid ${T.amber}` : "2px solid transparent",
-              fontFamily: "'JetBrains Mono', monospace",
+              fontFamily: "Inter, sans-serif",
               fontSize: 9,
               letterSpacing: "0.16em",
               textTransform: "uppercase",
@@ -75,7 +75,7 @@ export function ContentSection() {
           <form onSubmit={save}>
             <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 24 }}>
               <span style={{ width: 24, height: 1, background: T.amber, display: "block" }} />
-              <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, color: T.amber, letterSpacing: "0.24em", textTransform: "uppercase" }}>
+              <span style={{ fontFamily: "Inter, sans-serif", fontSize: 9, color: T.amber, letterSpacing: "0.24em", textTransform: "uppercase" }}>
                 {editing ? "Edit Content" : "New Content"}
               </span>
             </div>
@@ -128,7 +128,7 @@ export function ContentSection() {
                     setEditing(null);
                     setForm({ status: "Draft", service: "Content Production" });
                   }}
-                  style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, letterSpacing: "0.18em", textTransform: "uppercase", padding: "13px 18px", background: "transparent", color: `${T.ink}40`, border: `1px solid ${T.sand}50`, cursor: "pointer" }}
+                  style={{ fontFamily: "Inter, sans-serif", fontSize: 9, letterSpacing: "0.18em", textTransform: "uppercase", padding: "13px 18px", background: "transparent", color: `${T.ink}40`, border: `1px solid ${T.sand}50`, cursor: "pointer" }}
                 >
                   Cancel
                 </button>
@@ -154,17 +154,17 @@ export function ContentSection() {
                 >
                   <div style={{ display: "flex", flexDirection: "column", gap: 5 }}>
                     <div style={{ display: "flex", gap: 10, alignItems: "center", flexWrap: "wrap" }}>
-                      <span style={{ fontFamily: "Georgia, serif", fontWeight: 900, fontSize: 15, color: T.ink }}>{item.title}</span>
+                      <span style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, fontSize: 15, color: T.ink }}>{item.title}</span>
                       <StatusPill status={item.status} />
                       <ServiceTag service={item.service} />
                     </div>
                     <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-                      <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, color: `${T.ink}45` }}>{item.clientName}</span>
-                      {item.type && <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, color: `${T.ink}35` }}>{item.type}</span>}
-                      {item.platform && <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, color: `${T.ink}35` }}>{item.platform}</span>}
-                      {item.scheduledDate && <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, color: T.amber }}>{item.scheduledDate}</span>}
+                      <span style={{ fontFamily: "Inter, sans-serif", fontSize: 10, color: `${T.ink}45` }}>{item.clientName}</span>
+                      {item.type && <span style={{ fontFamily: "Inter, sans-serif", fontSize: 10, color: `${T.ink}35` }}>{item.type}</span>}
+                      {item.platform && <span style={{ fontFamily: "Inter, sans-serif", fontSize: 10, color: `${T.ink}35` }}>{item.platform}</span>}
+                      {item.scheduledDate && <span style={{ fontFamily: "Inter, sans-serif", fontSize: 10, color: T.amber }}>{item.scheduledDate}</span>}
                     </div>
-                    {item.copy && <p style={{ fontFamily: "'Syne', sans-serif", fontSize: 12, color: `${T.ink}45`, lineHeight: 1.5 }}>{item.copy.substring(0, 120)}{item.copy.length > 120 ? "…" : ""}</p>}
+                    {item.copy && <p style={{ fontFamily: "Inter, sans-serif", fontSize: 12, color: `${T.ink}45`, lineHeight: 1.5 }}>{item.copy.substring(0, 120)}{item.copy.length > 120 ? "…" : ""}</p>}
                   </div>
                 </Row>
               ))

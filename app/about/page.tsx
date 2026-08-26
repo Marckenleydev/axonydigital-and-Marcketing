@@ -48,7 +48,7 @@ function Hero(){
             display: "block"
           }}/>
           <span style={{
-            fontFamily: "'JetBrains Mono',monospace",
+            fontFamily: "Inter, sans-serif",
             fontSize: "clamp(10px, 2vw, 11px)",
             color: T.amber,
             letterSpacing: "0.28em",
@@ -63,7 +63,7 @@ function Hero(){
           animate={v ? {opacity:1, y:0} : {}} 
           transition={{duration:1, delay:0.2, ease}}
           style={{
-            fontFamily: "Georgia,'Playfair Display',serif",
+            fontFamily: "Inter, sans-serif",
             fontSize: "clamp(2.5rem, 10vw, 8rem)",
             fontWeight: 900,
             lineHeight: 0.9,
@@ -89,7 +89,7 @@ function Hero(){
             width: "100%"
           }}>
           <p style={{
-            fontFamily: "'Syne',sans-serif",
+            fontFamily: "Inter, sans-serif",
             color: `${T.ink}65`,
             fontSize: "clamp(15px, 2.5vw, 16px)",
             lineHeight: 1.78,
@@ -99,7 +99,7 @@ function Hero(){
           </p>
           
           <p style={{
-            fontFamily: "'Syne',sans-serif",
+            fontFamily: "Inter, sans-serif",
             color: `${T.ink}45`,
             fontSize: "clamp(13px, 2.2vw, 14px)",
             lineHeight: 1.78,
@@ -151,7 +151,7 @@ function StatsBar(){
               width: "100%"
             }}>
             <div style={{
-              fontFamily: "Georgia,serif",
+              fontFamily: "Inter, sans-serif",
               fontSize: "clamp(1.8rem, 5vw, 3rem)",
               fontWeight: 900,
               color: T.amber,
@@ -160,7 +160,7 @@ function StatsBar(){
               {s.v}
             </div>
             <div style={{
-              fontFamily: "'JetBrains Mono',monospace",
+              fontFamily: "Inter, sans-serif",
               fontSize: "clamp(9px, 2vw, 10px)",
               color: `${T.cream}35`,
               letterSpacing: "0.26em",
@@ -219,7 +219,7 @@ function Values(){
               display: "block"
             }}/>
             <span style={{
-              fontFamily: "'JetBrains Mono',monospace",
+              fontFamily: "Inter, sans-serif",
               fontSize: "clamp(9px, 2vw, 10px)",
               color: T.amber,
               letterSpacing: "0.28em",
@@ -232,7 +232,7 @@ function Values(){
           <motion.h2 
             variants={fadeUp} 
             style={{
-              fontFamily: "Georgia,serif",
+              fontFamily: "Inter, sans-serif",
               fontSize: "clamp(2rem, 7vw, 5rem)",
               fontWeight: 900,
               color: T.ink,
@@ -284,7 +284,7 @@ function Values(){
                 </span>
                 
                 <h3 style={{
-                  fontFamily: "Georgia,serif",
+                  fontFamily: "Inter, sans-serif",
                   fontWeight: 900,
                   fontSize: "clamp(1.3rem, 3vw, 1.5rem)",
                   color: T.ink,
@@ -296,7 +296,7 @@ function Values(){
                 </h3>
                 
                 <p style={{
-                  fontFamily: "'Syne',sans-serif",
+                  fontFamily: "Inter, sans-serif",
                   color: `${T.ink}50`,
                   fontSize: "clamp(13px, 2vw, 14px)",
                   lineHeight: 1.75,
@@ -374,7 +374,7 @@ function Skills(){
               display: "block"
             }}/>
             <span style={{
-              fontFamily: "'JetBrains Mono',monospace",
+              fontFamily: "Inter, sans-serif",
               fontSize: "clamp(9px, 2vw, 10px)",
               color: T.amber,
               letterSpacing: "0.28em",
@@ -385,7 +385,7 @@ function Skills(){
           </div>
           
           <h2 style={{
-            fontFamily: "Georgia,serif",
+            fontFamily: "Inter, sans-serif",
             fontSize: "clamp(1.8rem, 5vw, 3.5rem)",
             fontWeight: 900,
             color: T.ink,
@@ -398,7 +398,7 @@ function Skills(){
           </h2>
           
           <p style={{
-            fontFamily: "'Syne',sans-serif",
+            fontFamily: "Inter, sans-serif",
             color: `${T.ink}50`,
             lineHeight: 1.78,
             fontSize: "clamp(13px, 2.2vw, 14px)",
@@ -435,7 +435,7 @@ function Skills(){
               
               <div style={{ flex: 1 }}>
                 <div style={{
-                  fontFamily: "'Syne',sans-serif",
+                  fontFamily: "Inter, sans-serif",
                   fontWeight: 700,
                   color: T.ink,
                   fontSize: "clamp(12px, 2.2vw, 13px)",
@@ -445,7 +445,7 @@ function Skills(){
                   {vl.t}
                 </div>
                 <div style={{
-                  fontFamily: "'Syne',sans-serif",
+                  fontFamily: "Inter, sans-serif",
                   color: `${T.ink}50`,
                   fontSize: "clamp(12px, 2.2vw, 13px)",
                   lineHeight: 1.65,
@@ -481,7 +481,7 @@ function Skills(){
           }}>
             
             <div style={{
-              fontFamily: "'JetBrains Mono',monospace",
+              fontFamily: "Inter, sans-serif",
               fontSize: "clamp(9px, 2vw, 10px)",
               color: `${T.ink}45`,
               letterSpacing: "0.28em",
@@ -508,7 +508,7 @@ function Skills(){
                     flexWrap: "wrap"
                   }}>
                     <span style={{
-                      fontFamily: "'Syne',sans-serif",
+                      fontFamily: "Inter, sans-serif",
                       fontSize: "clamp(12px, 2.2vw, 13px)",
                       fontWeight: 600,
                       color: `${T.ink}75`,
@@ -517,7 +517,7 @@ function Skills(){
                       {s.n}
                     </span>
                     <span style={{
-                      fontFamily: "'JetBrains Mono',monospace",
+                      fontFamily: "Inter, sans-serif",
                       fontSize: "clamp(10px, 2vw, 11px)",
                       color: T.amber
                     }}>
@@ -555,7 +555,7 @@ function Skills(){
              
             }}>
               <p style={{
-                fontFamily: "Georgia,serif",
+                fontFamily: "Inter, sans-serif",
                 fontStyle: "italic",
                 fontSize: "clamp(16px, 3vw, 18px)",
                 color: `${T.ink}70`,
@@ -583,7 +583,7 @@ function Skills(){
                   flexShrink: 0
                 }}>
                   <span style={{
-                    fontFamily: "Georgia,serif",
+                    fontFamily: "Inter, sans-serif",
                     color: T.amber,
                     fontWeight: 900,
                     fontSize: "clamp(11px, 2vw, 13px)"
@@ -595,7 +595,7 @@ function Skills(){
                 <div style={{ minWidth: 0 }}>
                   <span style={{
                     display: "block",
-                    fontFamily: "'Syne',sans-serif",
+                    fontFamily: "Inter, sans-serif",
                     fontWeight: 700,
                     fontSize: "clamp(11px, 2.2vw, 12px)",
                     color: `${T.ink}65`,
@@ -604,7 +604,7 @@ function Skills(){
                     Marckenley Dorsainvil
                   </span>
                   <span style={{
-                    fontFamily: "'JetBrains Mono',monospace",
+                    fontFamily: "Inter, sans-serif",
                     fontSize: "clamp(9px, 1.8vw, 10px)",
                     color: `${T.ink}35`,
                     letterSpacing: "0.2em",
@@ -632,9 +632,9 @@ function Timeline(){
         <motion.div ref={r} variants={stag()} initial="hidden" animate={v?"visible":"hidden"} style={{marginBottom:60}}>
           <motion.div variants={fadeUp} style={{display:"flex",alignItems:"center",gap:12,marginBottom:18}}>
             <span style={{width:32,height:1,background:T.amber,display:"block"}}/>
-            <span style={{fontFamily:"'JetBrains Mono',monospace",fontSize:10,color:T.amber,letterSpacing:"0.28em",textTransform:"uppercase"}}>Our Journey</span>
+            <span style={{fontFamily:"Inter, sans-serif",fontSize:10,color:T.amber,letterSpacing:"0.28em",textTransform:"uppercase"}}>Our Journey</span>
           </motion.div>
-          <motion.h2 variants={fadeUp} style={{fontFamily:"Georgia,serif",fontSize:"clamp(2.5rem,5.5vw,5rem)",fontWeight:900,color:T.cream,letterSpacing:"-0.03em",lineHeight:1.05}}>
+          <motion.h2 variants={fadeUp} style={{fontFamily:"Inter, sans-serif",fontSize:"clamp(2.5rem,5.5vw,5rem)",fontWeight:900,color:T.cream,letterSpacing:"-0.03em",lineHeight:1.05}}>
             Four Years of<br/><span style={{fontStyle:"italic",color:T.amber}}>Building.</span>
           </motion.h2>
         </motion.div>
@@ -650,11 +650,11 @@ function Timeline(){
                   <div style={{flexShrink:0,width:70,display:"flex",flexDirection:"column",alignItems:"center",paddingTop:4}}>
                     <motion.div initial={{scale:0}} animate={mv?{scale:1}:{}} transition={{delay:i*0.05+0.2,type:"spring",stiffness:400}}
                       style={{width:12,height:12,borderRadius:"50%",background:T.amber,border:`2px solid ${T.inkSoft}`,zIndex:1}}/>
-                    <span style={{fontFamily:"'JetBrains Mono',monospace",fontSize:11,color:`${T.cream}35`,marginTop:8,letterSpacing:"0.18em"}}>{m.year}</span>
+                    <span style={{fontFamily:"Inter, sans-serif",fontSize:11,color:`${T.cream}35`,marginTop:8,letterSpacing:"0.18em"}}>{m.year}</span>
                   </div>
                   <div style={{background:T.inkSoft,border:`1px solid ${T.cream}08`,padding:"22px 28px",flex:1}}>
-                    <h3 style={{fontFamily:"Georgia,serif",fontWeight:900,fontSize:18,color:T.cream,marginBottom:6}}>{m.event}</h3>
-                    <p style={{fontFamily:"'Syne',sans-serif",fontSize:13,color:`${T.cream}40`,lineHeight:1.7}}>{m.desc}</p>
+                    <h3 style={{fontFamily:"Inter, sans-serif",fontWeight:900,fontSize:18,color:T.cream,marginBottom:6}}>{m.event}</h3>
+                    <p style={{fontFamily:"Inter, sans-serif",fontSize:13,color:`${T.cream}40`,lineHeight:1.7}}>{m.desc}</p>
                   </div>
                 </motion.div>
               );
@@ -697,9 +697,9 @@ function Team(){
         <motion.div ref={r} variants={stag()} initial="hidden" animate={v?"visible":"hidden"} style={{marginBottom:56}}>
           <motion.div variants={fadeUp} style={{display:"flex",alignItems:"center",gap:12,marginBottom:18}}>
             <span style={{width:32,height:1,background:T.amber,display:"block"}}/>
-            <span style={{fontFamily:"'JetBrains Mono',monospace",fontSize:10,color:T.amber,letterSpacing:"0.28em",textTransform:"uppercase"}}>The Team</span>
+            <span style={{fontFamily:"Inter, sans-serif",fontSize:10,color:T.amber,letterSpacing:"0.28em",textTransform:"uppercase"}}>The Team</span>
           </motion.div>
-          <motion.h2 variants={fadeUp} style={{fontFamily:"Georgia,serif",fontSize:"clamp(2.5rem,5.5vw,5rem)",fontWeight:900,color:T.ink,letterSpacing:"-0.03em",lineHeight:1.05}}>
+          <motion.h2 variants={fadeUp} style={{fontFamily:"Inter, sans-serif",fontSize:"clamp(2.5rem,5.5vw,5rem)",fontWeight:900,color:T.ink,letterSpacing:"-0.03em",lineHeight:1.05}}>
             People Behind<br/><span style={{fontStyle:"italic",color:T.amber}}>The Work.</span>
           </motion.h2>
         </motion.div>
@@ -730,24 +730,24 @@ function CTA(){
         <motion.div initial={{opacity:0,y:30}} animate={v?{opacity:1,y:0}:{}} transition={{duration:0.9,ease}}>
           <div style={{display:"inline-flex",alignItems:"center",gap:12,marginBottom:24}}>
             <span style={{width:32,height:1,background:T.amber,display:"block"}}/>
-            <span style={{fontFamily:"'JetBrains Mono',monospace",fontSize:10,color:T.amber,letterSpacing:"0.28em",textTransform:"uppercase"}}>Start a Project</span>
+            <span style={{fontFamily:"Inter, sans-serif",fontSize:10,color:T.amber,letterSpacing:"0.28em",textTransform:"uppercase"}}>Start a Project</span>
             <span style={{width:32,height:1,background:T.amber,display:"block"}}/>
           </div>
-          <h2 style={{fontFamily:"Georgia,serif",fontSize:"clamp(2.5rem,6vw,5.5rem)",fontWeight:900,color:T.cream,letterSpacing:"-0.03em",lineHeight:1.05,marginBottom:20}}>
+          <h2 style={{fontFamily:"Inter, sans-serif",fontSize:"clamp(2.5rem,6vw,5.5rem)",fontWeight:900,color:T.cream,letterSpacing:"-0.03em",lineHeight:1.05,marginBottom:20}}>
             Become<br/><span style={{fontStyle:"italic",color:T.amber}}>Client #88.</span>
           </h2>
-          <p style={{fontFamily:"'Syne',sans-serif",color:`${T.cream}45`,fontSize:16,lineHeight:1.75,maxWidth:440,margin:"0 auto 44px"}}>
+          <p style={{fontFamily:"Inter, sans-serif",color:`${T.cream}45`,fontSize:16,lineHeight:1.75,maxWidth:440,margin:"0 auto 44px"}}>
             We take on 3–4 new projects per quarter. Spots go fast. Let's talk before they're gone.
           </p>
           <div style={{display:"flex",justifyContent:"center",gap:20,flexWrap:"wrap"}}>
             <a href="/contact" data-h
-              style={{display:"inline-flex",alignItems:"center",gap:14,background:T.sand,color:T.cream,fontFamily:"'Syne',sans-serif",fontWeight:700,fontSize:12,letterSpacing:"0.22em",textTransform:"uppercase",padding:"20px 40px",textDecoration:"none",transition:"background 0.3s"}}
+              style={{display:"inline-flex",alignItems:"center",gap:14,background:T.sand,color:T.cream,fontFamily:"Inter, sans-serif",fontWeight:700,fontSize:12,letterSpacing:"0.22em",textTransform:"uppercase",padding:"20px 40px",textDecoration:"none",transition:"background 0.3s"}}
               onMouseEnter={e=>{e.currentTarget.style.background=T.cream;e.currentTarget.style.color=T.ink}}
               onMouseLeave={e=>{e.currentTarget.style.background=T.sand;e.currentTarget.style.color=T.cream}}>
               Start a Conversation →
             </a>
             <a href="/work" data-h
-              style={{display:"inline-flex",alignItems:"center",gap:14,fontFamily:"'Syne',sans-serif",fontWeight:600,fontSize:12,letterSpacing:"0.18em",textTransform:"uppercase",padding:"20px 40px",textDecoration:"none",color:`${T.cream}60`,border:`1px solid ${T.cream}15`,transition:"all 0.3s"}}
+              style={{display:"inline-flex",alignItems:"center",gap:14,fontFamily:"Inter, sans-serif",fontWeight:600,fontSize:12,letterSpacing:"0.18em",textTransform:"uppercase",padding:"20px 40px",textDecoration:"none",color:`${T.cream}60`,border:`1px solid ${T.cream}15`,transition:"all 0.3s"}}
               onMouseEnter={e=>{e.currentTarget.style.color=T.cream;e.currentTarget.style.borderColor=`${T.cream}40`;}}
               onMouseLeave={e=>{e.currentTarget.style.color=`${T.cream}60`;e.currentTarget.style.borderColor=`${T.cream}15`;}}>
               See Our Work
@@ -761,7 +761,7 @@ function CTA(){
 
 export default function AboutPage(){
   return(
-    <div style={{fontFamily:"'Syne','DM Sans',system-ui,sans-serif",background:T.cream,minHeight:"100vh",cursor:"none"}}>
+    <div style={{fontFamily:"Inter, sans-serif",background:T.cream,minHeight:"100vh",cursor:"none"}}>
       <Cursor/>
       <Navbar />
       <Hero/>

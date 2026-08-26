@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { T, SectionPanel, FocusInput, FocusTextarea, Field, FormActions, RecordRow, EmptyState, labelStyle, inputStyle } from './shared';
+import {  SectionPanel, FocusInput, FocusTextarea, Field, FormActions, RecordRow, EmptyState, labelStyle, inputStyle } from './shared';
+import { T } from '@/app/data';
 
 interface ContentProduction { _id?: string; title: string; type: "photo" | "video" | "other"; url: string; thumbnail?: string; description?: string; tags: string[]; createdAt?: Date; }
 
@@ -62,7 +63,7 @@ export default function ContentProductionSection({ contentProduction, form, setF
                 disabled={uploading}
                 style={{ fontSize: 12, color: T.ink }}
               />
-              {uploading && <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, color: T.amber }}>Uploading...</span>}
+              {uploading && <span style={{ fontFamily: "Inter, sans-serif", fontSize: 10, color: T.amber }}>Uploading...</span>}
             </div>
             {form.url && (
               <div style={{ marginTop: 8, fontSize: 11, color: `${T.ink}40`, wordBreak: "break-all" }}>
@@ -79,7 +80,7 @@ export default function ContentProductionSection({ contentProduction, form, setF
                 disabled={uploading}
                 style={{ fontSize: 12, color: T.ink }}
               />
-              {uploading && <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, color: T.amber }}>Uploading...</span>}
+              {uploading && <span style={{ fontFamily: "Inter, sans-serif", fontSize: 10, color: T.amber }}>Uploading...</span>}
             </div>
             {form.thumbnail && (
               <div style={{ marginTop: 8, fontSize: 11, color: `${T.ink}40`, wordBreak: "break-all" }}>
@@ -95,7 +96,7 @@ export default function ContentProductionSection({ contentProduction, form, setF
       list={
         <div>
           <div style={{ marginBottom: 24, paddingBottom: 16, borderBottom: `1px solid ${T.sand}25` }}>
-            <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, color: `${T.ink}30`, letterSpacing: "0.26em", textTransform: "uppercase" }}>
+            <span style={{ fontFamily: "Inter, sans-serif", fontSize: 9, color: `${T.ink}30`, letterSpacing: "0.26em", textTransform: "uppercase" }}>
               {contentProduction.length} {contentProduction.length === 1 ? "item" : "items"}
             </span>
           </div>
@@ -117,20 +118,20 @@ export default function ContentProductionSection({ contentProduction, form, setF
                     )}
                   </div>
                   <div>
-                    <div style={{ fontFamily: "Georgia, serif", fontWeight: 900, color: T.ink, fontSize: 15, letterSpacing: "-0.01em" }}>{cp.title}</div>
+                    <div style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, color: T.ink, fontSize: 15, letterSpacing: "-0.01em" }}>{cp.title}</div>
                     <div style={{ display: "flex", gap: 8, marginTop: 4, alignItems: "center" }}>
-                      <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, color: T.amber, letterSpacing: "0.12em", textTransform: "uppercase" }}>{cp.type}</span>
+                      <span style={{ fontFamily: "Inter, sans-serif", fontSize: 10, color: T.amber, letterSpacing: "0.12em", textTransform: "uppercase" }}>{cp.type}</span>
                       {cp.tags && cp.tags.length > 0 && (
                         <>
                           <span style={{ width: 2, height: 2, borderRadius: "50%", background: `${T.ink}25`, display: "inline-block" }} />
                           <div style={{ display: "flex", gap: 6 }}>
-                            {cp.tags.slice(0, 3).map(t => <span key={t} style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, color: `${T.ink}40`, letterSpacing: "0.1em" }}>{t}</span>)}
+                            {cp.tags.slice(0, 3).map(t => <span key={t} style={{ fontFamily: "Inter, sans-serif", fontSize: 9, color: `${T.ink}40`, letterSpacing: "0.1em" }}>{t}</span>)}
                           </div>
                         </>
                       )}
                     </div>
                     {cp.description && (
-                      <div style={{ fontFamily: "'Syne', sans-serif", fontSize: 11, color: `${T.ink}40`, marginTop: 4, maxWidth: 400, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+                      <div style={{ fontFamily: "Inter, sans-serif", fontSize: 11, color: `${T.ink}40`, marginTop: 4, maxWidth: 400, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
                         {cp.description}
                       </div>
                     )}

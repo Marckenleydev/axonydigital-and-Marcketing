@@ -60,7 +60,7 @@ export function ProjectsSection() {
               background: "transparent",
               border: "none",
               borderBottom: filter === status ? `2px solid ${T.amber}` : "2px solid transparent",
-              fontFamily: "'JetBrains Mono', monospace",
+              fontFamily: "Inter, sans-serif",
               fontSize: 9,
               letterSpacing: "0.16em",
               textTransform: "uppercase",
@@ -79,7 +79,7 @@ export function ProjectsSection() {
           <form onSubmit={save}>
             <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 24 }}>
               <span style={{ width: 24, height: 1, background: T.amber, display: "block" }} />
-              <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, color: T.amber, letterSpacing: "0.24em", textTransform: "uppercase" }}>
+              <span style={{ fontFamily: "Inter, sans-serif", fontSize: 9, color: T.amber, letterSpacing: "0.24em", textTransform: "uppercase" }}>
                 {editing ? "Edit Project" : "New Project"}
               </span>
             </div>
@@ -118,7 +118,7 @@ export function ProjectsSection() {
                     setEditing(null);
                     setForm({ status: "Briefing", service: "Web Development" });
                   }}
-                  style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, letterSpacing: "0.18em", textTransform: "uppercase", padding: "13px 18px", background: "transparent", color: `${T.ink}40`, border: `1px solid ${T.sand}50`, cursor: "pointer" }}
+                  style={{ fontFamily: "Inter, sans-serif", fontSize: 9, letterSpacing: "0.18em", textTransform: "uppercase", padding: "13px 18px", background: "transparent", color: `${T.ink}40`, border: `1px solid ${T.sand}50`, cursor: "pointer" }}
                 >
                   Cancel
                 </button>
@@ -144,16 +144,16 @@ export function ProjectsSection() {
                 >
                   <div style={{ display: "flex", flexDirection: "column", gap: 5 }}>
                     <div style={{ display: "flex", gap: 10, alignItems: "center", flexWrap: "wrap" }}>
-                      <span style={{ fontFamily: "Georgia, serif", fontWeight: 900, fontSize: 15, color: T.ink }}>{project.title}</span>
+                      <span style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, fontSize: 15, color: T.ink }}>{project.title}</span>
                       <StatusPill status={project.status} />
                       <ServiceTag service={project.service} />
                     </div>
                     <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
-                      <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, color: `${T.ink}45` }}>{project.clientName}</span>
-                      {project.budget && <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, color: T.amber }}>{project.budget}</span>}
-                      {project.deadline && <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, color: `${T.ink}35` }}>Due {project.deadline}</span>}
+                      <span style={{ fontFamily: "Inter, sans-serif", fontSize: 10, color: `${T.ink}45` }}>{project.clientName}</span>
+                      {project.budget && <span style={{ fontFamily: "Inter, sans-serif", fontSize: 10, color: T.amber }}>{project.budget}</span>}
+                      {project.deadline && <span style={{ fontFamily: "Inter, sans-serif", fontSize: 10, color: `${T.ink}35` }}>Due {project.deadline}</span>}
                     </div>
-                    {project.brief && <p style={{ fontFamily: "'Syne', sans-serif", fontSize: 12, color: `${T.ink}45`, lineHeight: 1.5 }}>{project.brief}</p>}
+                    {project.brief && <p style={{ fontFamily: "Inter, sans-serif", fontSize: 12, color: `${T.ink}45`, lineHeight: 1.5 }}>{project.brief}</p>}
                   </div>
                 </Row>
               ))

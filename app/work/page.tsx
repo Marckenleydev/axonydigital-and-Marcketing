@@ -1,9 +1,11 @@
 "use client";
-import { useState, useRef } from "react";
-import { motion, useInView, AnimatePresence, LayoutGroup } from "framer-motion";
+import { useState, useRef, useCallback, useEffect } from "react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
+import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
 import { Footer } from "../components/Footer";
 import { Navbar } from "../components/Navbar";
-import { PROJECTS,CATEGORIES , T } from "../data";
+import { PROJECTS, T } from "../data";
 import { Cursor } from "../components/Cursor";
 import { CaseModal } from "../components/CaseModal";
 
@@ -27,17 +29,17 @@ function ProjectCard({w,i,onClick}){
       <motion.div animate={{opacity:hov?0.14:0.05}} style={{position:"absolute",inset:0,background:`radial-gradient(circle at 30% 50%,${w.acc},transparent 70%)`,filter:"blur(50px)"}}/>
       <div style={{position:"relative",zIndex:1}}>
         <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:32}}>
-          <span style={{fontFamily:"'JetBrains Mono',monospace",fontSize:13,color:`${T.cream}70`,letterSpacing:"0.18em"}}>{w.id}</span>
+          <span style={{fontFamily:"Inter, sans-serif",fontSize:13,color:`${T.cream}70`,letterSpacing:"0.18em"}}>{w.id}</span>
           
         </div>
-        <h3 style={{fontFamily:"Georgia,serif",fontSize:"clamp(2rem,4vw,3rem)",fontWeight:900,color:T.cream,lineHeight:1.05,letterSpacing:"-0.02em",marginBottom:4}}>{w.title}</h3>
-        <p style={{fontFamily:"'Syne',sans-serif",fontSize:12,color:`${T.cream}B0`,marginBottom:12,letterSpacing:"0.08em"}}>{w.sub}</p>
+        <h3 style={{fontFamily:"Inter, sans-serif",fontSize:"clamp(2rem,4vw,3rem)",fontWeight:900,color:T.cream,lineHeight:1.05,letterSpacing:"-0.02em",marginBottom:4}}>{w.title}</h3>
+        <p style={{fontFamily:"Inter, sans-serif",fontSize:12,color:`${T.cream}B0`,marginBottom:12,letterSpacing:"0.08em"}}>{w.sub}</p>
         <motion.p animate={{opacity:hov?1:0,y:hov?0:8}} transition={{duration:0.3}}
-          style={{fontFamily:"'Syne',sans-serif",fontSize:13,color:`${T.cream}55`,lineHeight:1.65,maxWidth:280}}>{w.desc}</motion.p>
+          style={{fontFamily:"Inter, sans-serif",fontSize:13,color:`${T.cream}55`,lineHeight:1.65,maxWidth:280}}>{w.desc}</motion.p>
       </div>
       <div style={{position:"relative",zIndex:1,display:"flex",alignItems:"center",justifyContent:"space-between",paddingTop:20,marginTop:16,borderTop:`1px solid ${w.acc}20`}}>
-        {/* <span style={{fontFamily:"'JetBrains Mono',monospace",fontSize:11,color:`${w.acc}60`}}>{w.year}</span> */}
-        <motion.span animate={{x:hov?0:-8,opacity:hov?1:0}} style={{fontFamily:"'Syne',sans-serif",fontWeight:700,fontSize:12,color:T.cream}}>
+        {/* <span style={{fontFamily:"Inter, sans-serif",fontSize:11,color:`${w.acc}60`}}>{w.year}</span> */}
+        <motion.span animate={{x:hov?0:-8,opacity:hov?1:0}} style={{fontFamily:"Inter, sans-serif",fontWeight:700,fontSize:12,color:T.cream}}>
           Case Study →
         </motion.span>
       </div>
@@ -48,13 +50,60 @@ function ProjectCard({w,i,onClick}){
 
 /* ── PAGE ── */
 export default function WorkPage(){
-  const [filter,setFilter]=useState("All");
-  const [selected,setSelected]=useState(null);
+  const [selected,setSelected]=useState<typeof PROJECTS[0] | null>(null);
   const [r,v]=useRev();
-  const filtered=filter==="All"?PROJECTS:PROJECTS.filter(p=>p.cat===filter);
+
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    {
+      align: "start",
+      loop: true,
+      skipSnaps: false,
+      dragFree: false,
+    },
+    [Autoplay({ delay: 4000, stopOnInteraction: false })]
+  );
+
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) {
+      emblaApi.scrollPrev();
+    }
+  }, [emblaApi]);
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) {
+      emblaApi.scrollNext();
+    }
+  }, [emblaApi]);
+
+  const scrollTo = useCallback(
+    (index: number) => {
+      if (emblaApi) {
+        emblaApi.scrollTo(index);
+      }
+    },
+    [emblaApi]
+  );
+
+  useEffect(() => {
+    if (!emblaApi) return;
+
+    const onSelect = () => {
+      setSelectedIndex(emblaApi.selectedScrollSnap());
+    };
+
+    onSelect();
+
+    emblaApi.on("select", onSelect);
+
+    return () => {
+      emblaApi.off("select", onSelect);
+    };
+  }, [emblaApi]);
 
   return(
-    <div style={{fontFamily:"'Syne','DM Sans',system-ui,sans-serif",background:T.creamDark,minHeight:"100vh",cursor:"none"}}>
+    <div style={{fontFamily:"Inter, sans-serif",background:T.creamDark,minHeight:"100vh",cursor:"none"}}>
       <Cursor/>
       <Navbar />
 
@@ -63,45 +112,168 @@ export default function WorkPage(){
         <div ref={r} style={{maxWidth:1200,margin:"0 auto",position:"relative",zIndex:1}}>
           <motion.div initial={{opacity:0,x:-20}} animate={v?{opacity:1,x:0}:{}} transition={{duration:0.8,delay:0.1}} style={{display:"flex",alignItems:"center",gap:16,marginBottom:28}}>
             <span style={{width:48,height:1,background:T.amber,display:"block"}}/>
-            <span style={{fontFamily:"'JetBrains Mono',monospace",fontSize:11,color:T.amber,letterSpacing:"0.28em",textTransform:"uppercase"}}>Selected Work</span>
+            <span style={{fontFamily:"Inter, sans-serif",fontSize:11,color:T.amber,letterSpacing:"0.28em",textTransform:"uppercase"}}>Selected Work</span>
           </motion.div>
           <motion.h1 initial={{opacity:0,y:40}} animate={v?{opacity:1,y:0}:{}} transition={{duration:1,delay:0.2,ease}}
-            style={{fontFamily:"Georgia,'Playfair Display',serif",fontSize:"clamp(3rem,8vw,8rem)",fontWeight:900,lineHeight:0.9,letterSpacing:"-0.03em",color:T.ink,marginBottom:28,maxWidth:800}}>
+            style={{fontFamily:"Inter, sans-serif",fontSize:"clamp(3rem,8vw,8rem)",fontWeight:900,lineHeight:0.9,letterSpacing:"-0.03em",color:T.ink,marginBottom:28,maxWidth:800}}>
             Selected Work &
             <br/>
            <span style={{ fontStyle: "italic", color: T.amber, whiteSpace: "nowrap" }}>Case Studies.</span>
           </motion.h1>
           <motion.p initial={{opacity:0,y:20}} animate={v?{opacity:1,y:0}:{}} transition={{duration:0.8,delay:0.45}}
-            style={{fontFamily:"'Syne',sans-serif",color:`${T.ink}65`,fontSize:17,maxWidth:440,lineHeight:1.75}}>
+            style={{fontFamily:"Inter, sans-serif",color:`${T.ink}65`,fontSize:17,maxWidth:440,lineHeight:1.75}}>
             A selection of digital experiences we&apos;ve crafted for ambitious brands. Every project reflects strategy, creativity, and a commitment to delivering exceptional results.
           </motion.p>
         </div>
       </section>
 
-      {/* Filter bar */}
-      <div style={{background:T.creamDark,padding:"16px 24px",position:"sticky",top:0,zIndex:10,backdropFilter:"blur(16px)"}}>
-        <div style={{maxWidth:1200,margin:"0 auto",display:"flex",gap:8,flexWrap:"wrap"}}>
-          {CATEGORIES.map(cat=>(
-            <button key={cat} onClick={()=>setFilter(cat)} data-h
-              style={{fontFamily:"'JetBrains Mono',monospace",fontSize:10,padding:"8px 16px",letterSpacing:"0.16em",textTransform:"uppercase",border:`1px solid ${filter===cat?T.amber:`${T.sand}60`}`,background:filter===cat?`${T.amber}15`:T.creamDark,color:filter===cat?T.amber:`${T.ink}45`,cursor:"none",transition:"all 0.2s"}}>
-              {cat}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* Grid */}
+      {/* Carousel */}
       <section style={{background:T.creamDark,padding:"4px 24px 120px"}}>
         <div style={{maxWidth:1200,margin:"0 auto"}}>
-          <LayoutGroup>
-            <motion.div layout style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(340px,1fr))",gap:2,background:`${T.sand}30`,marginTop:4}}>
-              <AnimatePresence mode="popLayout">
-                {filtered.map((w,i)=>(
-                  <ProjectCard key={w.id} w={w} i={i} onClick={()=>setSelected(w)}/>
+          <style>{`
+            .work-carousel {
+              overflow: hidden;
+              width: 100%;
+              cursor: grab;
+            }
+
+            .work-carousel:active {
+              cursor: grabbing;
+            }
+
+            .work-carousel-container {
+              display: flex;
+              gap: 2px;
+              touch-action: pan-y pinch-zoom;
+            }
+
+            .work-slide {
+              flex: 0 0 88%;
+              min-width: 0;
+            }
+
+            .work-arrow {
+              transition:
+                background 0.3s ease,
+                color 0.3s ease,
+                border-color 0.3s ease,
+                transform 0.3s ease;
+            }
+
+            .work-arrow:hover {
+              transform: translateY(-2px);
+            }
+
+            .work-arrow-prev:hover {
+              background: ${T.ink} !important;
+              color: ${T.cream} !important;
+              border-color: ${T.ink} !important;
+            }
+
+            .work-arrow-next:hover {
+              background: ${T.amber} !important;
+              border-color: ${T.amber} !important;
+            }
+
+            .work-pagination {
+              transition:
+                width 0.35s ease,
+                background 0.35s ease;
+            }
+
+            @media (min-width: 640px) {
+              .work-slide {
+                flex: 0 0 70%;
+              }
+            }
+
+            @media (min-width: 1024px) {
+              .work-slide {
+                flex: 0 0 58%;
+              }
+            }
+
+            @media (min-width: 1280px) {
+              .work-slide {
+                flex: 0 0 56%;
+              }
+            }
+          `}</style>
+
+          <div style={{ position: "relative", width: "100%" }}>
+            <div ref={emblaRef} className="work-carousel">
+              <div className="work-carousel-container">
+                {PROJECTS.map((w, i) => (
+                  <div key={w.id} className="work-slide">
+                    <ProjectCard w={w} i={i} onClick={()=>setSelected(w)}/>
+                  </div>
                 ))}
-              </AnimatePresence>
-            </motion.div>
-          </LayoutGroup>
+              </div>
+            </div>
+
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: 20 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                {PROJECTS.map((_, i: number) => (
+                  <button
+                    key={i}
+                    onClick={() => scrollTo(i)}
+                    aria-label={`Go to project ${i + 1}`}
+                    className="work-pagination"
+                    style={{
+                      width: i === selectedIndex ? 28 : 7,
+                      height: 2,
+                      padding: 0,
+                      border: 0,
+                      background: i === selectedIndex ? T.amber : `${T.ink}30`,
+                      cursor: "pointer",
+                    }}
+                  />
+                ))}
+              </div>
+
+              <div style={{ display: "flex", gap: 8 }}>
+                <button
+                  onClick={scrollPrev}
+                  aria-label="Previous project"
+                  className="work-arrow work-arrow-prev"
+                  style={{
+                    width: 46,
+                    height: 46,
+                    border: `1px solid ${T.ink}20`,
+                    background: "transparent",
+                    color: T.ink,
+                    cursor: "pointer",
+                    display: "grid",
+                    placeItems: "center",
+                    fontSize: 18,
+                    padding: 0,
+                  }}
+                >
+                  ←
+                </button>
+
+                <button
+                  onClick={scrollNext}
+                  aria-label="Next project"
+                  className="work-arrow work-arrow-next"
+                  style={{
+                    width: 46,
+                    height: 46,
+                    border: `1px solid ${T.ink}`,
+                    background: T.ink,
+                    color: T.cream,
+                    cursor: "pointer",
+                    display: "grid",
+                    placeItems: "center",
+                    fontSize: 18,
+                    padding: 0,
+                  }}
+                >
+                  →
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -111,17 +283,17 @@ export default function WorkPage(){
           <motion.div initial={{opacity:0,y:30}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{duration:0.9,ease}}>
             <div style={{display:"inline-flex",alignItems:"center",gap:12,marginBottom:24}}>
               <span style={{width:32,height:1,background:T.amber,display:"block"}}/>
-              <span style={{fontFamily:"'JetBrains Mono',monospace",fontSize:10,color:T.amber,letterSpacing:"0.28em",textTransform:"uppercase"}}>Your Turn</span>
+              <span style={{fontFamily:"Inter, sans-serif",fontSize:10,color:T.amber,letterSpacing:"0.28em",textTransform:"uppercase"}}>Your Turn</span>
               <span style={{width:32,height:1,background:T.amber,display:"block"}}/>
             </div>
-            <h2 style={{fontFamily:"Georgia,serif",fontSize:"clamp(2.5rem,6vw,5rem)",fontWeight:900,color:T.ink,letterSpacing:"-0.03em",lineHeight:1.05,marginBottom:20}}>
+            <h2 style={{fontFamily:"Inter, sans-serif",fontSize:"clamp(2.5rem,6vw,5rem)",fontWeight:900,color:T.ink,letterSpacing:"-0.03em",lineHeight:1.05,marginBottom:20}}>
               Your Project<br/><span style={{fontStyle:"italic",color:T.amber}}>Could Be Next.</span>
             </h2>
-            <p style={{fontFamily:"'Syne',sans-serif",color:`${T.ink}55`,fontSize:16,lineHeight:1.75,marginBottom:40}}>
+            <p style={{fontFamily:"Inter, sans-serif",color:`${T.ink}55`,fontSize:16,lineHeight:1.75,marginBottom:40}}>
               Free discovery call to kick things off. No commitment — just a conversation.
             </p>
             <a href="/contact" data-h
-              style={{display:"inline-flex",alignItems:"center",gap:14,background:T.sand,color:T.cream,fontFamily:"'Syne',sans-serif",fontWeight:700,fontSize:12,letterSpacing:"0.22em",textTransform:"uppercase",padding:"20px 40px",textDecoration:"none",transition:"background 0.3s"}}
+              style={{display:"inline-flex",alignItems:"center",gap:14,background:T.sand,color:T.cream,fontFamily:"Inter, sans-serif",fontWeight:700,fontSize:12,letterSpacing:"0.22em",textTransform:"uppercase",padding:"20px 40px",textDecoration:"none",transition:"background 0.3s"}}
               onMouseEnter={e=>e.currentTarget.style.background=T.amber}
               onMouseLeave={e=>e.currentTarget.style.background=T.sand}>
               Start a Project →

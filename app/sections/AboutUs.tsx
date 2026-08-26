@@ -62,7 +62,7 @@ export function About() {
               display: "block"
             }} />
             <span style={{
-              fontFamily: "'JetBrains Mono',monospace",
+              fontFamily: "Inter, sans-serif",
               fontSize: "clamp(9px, 2vw, 10px)",
               color: T.amber,
               letterSpacing: "0.28em",
@@ -73,7 +73,7 @@ export function About() {
           </div>
           
           <h2 style={{
-            fontFamily: "Georgia,serif",
+            fontFamily: "Inter, sans-serif",
             fontSize: "clamp(2rem, 6vw, 4rem)",
             fontWeight: 900,
             color: T.ink,
@@ -89,7 +89,7 @@ export function About() {
           </h2>
           
           <p style={{
-            fontFamily: "'Syne',sans-serif",
+            fontFamily: "Inter, sans-serif",
             color: `${T.ink}55`,
             lineHeight: 1.78,
             marginBottom: "clamp(16px, 3vh, 18px)",
@@ -100,7 +100,7 @@ export function About() {
           </p>
           
           <p style={{
-            fontFamily: "'Syne',sans-serif",
+            fontFamily: "Inter, sans-serif",
             color: `${T.ink}55`,
             lineHeight: 1.78,
             marginBottom: "clamp(28px, 5vh, 36px)",
@@ -149,7 +149,7 @@ export function About() {
               
               <div style={{ flex: 1 }}>
                 <div style={{
-                  fontFamily: "'Syne',sans-serif",
+                  fontFamily: "Inter, sans-serif",
                   fontWeight: 700,
                   color: T.ink,
                   fontSize: "clamp(12px, 2.2vw, 13px)",
@@ -159,7 +159,7 @@ export function About() {
                   {v.t}
                 </div>
                 <div style={{
-                  fontFamily: "'Syne',sans-serif",
+                  fontFamily: "Inter, sans-serif",
                   color: `${T.ink}50`,
                   fontSize: "clamp(12px, 2.2vw, 13px)",
                   lineHeight: 1.65
@@ -182,7 +182,7 @@ export function About() {
               gap: "clamp(12px, 2vw, 16px)",
               background: T.sand,
               color: T.cream,
-              fontFamily: "'Syne',sans-serif",
+              fontFamily: "Inter, sans-serif",
               fontWeight: 700,
               fontSize: "clamp(10px, 2vw, 11px)",
               letterSpacing: "0.22em",
@@ -223,7 +223,7 @@ export function About() {
           }}>
             
             <div style={{
-              fontFamily: "'JetBrains Mono',monospace",
+              fontFamily: "Inter, sans-serif",
               fontSize: "clamp(9px, 2vw, 10px)",
               color: `${T.ink}45`,
               letterSpacing: "0.28em",
@@ -248,7 +248,7 @@ export function About() {
                     flexWrap: "wrap"
                   }}>
                     <span style={{
-                      fontFamily: "'Syne',sans-serif",
+                      fontFamily: "Inter, sans-serif",
                       fontSize: "clamp(12px, 2.2vw, 13px)",
                       fontWeight: 600,
                       color: `${T.ink}75`
@@ -256,7 +256,7 @@ export function About() {
                       {s.n}
                     </span>
                     <span style={{
-                      fontFamily: "'JetBrains Mono',monospace",
+                      fontFamily: "Inter, sans-serif",
                       fontSize: "clamp(10px, 2vw, 11px)",
                       color: T.amber
                     }}>
@@ -296,7 +296,7 @@ export function About() {
              
             }}>
               <p style={{
-                fontFamily: "Georgia,serif",
+                fontFamily: "Inter, sans-serif",
                 fontStyle: "italic",
                 fontSize: "clamp(16px, 3vw, 18px)",
                 color: `${T.ink}70`,
@@ -323,7 +323,7 @@ export function About() {
                   flexShrink: 0
                 }}>
                   <span style={{
-                    fontFamily: "Georgia,serif",
+                    fontFamily: "Inter, sans-serif",
                     color: T.amber,
                     fontWeight: 900,
                     fontSize: "clamp(11px, 2vw, 13px)"
@@ -335,7 +335,7 @@ export function About() {
                 <div style={{ minWidth: 0 }}>
                   <span style={{
                     display: "block",
-                    fontFamily: "'Syne',sans-serif",
+                    fontFamily: "Inter, sans-serif",
                     fontWeight: 700,
                     fontSize: "clamp(11px, 2.2vw, 12px)",
                     color: `${T.ink}65`,
@@ -344,7 +344,7 @@ export function About() {
                     Marckenley Dorsainvil
                   </span>
                   <span style={{
-                    fontFamily: "'JetBrains Mono',monospace",
+                    fontFamily: "Inter, sans-serif",
                     fontSize: "clamp(9px, 1.8vw, 10px)",
                     color: `${T.ink}35`,
                     letterSpacing: "0.2em",

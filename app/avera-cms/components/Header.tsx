@@ -18,13 +18,13 @@ export function Header({ activeTab, onTabChange }: HeaderProps) {
         {/* Logo */}
         <a href="/" style={{ display: "flex", alignItems: "center", gap: 12, textDecoration: "none", paddingRight: 32, borderRight: `1px solid ${T.sand}25` }}>
           <div style={{ width: 28, height: 28, background: T.sand, display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <span style={{ color: T.cream, fontFamily: "Georgia, serif", fontWeight: 900, fontSize: 12 }}>A</span>
+            <span style={{ color: T.cream, fontFamily: "Inter, sans-serif", fontWeight: 900, fontSize: 12 }}>A</span>
           </div>
           <div>
-            <div style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, fontSize: 12, letterSpacing: "0.22em", color: T.ink, textTransform: "uppercase", lineHeight: 1 }}>
+            <div style={{ fontFamily: "Inter, sans-serif", fontWeight: 800, fontSize: 12, letterSpacing: "0.22em", color: T.ink, textTransform: "uppercase", lineHeight: 1 }}>
               AXONY<span style={{ color: T.amber }}>.</span>DIGITAL
             </div>
-            <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 8, color: `${T.ink}35`, letterSpacing: "0.2em", textTransform: "uppercase", marginTop: 2 }}>CMS</div>
+            <div style={{ fontFamily: "Inter, sans-serif", fontSize: 8, color: `${T.ink}35`, letterSpacing: "0.2em", textTransform: "uppercase", marginTop: 2 }}>CMS</div>
           </div>
         </a>
 
@@ -50,8 +50,8 @@ export function Header({ activeTab, onTabChange }: HeaderProps) {
             >
               <span style={{ color: activeTab === tab.id ? T.amber : `${T.ink}30`, fontSize: 12, transition: "color 0.2s" }}>{tab.icon}</span>
               <div style={{ textAlign: "left" }}>
-                <div style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 12, color: activeTab === tab.id ? T.ink : `${T.ink}55`, letterSpacing: "0.04em", transition: "color 0.2s" }}>{tab.label}</div>
-                <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 8, color: `${T.ink}30`, letterSpacing: "0.14em", textTransform: "uppercase" }}>{tab.desc}</div>
+                <div style={{ fontFamily: "Inter, sans-serif", fontWeight: 700, fontSize: 12, color: activeTab === tab.id ? T.ink : `${T.ink}55`, letterSpacing: "0.04em", transition: "color 0.2s" }}>{tab.label}</div>
+                <div style={{ fontFamily: "Inter, sans-serif", fontSize: 8, color: `${T.ink}30`, letterSpacing: "0.14em", textTransform: "uppercase" }}>{tab.desc}</div>
               </div>
               {/* Arrow connector */}
               {index < TABS.length - 1 && <span style={{ position: "absolute", right: -8, color: `${T.ink}15`, fontSize: 14, zIndex: 1 }}>›</span>}
@@ -63,11 +63,11 @@ export function Header({ activeTab, onTabChange }: HeaderProps) {
         <div style={{ display: "flex", alignItems: "center", gap: 20, paddingLeft: 24, borderLeft: `1px solid ${T.sand}25` }}>
           <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
             <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#4ade80" }} />
-            <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 8, color: `${T.ink}35`, letterSpacing: "0.18em", textTransform: "uppercase" }}>Live</span>
+            <span style={{ fontFamily: "Inter, sans-serif", fontSize: 8, color: `${T.ink}35`, letterSpacing: "0.18em", textTransform: "uppercase" }}>Live</span>
           </div>
           <a
             href="/"
-            style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 9, color: `${T.ink}45`, textDecoration: "none", letterSpacing: "0.16em", textTransform: "uppercase", transition: "color 0.2s" }}
+            style={{ fontFamily: "Inter, sans-serif", fontSize: 9, color: `${T.ink}45`, textDecoration: "none", letterSpacing: "0.16em", textTransform: "uppercase", transition: "color 0.2s" }}
             onMouseEnter={(e) => (e.currentTarget as HTMLAnchorElement).style.color = T.amber}
             onMouseLeave={(e) => (e.currentTarget as HTMLAnchorElement).style.color = `${T.ink}45`}
           >

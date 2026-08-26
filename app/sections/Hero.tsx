@@ -13,8 +13,17 @@ export function Hero() {
   const clipRef = useRef(null);   // outer — holds border-radius, NEVER scales
   const scaleRef = useRef(null);  // inner — GSAP scales/moves THIS, no radius
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
-  const opac = useTransform(scrollYProgress, [0, 1], [1, 0.75]);
+
+  // Layered parallax speeds — each element drifts at its own rate for depth
+  const y          = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
+  const yEyebrow   = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
+  const yHeading   = useTransform(scrollYProgress, [0, 1], ["0%", "12%"]);
+  const ySub       = useTransform(scrollYProgress, [0, 1], ["0%", "24%"]);
+  const opac       = useTransform(scrollYProgress, [0, 1], [1, 0.75]);
+  const headingOpac= useTransform(scrollYProgress, [0, 0.7, 1], [1, 1, 0.6]);
+  const headingScale = useTransform(scrollYProgress, [0, 1], [1, 0.96]);
+  const headingBlur  = useTransform(scrollYProgress, [0, 1], [0, 4]);
+  const headingFilter = useTransform(headingBlur, (v) => `blur(${v}px)`);
 
   const lines = [
     { segments: [
@@ -127,6 +136,7 @@ export function Hero() {
           animate={{opacity:1, x:0}} 
           transition={{duration:0.8, delay:0.2}}
           style={{
+            y: yEyebrow,
             display: "flex",
             alignItems: "center",
             gap: "clamp(8px, 2vw, 16px)",
@@ -152,15 +162,20 @@ export function Hero() {
         </motion.div>
 
         {/* Heading - 2 lines */}
-        <h1 style={{
-          fontFamily: "Georgia,'Playfair Display',serif",
+        <motion.h1 style={{
+          y: yHeading,
+          opacity: headingOpac,
+          scale: headingScale,
+          filter: headingFilter,
+          fontFamily: "Inter, sans-serif",
           fontSize: "clamp(2.5rem, 12vw, 8.5rem)",
           fontWeight: 900,
           lineHeight: 0.9,
           letterSpacing: "0.03em",
           color: T.ink,
           marginBottom: "clamp(16px, 3vh, 28px)",
-          maxWidth: "min(900px, 100%)"
+          maxWidth: "min(900px, 100%)",
+          transformOrigin: "left center"
         }}>
           {lines.map((line, li)=>(
             <span key={li} style={{display:"block"}}>
@@ -169,7 +184,8 @@ export function Hero() {
                   <span key={`${wi}-${i}`} style={{
                     overflow:"hidden",
                     display:"inline-block",
-                    marginRight:"0.22em"
+                    marginRight:"0.3em",
+                    paddingRight:"0.1em"
                   }}>
                     <motion.span 
                       initial={{y:"115%", rotate:2}} 
@@ -188,10 +204,11 @@ export function Hero() {
               ))}
             </span>
           ))}
-        </h1>
+        </motion.h1>
 
         {/* Sub + CTA */}
-        <div style={{
+        <motion.div style={{
+          y: ySub,
           display: "flex",
           flexDirection: "row",
           flexWrap: "wrap",
@@ -250,7 +267,7 @@ export function Hero() {
               Get in touch <span style={{fontSize: "clamp(16px, 3vw, 18px)"}}>→</span>
             </a>
           </motion.div>
-        </div>
+        </motion.div>
       </motion.div>
 
       {/* VIDEO — clipRef holds radius (static), scaleRef holds scale (no radius) */}
@@ -261,6 +278,7 @@ export function Hero() {
           zIndex: 5,
           width: "100vw",
           marginLeft: "calc(-50vw + 50%)",
+            
           height: "clamp(320px, 55vh, 640px)",
           overflow: "hidden"
         }}
@@ -291,8 +309,6 @@ export function Hero() {
         </div>
       </div>
 
-      
-     
     </section>
   );
 }

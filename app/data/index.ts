@@ -154,33 +154,28 @@ export const CATEGORIES=["All","Web App","Brand + Web","Content Production"];
 
 export const PROJECTS=[
   {id:"01",title:"Aurelia",sub:"Finance Platform",cat:"Web App",year:"2024",tags:["Next.js","Fintech"],desc:"Real-time trading dashboard with AI-powered insights and portfolio analytics.",bg:"#1A1508",acc:"#C8872A",
-   challenge:"The client needed a platform handling live data streams for thousands of concurrent users while keeping the UI responsive for non-technical traders.",
-   solution:"WebSocket-driven Next.js app with server-side state, React Query caching, and a custom D3.js charting layer. Performance-critical paths optimised to <100ms render times.",
+   
+
    results:["3.2s → 0.4s dashboard load","40% increase in daily active users","$2.4M processed in first month","99.98% uptime since launch"],
    services:["Web Development","UI/UX Design"]},
   {id:"02",title:"Nomad OS",sub:"Remote Work Hub",cat:"Mobile App",year:"2024",tags:["React Native","SaaS"],desc:"All-in-one workspace for distributed teams — time zones, async standups, team availability.",bg:"#080F0A",acc:"#4A8C5C",
-   challenge:"Remote teams were juggling 6+ tools. The client wanted a single focused app removing friction without adding noise.",
-   solution:"React Native with custom notification engine, offline-first data sync, and Slack/Notion/Google Calendar integrations. Shipped both platforms in 14 weeks.",
+  
    results:["4.8★ on both App Stores","12,000 downloads in 30 days","#1 Product Hunt of the day","68% 30-day retention"],
    services:["Mobile Development","UI/UX Design"]},
   {id:"03",title:"Botanica",sub:"E-Commerce",cat:"E-Commerce",year:"2023",tags:["Next.js","3D"],desc:"Immersive plant shop with WebGL AR product previews and subscription boxes.",bg:"#060A12",acc:"#4A6FA5",
-   challenge:"The brand wanted to stand out and reduce returns by letting customers see plants in their space before buying.",
-   solution:"Shopify Hydrogen + Three.js AR experience, custom subscription management, and a Lighthouse 98/100 storefront.",
+   
    results:["62% reduction in return rates","3.1× conversion lift","AOV up 44%","Lighthouse score: 98"],
    services:["Web Development","UI/UX Design","SEO"]},
   {id:"04",title:"CTRL Studio",sub:"Brand + Digital",cat:"Brand + Web",year:"2023",tags:["Branding","Web"],desc:"Complete brand identity and award-winning digital presence for a Berlin creative studio.",bg:"#120812",acc:"#8B5CA5",
-   challenge:"CTRL needed a web presence matching the ambition of their work — visually distinctive, immersive, and fast.",
-   solution:"Full visual identity (logo, typography, motion) + GSAP scroll animations, custom cursor, Sanity CMS.",
+   
    results:["Awwwards Site of the Day","280% increase in inbound leads","Featured in Fonts In Use","Load time < 1.2s globally"],
    services:["UI/UX Design","Web Development"]},
   {id:"05",title:"Pulse Health",sub:"Telemedicine",cat:"SaaS",year:"2023",tags:["Mobile + Web","HIPAA"],desc:"HIPAA-compliant telemedicine platform serving 50,000+ patients with video consults.",bg:"#0A1212",acc:"#2E8B8B",
-   challenge:"Building a medical platform with strict compliance, real-time video, and a seamless experience for both patients and providers.",
-   solution:"End-to-end HIPAA-compliant AWS architecture, Twilio for video/SMS, custom provider dashboard in Next.js, React Native patient app.",
+   
    results:["50,000+ registered patients","4.9★ App Store rating","94% consultation completion","HIPAA audit passed first attempt"],
    services:["Web Development","Mobile Development"]},
   {id:"06",title:"Vanta AI",sub:"SaaS Writing Tool",cat:"SaaS",year:"2024",tags:["SaaS","AI"],desc:"AI writing assistant with brand voice training, multi-language support, and team collaboration.",bg:"#0A0A0A",acc:"#8C8C2E",
-   challenge:"The market was flooded with generic AI writing tools. Vanta needed deep brand customisation and enterprise collaboration features.",
-   solution:"Custom LangChain pipeline for brand voice, real-time collaborative editor on Yjs, Supabase auth/storage, Next.js SSR.",
+   
    results:["0 → 2,400 paying users in 90 days","MRR $38k at month 3","$800k seed round closed","NPS score of 72"],
    services:["Web Development","UI/UX Design"]},
 ];

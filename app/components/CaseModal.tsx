@@ -18,7 +18,7 @@ export function CaseModal({project,onClose}: {project: any; onClose: () => void}
             <h2 style={{fontFamily:"Inter, sans-serif",fontWeight:900,fontSize:"1.8rem",color:T.ink,letterSpacing:"-0.02em"}}>{project.title} — {project.sub}</h2>
           </div>
           <button onClick={onClose} data-h
-            style={{width:38,height:38,border:`1px solid ${T.sand}60`,background:"none",display:"flex",alignItems:"center",justifyContent:"center",color:T.sand,fontSize:20,cursor:"none",transition:"all 0.2s"}}
+            style={{width:38,height:38,border:`1px solid ${T.sand}60`,background:"none",display:"flex",alignItems:"center",justifyContent:"center",color:T.sand,fontSize:20,transition:"all 0.2s"}}
             onMouseEnter={e=>{e.currentTarget.style.background=T.ink;e.currentTarget.style.color=T.cream;}}
             onMouseLeave={e=>{e.currentTarget.style.background="none";e.currentTarget.style.color=T.sand;}}>×</button>
         </div>

@@ -1,5 +1,6 @@
 "use client";
 import { useState, useRef } from "react";
+import { OrbitBackground } from "../components/OrbitBackground";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { Cursor } from "../components/Cursor";
 import { Navbar } from "../components/Navbar";
@@ -24,7 +25,14 @@ function useRev(m="-70px"){ const r=useRef(null); const v=useInView(r,{once:true
 function Hero(){
   const [r,v]=useRev();
   return(
-    <section style={{background:T.creamDark,padding:"160px 24px 100px",position:"relative",overflow:"hidden"}}>
+    <section 
+    style={{
+      padding:"160px 24px 100px",
+      position:"relative",
+      overflow:"hidden",
+      background: "radial-gradient(ellipse 80% 60% at 50% -10%, #1B2A6B 0%, #0D1535 45%, #050E1F 100%)",
+    }}
+    >
       <div style={{position:"absolute",top:"clamp(10%, 15vw, 20%)",right:"clamp(5%, 8vw, 10%)",width:"min(350px, 50vw)",height:"min(350px, 50vw)",borderRadius:"50%",background:`${T.amber}08`,filter:"blur(clamp(40px, 8vw, 80px))",pointerEvents:"none"}}/>
 
       <div ref={r} style={{maxWidth:1200,margin:"0 auto",position:"relative",zIndex:1}}>
@@ -33,7 +41,7 @@ function Hero(){
           <span style={{fontFamily:"Inter, sans-serif",fontSize:11,color:T.amber,letterSpacing:"0.28em",textTransform:"uppercase"}}>Our Services</span>
         </motion.div>
         <motion.h1 initial={{opacity:0,y:40}} animate={v?{opacity:1,y:0}:{}} transition={{duration:1,delay:0.2,ease}}
-          style={{fontFamily:"Inter, sans-serif",fontSize:"clamp(3rem,8vw,8rem)",fontWeight:900,lineHeight:0.9,letterSpacing:"-0.03em",color:T.ink,marginBottom:28,maxWidth:800}}>
+          style={{fontFamily:"Inter, sans-serif",fontSize:"clamp(3rem,8vw,8rem)",fontWeight:900,lineHeight:0.9,letterSpacing:"-0.03em",color:"white",marginBottom:28,maxWidth:800}}>
           What We<br/><span style={{fontStyle:"italic",color:T.amber}}>Build</span><br/>For You.
         </motion.h1>
         <motion.div initial={{opacity:0,y:20}} animate={v?{opacity:1,y:0}:{}} transition={{duration:0.8,delay:0.45}}
@@ -42,9 +50,7 @@ function Hero(){
             Three core disciplines. One integrated senior team. Every service engineered for performance, scale, and your business goals.
           </p>
           <a href="/contact" data-h
-            style={{display:"flex",alignItems:"center",gap:14,background:T.sand,color:T.cream,fontFamily:"Inter, sans-serif",fontWeight:700,fontSize:12,letterSpacing:"0.22em",textTransform:"uppercase",padding:"18px 32px",textDecoration:"none",transition:"background 0.3s"}}
-            onMouseEnter={e=>e.currentTarget.style.background=T.amber}
-            onMouseLeave={e=>e.currentTarget.style.background=T.sand}>
+            className="cta_link">
             Get a Free Quote <span style={{fontSize:18}}>→</span>
           </a>
         </motion.div>
@@ -61,7 +67,7 @@ function ServiceBlock({svc,i}){
   
   return(
     <section style={{
-      background: i % 2 === 0 ? T.cream : T.creamDark,
+       background: "radial-gradient(ellipse 80% 60% at 50% -10%, #1B2A6B 0%, #0D1535 45%, #050E1F 100%)",
       padding: "clamp(60px, 8vh, 100px) clamp(16px, 5vw, 24px)",
       
       width: "100%"
@@ -97,7 +103,7 @@ function ServiceBlock({svc,i}){
           <span style={{
             flex: 1,
             height: 1,
-            background: `${T.sand}40`,
+            background: `${T.cream}40`,
             minWidth: "50px"
           }}/>
         </motion.div>
@@ -164,7 +170,7 @@ function ServiceBlock({svc,i}){
 
             {/* Pricing tiers - responsive grid */}
             <div style={{
-              borderTop: `1px solid ${T.sand}40`,
+              borderTop: `1px solid ${T.cream}40`,
               paddingTop: "clamp(20px, 4vh, 28px)",
               width: "100%"
             }}>
@@ -188,8 +194,8 @@ function ServiceBlock({svc,i}){
                 {svc.tiers.map((tier, ti) => (
                   <div key={tier.n} style={{
                     padding: "clamp(12px, 2vh, 16px) clamp(8px, 1.5vw, 14px)",
-                    border: `1px solid ${ti === 1 ? T.amber : `${T.sand}50`}`,
-                    background: ti === 1 ? `${T.amber}08` : T.cream,
+                    border: `1px solid ${ti === 1 ? T.amber : `${T.cream}50`}`,
+                    
                     textAlign: "center",
                     width: "100%"
                   }}>
@@ -227,25 +233,9 @@ function ServiceBlock({svc,i}){
             </div>
 
             <a href="/contact" data-h
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "clamp(10px, 2vw, 14px)",
-                background: T.sand,
-                color: T.cream,
-                fontFamily: "'Syne',sans-serif",
-                fontWeight: 700,
-                fontSize: "clamp(10px, 2vw, 11px)",
-                letterSpacing: "0.22em",
-                textTransform: "uppercase",
-                padding: "clamp(14px, 2vh, 16px) clamp(20px, 4vw, 28px)",
-                textDecoration: "none",
-                marginTop: "clamp(20px, 4vh, 28px)",
-                transition: "background 0.3s",
-                whiteSpace: "nowrap"
-              }}
-              onMouseEnter={e => e.currentTarget.style.background = T.amber}
-              onMouseLeave={e => e.currentTarget.style.background = T.sand}>
+           className="start-project-link"
+              
+              >
               Start This Project →
             </a>
           </motion.div>
@@ -262,8 +252,8 @@ function ServiceBlock({svc,i}){
             
             {/* What's Included */}
             <div style={{
-              background: i % 2 === 0 ? T.creamDark : T.cream,
-              border: `1px solid ${T.sand}40`,
+             
+              border: `1px solid ${T.cream}40`,
               padding: "clamp(24px, 4vh, 36px) clamp(20px, 3vw, 36px)",
               marginBottom: "clamp(12px, 2vh, 16px)",
               width: "100%",
@@ -327,8 +317,8 @@ function ServiceBlock({svc,i}){
                   fontFamily: "'JetBrains Mono',monospace",
                   fontSize: "clamp(9px, 2vw, 10px)",
                   padding: "clamp(4px, 1vh, 6px) clamp(8px, 2vw, 12px)",
-                  border: `1px solid ${T.sand}50`,
-                  color: `${T.ink}45`,
+                  border: `1px solid ${T.cream}50`,
+                  color: `${T.cream}`,
                   letterSpacing: "0.1em",
                   whiteSpace: "nowrap"
                 }}>
@@ -348,7 +338,7 @@ function FAQ(){
   const [open,setOpen]=useState(null);
   const [r,v]=useRev();
   return(
-    <section style={{background:T.ink,padding:"120px 24px"}}>
+    <section style={{  background: "radial-gradient(ellipse 80% 60% at 50% -10%, #1B2A6B 0%, #0D1535 45%, #050E1F 100%)",padding:"120px 24px"}}>
       <div style={{maxWidth:900,margin:"0 auto"}}>
         <motion.div ref={r} variants={stag()} initial="hidden" animate={v?"visible":"hidden"}>
           <motion.div variants={fadeUp} style={{display:"flex",alignItems:"center",gap:12,marginBottom:18}}>
@@ -363,7 +353,7 @@ function FAQ(){
           {FAQS.map((faq,i)=>(
             <div key={i} style={{borderBottom:`1px solid ${T.cream}10`}}>
               <button onClick={()=>setOpen(open===i?null:i)} data-h
-                style={{width:"100%",display:"flex",alignItems:"center",justifyContent:"space-between",padding:"24px 0",background:"none",border:"none",cursor:"none",textAlign:"left",gap:24}}>
+                style={{width:"100%",display:"flex",alignItems:"center",justifyContent:"space-between",padding:"24px 0",background:"none",border:"none",textAlign:"left",gap:24}}>
                 <span style={{fontFamily:"Inter, sans-serif",fontWeight:600,color:`${T.cream}80`,fontSize:15}}>{faq.q}</span>
                 <motion.div animate={{rotate:open===i?45:0}} transition={{duration:0.3}}
                   style={{width:34,height:34,border:`1px solid ${T.cream}20`,display:"flex",alignItems:"center",justifyContent:"center",color:T.amber,fontSize:22,flexShrink:0}}>+</motion.div>
@@ -387,7 +377,7 @@ function FAQ(){
 function CTA(){
   const [r,v]=useRev();
   return(
-    <section style={{background:T.cream,padding:"120px 24px",position:"relative",overflow:"hidden"}}>
+    <section style={{  background: "radial-gradient(ellipse 80% 60% at 50% -10%, #1B2A6B 0%, #0D1535 45%, #050E1F 100%)",padding:"120px 24px",position:"relative",overflow:"hidden"}}>
       <div style={{position:"absolute",inset:0,opacity:0.045,backgroundImage:`radial-gradient(circle,${T.inkSoft} 1px,transparent 1px)`,backgroundSize:"clamp(20px, 4vw, 40px) clamp(20px, 4vw, 40px)"}}/>
       <div style={{position:"absolute",top:"50%",left:"clamp(40%, 50vw, 60%)",width:"min(500px, 70vw)",height:"min(500px, 70vw)",borderRadius:"50%",background:`${T.amber}07`,filter:"blur(clamp(50px, 10vw, 100px))",transform:"translateY(-50%)",pointerEvents:"none"}}/>
       <div ref={r} style={{maxWidth:900,margin:"0 auto",textAlign:"center",position:"relative",zIndex:1}}>
@@ -405,15 +395,13 @@ function CTA(){
           </p>
           <div style={{display:"flex",justifyContent:"center",gap:20,flexWrap:"wrap"}}>
             <a href="/contact" data-h
-              style={{display:"inline-flex",alignItems:"center",gap:14,background:T.sand,color:T.cream,fontFamily:"Inter, sans-serif",fontWeight:700,fontSize:12,letterSpacing:"0.22em",textTransform:"uppercase",padding:"20px 40px",textDecoration:"none",transition:"background 0.3s"}}
-              onMouseEnter={e=>e.currentTarget.style.background=T.amber}
-              onMouseLeave={e=>e.currentTarget.style.background=T.sand}>
+              className="cta_link"
+              >
               Book a Discovery Call →
             </a>
             <a href="/work" data-h
-              style={{display:"inline-flex",alignItems:"center",gap:14,fontFamily:"Inter, sans-serif",fontWeight:600,fontSize:12,letterSpacing:"0.18em",textTransform:"uppercase",padding:"20px 40px",textDecoration:"none",color:`${T.ink}60`,border:`1px solid ${T.sand}60`,transition:"all 0.3s"}}
-              onMouseEnter={e=>{e.currentTarget.style.color=T.ink;e.currentTarget.style.borderColor=T.ink;}}
-              onMouseLeave={e=>{e.currentTarget.style.color=`${T.ink}60`;e.currentTarget.style.borderColor=`${T.sand}60`;}}>
+              className="cta_work_link"
+              >
               See Our Work
             </a>
           </div>
@@ -427,8 +415,9 @@ function CTA(){
 /* ── PAGE ── */
 export default function ServicesPage(){
   return(
-    <div style={{fontFamily:"Inter, sans-serif",background:T.cream,minHeight:"100vh",cursor:"none"}}>
+    <div className="orbit-page" style={{fontFamily:"Inter, sans-serif",minHeight:"100vh"}}>
       <Cursor/>
+      <OrbitBackground />
       <Navbar/>
       <Hero/>
       {SERVICES.map((svc,i)=><ServiceBlock key={svc.n} svc={svc} i={i}/>)}

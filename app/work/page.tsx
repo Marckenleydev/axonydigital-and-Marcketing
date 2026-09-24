@@ -1,5 +1,6 @@
 "use client";
 import { useState, useRef, useCallback, useEffect } from "react";
+import { OrbitBackground } from "../components/OrbitBackground";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
@@ -25,7 +26,7 @@ function ProjectCard({w,i,onClick}){
     <motion.div ref={r} layout initial={{opacity:0,y:40}} animate={v?{opacity:1,y:0}:{opacity:0}} transition={{duration:0.75,delay:(i%3)*0.1,ease}}
       onMouseEnter={()=>setHov(true)} onMouseLeave={()=>setHov(false)}
       onClick={onClick} data-h
-      style={{background:T.inkSoft,minHeight:360,padding:36,display:"flex",flexDirection:"column",justifyContent:"space-between",cursor:"none",position:"relative",overflow:"hidden"}}>
+      style={{background:T.inkSoft,minHeight:360,padding:36,display:"flex",flexDirection:"column",justifyContent:"space-between",position:"relative",overflow:"hidden"}}>
       <motion.div animate={{opacity:hov?0.14:0.05}} style={{position:"absolute",inset:0,background:`radial-gradient(circle at 30% 50%,${w.acc},transparent 70%)`,filter:"blur(50px)"}}/>
       <div style={{position:"relative",zIndex:1}}>
         <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:32}}>
@@ -103,32 +104,33 @@ export default function WorkPage(){
   }, [emblaApi]);
 
   return(
-    <div style={{fontFamily:"Inter, sans-serif",background:T.creamDark,minHeight:"100vh",cursor:"none"}}>
+    <div className="orbit-page" style={{fontFamily:"Inter, sans-serif",  background: "radial-gradient(ellipse 80% 60% at 50% -10%, #1B2A6B 0%, #0D1535 45%, #050E1F 100%)",minHeight:"100vh"}}>
       <Cursor/>
+      <OrbitBackground />
       <Navbar />
 
       {/* Hero */}
-      <section style={{background:T.creamDark,padding:"160px 24px 80px",position:"relative",overflow:"hidden"}}>
+      <section style={{  background: "radial-gradient(ellipse 80% 60% at 50% -10%, #1B2A6B 0%, #0D1535 45%, #050E1F 100%)",padding:"160px 24px 80px",position:"relative",overflow:"hidden"}}>
         <div ref={r} style={{maxWidth:1200,margin:"0 auto",position:"relative",zIndex:1}}>
           <motion.div initial={{opacity:0,x:-20}} animate={v?{opacity:1,x:0}:{}} transition={{duration:0.8,delay:0.1}} style={{display:"flex",alignItems:"center",gap:16,marginBottom:28}}>
             <span style={{width:48,height:1,background:T.amber,display:"block"}}/>
             <span style={{fontFamily:"Inter, sans-serif",fontSize:11,color:T.amber,letterSpacing:"0.28em",textTransform:"uppercase"}}>Selected Work</span>
           </motion.div>
           <motion.h1 initial={{opacity:0,y:40}} animate={v?{opacity:1,y:0}:{}} transition={{duration:1,delay:0.2,ease}}
-            style={{fontFamily:"Inter, sans-serif",fontSize:"clamp(3rem,8vw,8rem)",fontWeight:900,lineHeight:0.9,letterSpacing:"-0.03em",color:T.ink,marginBottom:28,maxWidth:800}}>
+            style={{fontFamily:"Inter, sans-serif",fontSize:"clamp(3rem,8vw,8rem)",fontWeight:900,lineHeight:0.9,letterSpacing:"-0.03em",color:"white",marginBottom:28,maxWidth:800}}>
             Selected Work &
             <br/>
            <span style={{ fontStyle: "italic", color: T.amber, whiteSpace: "nowrap" }}>Case Studies.</span>
           </motion.h1>
           <motion.p initial={{opacity:0,y:20}} animate={v?{opacity:1,y:0}:{}} transition={{duration:0.8,delay:0.45}}
-            style={{fontFamily:"Inter, sans-serif",color:`${T.ink}65`,fontSize:17,maxWidth:440,lineHeight:1.75}}>
+            style={{fontFamily:"Inter, sans-serif",color:`white`,fontSize:17,maxWidth:440,lineHeight:1.75}}>
             A selection of digital experiences we&apos;ve crafted for ambitious brands. Every project reflects strategy, creativity, and a commitment to delivering exceptional results.
           </motion.p>
         </div>
       </section>
 
       {/* Carousel */}
-      <section style={{background:T.creamDark,padding:"4px 24px 120px"}}>
+      <section style={{  background: "radial-gradient(ellipse 80% 60% at 50% -10%, #1B2A6B 0%, #0D1535 45%, #050E1F 100%)",padding:"4px 24px 120px"}}>
         <div style={{maxWidth:1200,margin:"0 auto"}}>
           <style>{`
             .work-carousel {
@@ -278,7 +280,7 @@ export default function WorkPage(){
       </section>
 
       {/* CTA */}
-      <section style={{background:T.cream,padding:"120px 24px"}}>
+      <section style={{  background: "radial-gradient(ellipse 80% 60% at 50% -10%, #1B2A6B 0%, #0D1535 45%, #050E1F 100%)",padding:"120px 24px"}}>
         <div style={{maxWidth:700,margin:"0 auto",textAlign:"center"}}>
           <motion.div initial={{opacity:0,y:30}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{duration:0.9,ease}}>
             <div style={{display:"inline-flex",alignItems:"center",gap:12,marginBottom:24}}>
@@ -293,9 +295,7 @@ export default function WorkPage(){
               Free discovery call to kick things off. No commitment — just a conversation.
             </p>
             <a href="/contact" data-h
-              style={{display:"inline-flex",alignItems:"center",gap:14,background:T.sand,color:T.cream,fontFamily:"Inter, sans-serif",fontWeight:700,fontSize:12,letterSpacing:"0.22em",textTransform:"uppercase",padding:"20px 40px",textDecoration:"none",transition:"background 0.3s"}}
-              onMouseEnter={e=>e.currentTarget.style.background=T.amber}
-              onMouseLeave={e=>e.currentTarget.style.background=T.sand}>
+              className="start_project_link">
               Start a Project →
             </a>
           </motion.div>

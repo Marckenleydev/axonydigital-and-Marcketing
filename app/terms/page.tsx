@@ -1,5 +1,6 @@
 "use client";
 import { useRef } from "react";
+import { OrbitBackground } from "../components/OrbitBackground";
 import { motion, useInView } from "framer-motion";
 import { Footer } from "../components/Footer";
 import { Navbar } from "../components/Navbar";
@@ -20,30 +21,31 @@ export default function TermsPage() {
   const [r, v] = useRev();
 
   return (
-    <div style={{ fontFamily: "Inter, sans-serif", background: T.cream, minHeight: "100vh", cursor: "none" }}>
+    <div className="orbit-page" style={{ fontFamily: "Inter, sans-serif",  background: "radial-gradient(ellipse 80% 60% at 50% -10%, #1B2A6B 0%, #0D1535 45%, #050E1F 100%)", minHeight: "100vh" }}>
       <Cursor />
+      <OrbitBackground />
       <Navbar />
 
       {/* Hero */}
-      <section style={{ background: T.creamDark, padding: "160px 24px 80px", position: "relative", overflow: "hidden" }}>
+      <section style={{  background: "radial-gradient(ellipse 80% 60% at 50% -10%, #1B2A6B 0%, #0D1535 45%, #050E1F 100%)", padding: "160px 24px 80px", position: "relative", overflow: "hidden" }}>
         <div ref={r} style={{ maxWidth: 1200, margin: "0 auto", position: "relative", zIndex: 1 }}>
           <motion.div initial={{ opacity: 0, x: -20 }} animate={v ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.8, delay: 0.1 }} style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 28 }}>
             <span style={{ width: 48, height: 1, background: T.amber, display: "block" }} />
             <span style={{ fontFamily: "Inter, sans-serif", fontSize: 11, color: T.amber, letterSpacing: "0.28em", textTransform: "uppercase" }}>Legal</span>
           </motion.div>
           <motion.h1 initial={{ opacity: 0, y: 40 }} animate={v ? { opacity: 1, y: 0 } : {}} transition={{ duration: 1, delay: 0.2, ease }}
-            style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(3rem, 8vw, 8rem)", fontWeight: 900, lineHeight: 0.9, letterSpacing: "-0.03em", color: T.ink, marginBottom: 28, maxWidth: 800 }}>
+            style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(3rem, 8vw, 8rem)", fontWeight: 900, lineHeight: 0.9, letterSpacing: "-0.03em", color: T.cream, marginBottom: 28, maxWidth: 800 }}>
             Terms of<br /><span style={{ fontStyle: "italic", color: T.amber }}>Service.</span>
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={v ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.8, delay: 0.45 }}
-            style={{ fontFamily: "Inter, sans-serif", color: `${T.ink}65`, fontSize: 17, maxWidth: 440, lineHeight: 1.75 }}>
+            style={{ fontFamily: "Inter, sans-serif", color: `${T.cream}65`, fontSize: 17, maxWidth: 440, lineHeight: 1.75 }}>
             Last updated: August 2026. Please read these terms carefully.
           </motion.p>
         </div>
       </section>
 
       {/* Content */}
-      <section style={{ background: T.ink, padding: "80px 24px 120px" }}>
+      <section style={{ background: "radial-gradient(ellipse 80% 60% at 50% -10%, #1B2A6B 0%, #0D1535 45%, #050E1F 100%)", padding: "80px 24px 120px" }}>
         <div style={{ maxWidth: 800, margin: "0 auto" }}>
           <motion.div ref={r} variants={stag()} initial="hidden" animate={v ? "visible" : "hidden"}>
             {[

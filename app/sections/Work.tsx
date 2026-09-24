@@ -35,8 +35,6 @@ const stag = (d = 0) => ({
 });
 
 export function Work() {
-  const [r, v] = useRev();
-
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
       align: "start",
@@ -48,6 +46,13 @@ export function Work() {
   );
 
   const [selectedIndex, setSelectedIndex] = useState(0);
+
+  const [r, v] = useRev();
+
+  const sectionRef = useRef<HTMLElement>(null);
+  const orb1Ref = useRef<HTMLDivElement>(null);
+  const orb2Ref = useRef<HTMLDivElement>(null);
+  const orb3Ref = useRef<HTMLDivElement>(null);
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) {
@@ -86,14 +91,42 @@ export function Work() {
     };
   }, [emblaApi]);
 
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+
+      // ── Idle float animation on orbs ──
+      gsap.to(orb1Ref.current, {
+        y: "+=18", x: "+=10",
+        duration: 6, ease: "sine.inOut",
+        yoyo: true, repeat: -1,
+      });
+      gsap.to(orb2Ref.current, {
+        y: "-=14", x: "-=8",
+        duration: 7.5, ease: "sine.inOut",
+        yoyo: true, repeat: -1,
+      });
+      gsap.to(orb3Ref.current, {
+        y: "+=10",
+        duration: 5, ease: "sine.inOut",
+        yoyo: true, repeat: -1,
+      });
+
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
     <section
       id="work"
       style={{
-        background: T.creamDark,
         padding: "clamp(40px, 8vh, 120px) 16px",
+        background: "radial-gradient(ellipse 80% 60% at 50% -10%, #1B2A6B 0%, #0D1535 45%, #050E1F 100%)",
+        position: "relative",
       }}
     >
+     
+
       <style>{`
         .work-carousel {
           overflow: hidden;
@@ -217,7 +250,7 @@ export function Work() {
               fontFamily: "Inter, sans-serif",
               fontSize: "clamp(2rem, 8vw, 5.5rem)",
               fontWeight: 900,
-              color: T.ink,
+              color: "#FFFFFF",
               letterSpacing: "-0.03em",
               lineHeight: 1.05,
               margin: 0,
@@ -374,13 +407,12 @@ function WorkCard({ w, i }) {
       onMouseLeave={() => setHov(false)}
       data-h
       style={{
-        background: T.inkSoft,
+        background: "rgba(255,255,255,0.05)",
         minHeight: 360,
         padding: 36,
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
-        cursor: "none",
         position: "relative",
         overflow: "hidden",
       }}
@@ -440,7 +472,7 @@ function WorkCard({ w, i }) {
             fontFamily: "Inter, sans-serif",
             fontSize: "clamp(2rem, 4vw, 3rem)",
             fontWeight: 900,
-            color: T.cream,
+            color: "#FFFFFF",
             lineHeight: 1.05,
             letterSpacing: "-0.02em",
             marginBottom: 4,
@@ -453,7 +485,7 @@ function WorkCard({ w, i }) {
           style={{
             fontFamily: "Inter, sans-serif",
             fontSize: 12,
-            color: `${T.cream}B0`,
+            color: "rgba(255,255,255,0.7)",
             marginBottom: 12,
             letterSpacing: "0.08em",
           }}

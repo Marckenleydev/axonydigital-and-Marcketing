@@ -1,5 +1,6 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
+import { OrbitBackground } from "../components/OrbitBackground";
 import { motion, useInView } from "framer-motion";
 import {  VALUES, MILESTONES, SKILLS } from "../data";
 import { Cursor } from "../components/Cursor";
@@ -23,7 +24,7 @@ function Hero(){
   const [r,v]=useRev();
   return(
     <section style={{
-      background: T.creamDark,
+        background: "radial-gradient(ellipse 80% 60% at 50% -10%, #1B2A6B 0%, #0D1535 45%, #050E1F 100%)",
       padding: "clamp(100px, 15vh, 160px) clamp(16px, 5vw, 24px) clamp(60px, 8vh, 100px)",
       position: "relative",
       overflow: "hidden"
@@ -68,7 +69,7 @@ function Hero(){
             fontWeight: 900,
             lineHeight: 0.9,
             letterSpacing: "-0.03em",
-            color: T.ink,
+            color: "white",
             marginBottom: "clamp(20px, 4vh, 28px)",
             maxWidth: "100%",
             wordBreak: "break-word"
@@ -90,7 +91,7 @@ function Hero(){
           }}>
           <p style={{
             fontFamily: "Inter, sans-serif",
-            color: `${T.ink}65`,
+            color: `${T.cream}45`,
             fontSize: "clamp(15px, 2.5vw, 16px)",
             lineHeight: 1.78,
             maxWidth: "100%"
@@ -100,7 +101,7 @@ function Hero(){
           
           <p style={{
             fontFamily: "Inter, sans-serif",
-            color: `${T.ink}45`,
+            color: `${T.cream}45`,
             fontSize: "clamp(13px, 2.2vw, 14px)",
             lineHeight: 1.78,
             maxWidth: "100%"
@@ -113,68 +114,7 @@ function Hero(){
   );
 }
 
-/* ── STATS BAR ── */
-function StatsBar(){
-   const stats = [
-  {v:"100+", label:"DIGITAL PROJECTS"},
-  {v:"10+", label:"INDUSTRIES SERVED"},
-  {v:"24/7", label:"TECHNICAL SUPPORT"},
-  {v:"98%", label:"CLIENT SATISFACTION"},
-];
-  
-  return(
-    <div style={{
-      background: T.ink,
-      borderTop: `1px solid ${T.cream}07`,
-      borderBottom: `1px solid ${T.cream}07`,
-      width: "100%"
-    }}>
-      <div style={{
-        maxWidth: 1200,
-        margin: "0 auto",
-        display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(min(150px, 100%), 1fr))",
-        gap: 1,
-        background: `${T.cream}05`,
-        width: "100%"
-      }}>
-        {stats.map(s => (
-          <motion.div 
-            key={s.label} 
-            initial={{opacity:0, y:20}} 
-            whileInView={{opacity:1, y:0}} 
-            viewport={{once: true}}
-            style={{
-              background: T.inkSoft,
-              padding: "clamp(24px, 4vh, 36px) clamp(16px, 3vw, 24px)",
-              textAlign: "center",
-              width: "100%"
-            }}>
-            <div style={{
-              fontFamily: "Inter, sans-serif",
-              fontSize: "clamp(1.8rem, 5vw, 3rem)",
-              fontWeight: 900,
-              color: T.amber,
-              marginBottom: "clamp(2px, 1vh, 4px)"
-            }}>
-              {s.v}
-            </div>
-            <div style={{
-              fontFamily: "Inter, sans-serif",
-              fontSize: "clamp(9px, 2vw, 10px)",
-              color: `${T.cream}35`,
-              letterSpacing: "0.26em",
-              textTransform: "uppercase",
-              whiteSpace: "nowrap"
-            }}>
-              {s.label}
-            </div>
-          </motion.div>
-        ))}
-      </div>
-    </div>
-  );
-}
+
 
 
 /* ── VALUES ── */
@@ -183,9 +123,9 @@ function Values(){
   
   return(
     <section style={{
-      background: T.cream,
+        background: "radial-gradient(ellipse 80% 60% at 50% -10%, #1B2A6B 0%, #0D1535 45%, #050E1F 100%)",
       padding: "clamp(60px, 10vh, 120px) clamp(16px, 5vw, 24px)",
-      borderTop: `1px solid ${T.sand}30`,
+    
       width: "100%"
     }}>
       <div style={{
@@ -235,7 +175,7 @@ function Values(){
               fontFamily: "Inter, sans-serif",
               fontSize: "clamp(2rem, 7vw, 5rem)",
               fontWeight: 900,
-              color: T.ink,
+              color: "white",
               letterSpacing: "-0.03em",
               lineHeight: 1.05,
               maxWidth: "100%"
@@ -261,7 +201,7 @@ function Values(){
                 animate={vv ? {opacity:1, y:0} : {}} 
                 transition={{duration:0.65, delay:i*0.1, ease}}
                 style={{
-                  background: i % 2 === 0 ? T.cream : T.creamDark,
+                 
                   padding: "clamp(24px, 4vh, 48px) clamp(20px, 3vw, 48px)",
                   position: "relative",
                   overflow: "hidden",
@@ -337,9 +277,9 @@ function Skills(){
   
   return(
     <section style={{
-      background: T.creamDark,
+        background: "radial-gradient(ellipse 80% 60% at 50% -10%, #1B2A6B 0%, #0D1535 45%, #050E1F 100%)",
       padding: "clamp(60px, 10vh, 120px) clamp(16px, 5vw, 24px)",
-      borderTop: `1px solid ${T.sand}30`,
+     
       width: "100%"
     }}>
       <div style={{
@@ -627,7 +567,7 @@ function Skills(){
 function Timeline(){
   const [r,v]=useRev("-40px");
   return(
-    <section style={{background:T.ink,padding:"120px 24px"}}>
+    <section style={{  background: "radial-gradient(ellipse 80% 60% at 50% -10%, #1B2A6B 0%, #0D1535 45%, #050E1F 100%)",padding:"120px 24px"}}>
       <div style={{maxWidth:900,margin:"0 auto"}}>
         <motion.div ref={r} variants={stag()} initial="hidden" animate={v?"visible":"hidden"} style={{marginBottom:60}}>
           <motion.div variants={fadeUp} style={{display:"flex",alignItems:"center",gap:12,marginBottom:18}}>
@@ -692,14 +632,14 @@ function Team(){
 },[])
 
   return(
-    <section style={{background:T.cream,padding:"120px 24px",borderTop:`1px solid ${T.sand}30`}}>
+    <section style={{  background: "radial-gradient(ellipse 80% 60% at 50% -10%, #1B2A6B 0%, #0D1535 45%, #050E1F 100%)",padding:"120px 24px"}}>
       <div style={{maxWidth:1200,margin:"0 auto"}}>
         <motion.div ref={r} variants={stag()} initial="hidden" animate={v?"visible":"hidden"} style={{marginBottom:56}}>
           <motion.div variants={fadeUp} style={{display:"flex",alignItems:"center",gap:12,marginBottom:18}}>
             <span style={{width:32,height:1,background:T.amber,display:"block"}}/>
             <span style={{fontFamily:"Inter, sans-serif",fontSize:10,color:T.amber,letterSpacing:"0.28em",textTransform:"uppercase"}}>The Team</span>
           </motion.div>
-          <motion.h2 variants={fadeUp} style={{fontFamily:"Inter, sans-serif",fontSize:"clamp(2.5rem,5.5vw,5rem)",fontWeight:900,color:T.ink,letterSpacing:"-0.03em",lineHeight:1.05}}>
+          <motion.h2 variants={fadeUp} style={{fontFamily:"Inter, sans-serif",fontSize:"clamp(2.5rem,5.5vw,5rem)",fontWeight:900,color:T.cream,letterSpacing:"-0.03em",lineHeight:1.05}}>
             People Behind<br/><span style={{fontStyle:"italic",color:T.amber}}>The Work.</span>
           </motion.h2>
         </motion.div>
@@ -708,7 +648,7 @@ function Team(){
   {!loading && team.length === 0 && (
     <p style={{padding:20}}>No team members found.</p>
   )}
-        <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(280px,1fr))",gap:1,background:`${T.sand}30`}}>
+        <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(280px,1fr))",gap:1}}>
        
           {team.map((member, i) => (
   <TeamCard key={member._id} member={member} i={i} />
@@ -723,7 +663,7 @@ function Team(){
 function CTA(){
   const [r,v]=useRev();
   return(
-    <section style={{background:T.ink,padding:"120px 24px",position:"relative",overflow:"hidden"}}>
+    <section style={{  background: "radial-gradient(ellipse 80% 60% at 50% -10%, #1B2A6B 0%, #0D1535 45%, #050E1F 100%)",padding:"120px 24px",position:"relative",overflow:"hidden"}}>
       <div style={{position:"absolute",inset:0,opacity:0.03,backgroundImage:`radial-gradient(circle,${T.cream}80 1px,transparent 1px)`,backgroundSize:"clamp(20px, 4vw, 40px) clamp(20px, 4vw, 40px)"}}/>
       <div style={{position:"absolute",top:"50%",left:"50%",transform:"translate(-50%,-50%)",width:"min(700px, 90vw)",height:"min(400px, 50vw)",borderRadius:"50%",background:`${T.amber}06`,filter:"blur(clamp(60px, 12vw, 120px))",pointerEvents:"none"}}/>
       <div ref={r} style={{maxWidth:800,margin:"0 auto",textAlign:"center",position:"relative",zIndex:1}}>
@@ -741,15 +681,11 @@ function CTA(){
           </p>
           <div style={{display:"flex",justifyContent:"center",gap:20,flexWrap:"wrap"}}>
             <a href="/contact" data-h
-              style={{display:"inline-flex",alignItems:"center",gap:14,background:T.sand,color:T.cream,fontFamily:"Inter, sans-serif",fontWeight:700,fontSize:12,letterSpacing:"0.22em",textTransform:"uppercase",padding:"20px 40px",textDecoration:"none",transition:"background 0.3s"}}
-              onMouseEnter={e=>{e.currentTarget.style.background=T.cream;e.currentTarget.style.color=T.ink}}
-              onMouseLeave={e=>{e.currentTarget.style.background=T.sand;e.currentTarget.style.color=T.cream}}>
+className="cta_link">
               Start a Conversation →
             </a>
             <a href="/work" data-h
-              style={{display:"inline-flex",alignItems:"center",gap:14,fontFamily:"Inter, sans-serif",fontWeight:600,fontSize:12,letterSpacing:"0.18em",textTransform:"uppercase",padding:"20px 40px",textDecoration:"none",color:`${T.cream}60`,border:`1px solid ${T.cream}15`,transition:"all 0.3s"}}
-              onMouseEnter={e=>{e.currentTarget.style.color=T.cream;e.currentTarget.style.borderColor=`${T.cream}40`;}}
-              onMouseLeave={e=>{e.currentTarget.style.color=`${T.cream}60`;e.currentTarget.style.borderColor=`${T.cream}15`;}}>
+              className="cta_work_link">
               See Our Work
             </a>
           </div>
@@ -761,11 +697,12 @@ function CTA(){
 
 export default function AboutPage(){
   return(
-    <div style={{fontFamily:"Inter, sans-serif",background:T.cream,minHeight:"100vh",cursor:"none"}}>
+    <div className="orbit-page" style={{fontFamily:"Inter, sans-serif",background:T.cream,minHeight:"100vh"}}>
       <Cursor/>
+      <OrbitBackground />
       <Navbar />
       <Hero/>
-      <StatsBar/>
+     
       <Values/>
       <Skills/>
       <Timeline/>

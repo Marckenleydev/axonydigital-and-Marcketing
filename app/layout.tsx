@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import Image from "next/image";
 
-const montserrat = Montserrat({
-  variable: "--font-montserrat",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800", "900"],
 });
@@ -78,7 +78,7 @@ export const metadata: Metadata = {
       sizes: "any",
     },
     {
-      url: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23000000'/%3E%3Ctext x='50%25' y='50%25' font-family='Georgia,serif' font-size='16' font-weight='900' fill='%23FFFACD' text-anchor='middle' dominant-baseline='middle'%3EV%3C/text%3E%3C/svg%3E",
+      url: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='3' fill='%230F1A4D'/%3E%3Ctext x='50%25' y='50%25' font-family='Georgia,serif' font-size='18' font-weight='900' fill='%23FFFFFF' text-anchor='middle' dominant-baseline='middle'%3EA%3C/text%3E%3C/svg%3E",
       type: "image/svg+xml",
       sizes: "32x32",
     },
@@ -120,7 +120,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className={`${montserrat.variable} antialiased`}>
+      <body className={`${inter.variable} antialiased`}>
 
         <script
           type="application/ld+json"
@@ -135,7 +135,9 @@ export default function RootLayout({
             __html: JSON.stringify(organizationSchema),
           }}
         />
-
+ <div className="orb orb-1" />
+        <div className="orb orb-2" />
+        <div className="orb orb-3" />
         {children}
 
         <div className="fixed bottom-6 right-6 z-[9999] pointer-events-auto">

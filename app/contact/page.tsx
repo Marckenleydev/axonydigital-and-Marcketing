@@ -1,5 +1,6 @@
 "use client";
 import { useRef } from "react";
+import { OrbitBackground } from "../components/OrbitBackground";
 import { motion, useInView } from "framer-motion";
 import { Footer } from "../components/Footer";
 import { Navbar } from "../components/Navbar";
@@ -18,12 +19,13 @@ function useRev(m:"-70px"){const r=useRef(null);const v=useInView(r,{once:true,m
 export default function ContactPage(){
   const [r,v]=useRev();
   return(
-    <div style={{fontFamily:"Inter, sans-serif",background:T.cream,minHeight:"100vh",cursor:"none"}}>
+    <div className="orbit-page" style={{fontFamily:"Inter, sans-serif",background:T.cream,minHeight:"100vh"}}>
       <Cursor/>
+      <OrbitBackground />
       <Navbar />
 
       {/* Hero */}
-      <section style={{background:T.creamDark,padding:"160px 24px 80px",position:"relative",overflow:"hidden"}}>
+      <section style={{ background: "radial-gradient(ellipse 80% 60% at 50% -10%, #1B2A6B 0%, #0D1535 45%, #050E1F 100%)",padding:"160px 24px 80px",position:"relative",overflow:"hidden"}}>
 
         <div ref={r} style={{maxWidth:1200,margin:"0 auto",position:"relative",zIndex:1}}>
           <motion.div initial={{opacity:0,x:-20}} animate={v?{opacity:1,x:0}:{}} transition={{duration:0.8,delay:0.1}} style={{display:"flex",alignItems:"center",gap:16,marginBottom:28}}>
@@ -31,7 +33,7 @@ export default function ContactPage(){
             <span style={{fontFamily:"Inter, sans-serif",fontSize:11,color:T.amber,letterSpacing:"0.28em",textTransform:"uppercase"}}>Let's Talk</span>
           </motion.div>
           <motion.h1 initial={{opacity:0,y:40}} animate={v?{opacity:1,y:0}:{}} transition={{duration:1,delay:0.2,ease}}
-            style={{fontFamily:"Inter, sans-serif",fontSize:"clamp(3rem,8vw,8rem)",fontWeight:900,lineHeight:0.9,letterSpacing:"-0.03em",color:T.ink,marginBottom:28,maxWidth:900}}>
+            style={{fontFamily:"Inter, sans-serif",fontSize:"clamp(3rem,8vw,8rem)",fontWeight:900,lineHeight:0.9,letterSpacing:"-0.03em",color:T.cream,marginBottom:28,maxWidth:900}}>
             Start Your<br/><span style={{fontStyle:"italic",color:T.amber}}>Next Chapter.</span>
           </motion.h1>
           <motion.p initial={{opacity:0,y:20}} animate={v?{opacity:1,y:0}:{}} transition={{duration:0.8,delay:0.45}}
@@ -42,7 +44,7 @@ export default function ContactPage(){
       </section>
 
       {/* Main grid */}
-      <section style={{background:T.ink,padding:"20px 24px 120px"}}>
+      <section style={{ background: "radial-gradient(ellipse 80% 60% at 50% -10%, #1B2A6B 0%, #0D1535 45%, #050E1F 100%)",padding:"20px 24px 120px"}}>
        <div style={{
   maxWidth: 1200,
   margin: "0 auto",
@@ -59,7 +61,7 @@ export default function ContactPage(){
 
       {/* Map / Location band */}
      <section style={{
-  background: T.inkSoft,
+  background:  "radial-gradient(ellipse 80% 60% at 50% -10%, #1B2A6B 0%, #0D1535 45%, #050E1F 100%)",
   borderTop: `1px solid ${T.cream}08`,
   padding: "clamp(48px, 8vh, 72px) clamp(16px, 5vw, 24px)",
   width: "100%",
@@ -71,7 +73,7 @@ export default function ContactPage(){
     display: "grid",
     gridTemplateColumns: "repeat(4, 1fr)", // Fixed 4 columns on desktop
     gap: 2, // Original gap preserved
-    background: `${T.cream}05`,
+     background: "radial-gradient(ellipse 80% 60% at 50% -10%, #1B2A6B 0%, #0D1535 45%, #050E1F 100%)",
     width: "100%"
   }} className="offices-grid">
     {[

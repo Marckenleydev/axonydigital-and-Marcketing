@@ -259,12 +259,12 @@ export const WORKS = [
 ];
 
 export const STEPS = [
-  { n:"01", t:"Discovery",       d:"Deep-dive into your business, audience, and competitors.", dur:"1 wk" },
-  { n:"02", t:"Strategy",        d:"Tech stack, IA, design direction, and project blueprint.", dur:"1 wk" },
-  { n:"03", t:"Design",          d:"High-fidelity Figma prototypes, iterated to perfection.", dur:"2–3 wk" },
-  { n:"04", t:"Development",     d:"Agile sprints with live demos every Friday.", dur:"4–10 wk" },
-  { n:"05", t:"QA & Perf",       d:"Cross-browser, a11y, and full Lighthouse audits.", dur:"1 wk" },
-  { n:"06", t:"Launch & Growth", d:"Zero-downtime deploy, monitoring, ongoing improvements.", dur:"∞" },
+  { n:"01", t:"Discovery",       d:"Deep-dive into your business, audience, and competitors.", dur:"1 wk",  img:"/images/process_1.jpg" },
+  { n:"02", t:"Strategy",        d:"Tech stack, IA, design direction, and project blueprint.", dur:"1 wk",  img:"/images/process_2.jpg" },
+  { n:"03", t:"Design",          d:"High-fidelity Figma prototypes, iterated to perfection.", dur:"2–3 wk", img:"/images/process_3.avif" },
+  { n:"04", t:"Development",     d:"Agile sprints with live demos every Friday.", dur:"4–10 wk", img:"/images/process_4.jpg" },
+  { n:"05", t:"QA & Perf",       d:"Cross-browser, a11y, and full Lighthouse audits.", dur:"1 wk",  img:"/images/process_5.jpg" },
+  { n:"06", t:"Launch & Growth", d:"Zero-downtime deploy, monitoring, ongoing improvements.", dur:"∞",      img:"/images/process__6.webp" },
 ];
 
 export const TESTIMONIALS = [

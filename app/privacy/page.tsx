@@ -1,5 +1,6 @@
 "use client";
 import { useRef } from "react";
+import { OrbitBackground } from "../components/OrbitBackground";
 import { motion, useInView } from "framer-motion";
 import { Footer } from "../components/Footer";
 import { Navbar } from "../components/Navbar";
@@ -20,8 +21,9 @@ export default function PrivacyPage() {
   const [r, v] = useRev();
 
   return (
-    <div style={{ fontFamily: "Inter, sans-serif", background: T.cream, minHeight: "100vh", cursor: "none" }}>
+    <div className="orbit-page" style={{ fontFamily: "Inter, sans-serif", background: T.cream, minHeight: "100vh" }}>
       <Cursor />
+      <OrbitBackground />
       <Navbar />
 
       {/* Hero */}

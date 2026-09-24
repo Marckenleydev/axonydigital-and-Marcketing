@@ -1,6 +1,7 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 
 import { motion, useInView, AnimatePresence } from "framer-motion";
+import gsap from "gsap";
 import { T } from "../data";
 
 
@@ -17,10 +18,16 @@ function useRev(margin="-70px") {
 
 
 export function Contact() {
-  const [r,v] = useRev();
-  const [form,setForm] = useState({name:"",email:"",service:"",budget:"",msg:""});
-  const [sent,setSent] = useState(false);
-  const [focus,setFocus] = useState(null);
+  const [form, setForm] = useState({ name: "", email: "", service: "", message: "" });
+  const [focus, setFocus] = useState<string | null>(null);
+  const [r, v] = useRev();
+  const [sent, setSent] = useState(false);
+
+  const sectionRef = useRef<HTMLElement>(null);
+  const orb1Ref    = useRef<HTMLDivElement>(null);
+  const orb2Ref    = useRef<HTMLDivElement>(null);
+  const orb3Ref    = useRef<HTMLDivElement>(null);
+
   const up = (k:string,val:string) => setForm(f=>({...f,[k]:val}));
   const BUDGETS = [
   "AED 5k–15k",
@@ -35,12 +42,39 @@ export function Contact() {
   "Growth Strategy"
 ];
 
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+
+      // ── Idle float animation on orbs ──
+      gsap.to(orb1Ref.current, {
+        y: "+=18", x: "+=10",
+        duration: 6, ease: "sine.inOut",
+        yoyo: true, repeat: -1,
+      });
+      gsap.to(orb2Ref.current, {
+        y: "-=14", x: "-=8",
+        duration: 7.5, ease: "sine.inOut",
+        yoyo: true, repeat: -1,
+      });
+      gsap.to(orb3Ref.current, {
+        y: "+=10",
+        duration: 5, ease: "sine.inOut",
+        yoyo: true, repeat: -1,
+      });
+
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
     <section id="contact" style={{
-      background: T.ink,
       padding: "clamp(60px, 10vh, 120px) clamp(16px, 5vw, 24px)",
-      overflow: "hidden"
+      overflow: "hidden",
+      background: "radial-gradient(ellipse 80% 60% at 50% -10%, #1B2A6B 0%, #0D1535 45%, #050E1F 100%)",
+      position: "relative",
     }}>
+     
       <div style={{
         maxWidth: 1100,
         margin: "0 auto",
@@ -90,7 +124,7 @@ export function Contact() {
               transition={{duration:0.9, delay:0.1, ease}}
               style={{
                 fontFamily:"Inter, sans-serif",
-                fontSize: "clamp(2.2rem, 8vw, 5rem)",
+                  fontSize: "clamp(2rem, 8vw, 5.5rem)",
                 fontWeight: 900,
                 color: T.cream,
                 letterSpacing: "-0.03em",
@@ -324,7 +358,6 @@ export function Contact() {
                             border: `1px solid ${form.service === s ? T.amber : `${T.cream}18`}`,
                             background: form.service === s ? `${T.amber}18` : "transparent",
                             color: form.service === s ? T.amber : `${T.cream}50`,
-                            cursor: "none",
                             transition: "all 0.2s",
                             letterSpacing: "0.06em",
                             whiteSpace: "nowrap"
@@ -365,7 +398,6 @@ export function Contact() {
                             border: `1px solid ${form.budget === b ? T.amber : `${T.cream}12`}`,
                             background: form.budget === b ? `${T.amber}18` : "transparent",
                             color: form.budget === b ? T.amber : `${T.cream}35`,
-                            cursor: "none",
                             transition: "all 0.2s",
                             letterSpacing: "0.1em",
                             textAlign: "center",
@@ -417,34 +449,9 @@ export function Contact() {
                   <button 
                     onClick={() => { if(form.name && form.email) setSent(true) }} 
                     data-h
-                    style={{
-                      width: "100%",
-                      background: T.sand,
-                      color: T.cream,
-                      fontFamily:"Inter, sans-serif",
-                      fontWeight: 800,
-                      fontSize: "clamp(11px, 2.2vw, 12px)",
-                      letterSpacing: "0.22em",
-                      textTransform: "uppercase",
-                      padding: "clamp(16px, 3vh, 22px) clamp(20px, 4vw, 24px)",
-                      border: "none",
-                      cursor: "none",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      gap: "clamp(8px, 2vw, 14px)",
-                      transition: "background 0.3s",
-                      whiteSpace: "nowrap"
-                    }}
-                    onMouseEnter={e => {
-                      e.currentTarget.style.background = T.cream;
-                      e.currentTarget.style.color = T.ink;
-                    }}
-                    onMouseLeave={e => {
-                      e.currentTarget.style.background = T.sand;
-                      e.currentTarget.style.color = T.cream;
-                    }}>
-                    Send Message <span style={{fontSize: "clamp(16px, 3vw, 18px)"}}>→</span>
+                    className="send-message-btn "
+                    >
+                    Send Message <span >→</span>
                   </button>
                 </motion.div>
               )}

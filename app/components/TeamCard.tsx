@@ -20,7 +20,7 @@ export function TeamCard({ member, i }: { member: any; i: number }) {
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       style={{
-        background: hover ? T.creamDark : T.cream,
+       
         padding: 32,
         transition: "background 0.3s",
       }}
@@ -30,7 +30,7 @@ export function TeamCard({ member, i }: { member: any; i: number }) {
         style={{
           width: 52,
           height: 52,
-          background: hover ? member.color : `${member.color}20`,
+         
           display: "flex",
           alignItems: "center",
           justifyContent: "center",

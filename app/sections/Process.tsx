@@ -149,6 +149,22 @@ const headingScale = useTransform(
         position: "relative",
       }}
     >
+      <style>{`
+        @media (max-width: 640px) {
+          .eyebrow-container {
+            justify-content: center !important;
+          }
+          .eyebrow-line {
+            display: none !important;
+          }
+          .eyebrow-text {
+            text-align: center !important;
+          }
+          .section-title {
+            text-align: center !important;
+          }
+        }
+      `}</style>
      
 
       <div style={{ maxWidth: 1200, margin: "0 auto", width: "100%" }}>
@@ -169,6 +185,7 @@ const headingScale = useTransform(
           <div style={{ width: "100%" }}>
             <motion.div
               variants={fadeUp}
+              className="eyebrow-container"
               style={{
                 display: "flex",
                 alignItems: "center",
@@ -178,6 +195,7 @@ const headingScale = useTransform(
               }}
             >
               <span
+                className="eyebrow-line"
                 style={{
                   width: "clamp(24px, 4vw, 32px)",
                   height: 1,
@@ -186,6 +204,7 @@ const headingScale = useTransform(
                 }}
               />
               <span
+                className="eyebrow-text"
                 style={{
                   fontFamily: "Inter, sans-serif",
                   fontSize: "clamp(9px, 2vw, 10px)",
@@ -212,6 +231,7 @@ const headingScale = useTransform(
                 maxWidth: "100%",
                 willChange: "transform",
               }}
+              className="section-title"
             >
               Our Process <br />
               <span style={{ fontStyle: "italic", color: T.amber }}>

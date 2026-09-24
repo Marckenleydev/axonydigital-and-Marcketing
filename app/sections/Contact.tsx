@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 
-import { motion, useInView, AnimatePresence } from "framer-motion";
+import { motion, useInView, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import gsap from "gsap";
 import { T } from "../data";
 
@@ -28,6 +28,24 @@ export function Contact() {
   const orb2Ref    = useRef<HTMLDivElement>(null);
   const orb3Ref    = useRef<HTMLDivElement>(null);
 
+    // Framer Motion scroll animation
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+     offset: ["start 25%", "start -30%"],
+  });
+const headingScale = useTransform(
+    scrollYProgress,
+    [0, 0.7],
+    [1, 1.6]
+  );
+
+  const headingOpacity = useTransform(
+    scrollYProgress,
+    [0, 0.55, 0.8],
+    [1, 0.5, 0]
+  );
+ 
+
   const up = (k:string,val:string) => setForm(f=>({...f,[k]:val}));
   const BUDGETS = [
   "AED 5k–15k",
@@ -41,6 +59,7 @@ export function Contact() {
   "Content & Creative Production",
   "Growth Strategy"
 ];
+
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -68,12 +87,28 @@ export function Contact() {
   }, []);
 
   return (
-    <section id="contact" style={{
+    <section ref={sectionRef} id="contact" style={{
       padding: "clamp(60px, 10vh, 120px) clamp(16px, 5vw, 24px)",
       overflow: "hidden",
       background: "radial-gradient(ellipse 80% 60% at 50% -10%, #1B2A6B 0%, #0D1535 45%, #050E1F 100%)",
       position: "relative",
     }}>
+      <style>{`
+        @media (max-width: 640px) {
+          .eyebrow-container {
+            justify-content: center !important;
+          }
+          .eyebrow-line {
+            display: none !important;
+          }
+          .eyebrow-text {
+            text-align: center !important;
+          }
+          .section-title {
+            text-align: center !important;
+          }
+        }
+      `}</style>
      
       <div style={{
         maxWidth: 1100,
@@ -94,6 +129,7 @@ export function Contact() {
               initial={{opacity:0, x:-20}} 
               animate={v ? {opacity:1, x:0} : {}} 
               transition={{duration:0.6}}
+              className="eyebrow-container"
               style={{
                 display: "flex",
                 alignItems: "center",
@@ -101,13 +137,13 @@ export function Contact() {
                 marginBottom: "clamp(16px, 3vh, 20px)",
                 flexWrap: "wrap"
               }}>
-              <span style={{
+              <span className="eyebrow-line" style={{
                 width: "clamp(24px, 4vw, 32px)",
                 height: 1,
                 background: T.amber,
                 display: "block"
               }} />
-              <span style={{
+              <span className="eyebrow-text" style={{
                 fontFamily:"Inter, sans-serif",
                 fontSize: "clamp(9px, 2vw, 10px)",
                 color: T.amber,
@@ -119,10 +155,10 @@ export function Contact() {
             </motion.div>
             
             <motion.h2 
-              initial={{opacity:0, y:28}} 
-              animate={v ? {opacity:1, y:0} : {}} 
-              transition={{duration:0.9, delay:0.1, ease}}
+             
               style={{
+                  scale: headingScale,
+            opacity: headingOpacity,
                 fontFamily:"Inter, sans-serif",
                   fontSize: "clamp(2rem, 8vw, 5.5rem)",
                 fontWeight: 900,
@@ -131,7 +167,9 @@ export function Contact() {
                 lineHeight: 0.92,
                 marginBottom: "clamp(20px, 4vh, 28px)",
                 maxWidth: "100%"
-              }}>
+              }}
+              className="section-title"
+            >
               Start Your<br/>
               <span style={{fontStyle: "italic", color: T.amber}}>
                 Next Chapter.

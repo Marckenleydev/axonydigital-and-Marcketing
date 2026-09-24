@@ -83,6 +83,26 @@ const headingScale = useTransform(
     >
     
 
+      <style>{`
+        @media (max-width: 640px) {
+          .eyebrow-container {
+            justify-content: center !important;
+          }
+          .eyebrow-line {
+            display: none !important;
+          }
+          .eyebrow-text {
+            text-align: center !important;
+          }
+          .headline-container {
+            justify-content: center !important;
+            align-items: center !important;
+          }
+          .section-title {
+            text-align: center !important;
+          }
+        }
+      `}</style>
       <div style={{ maxWidth: 1200, margin: "0 auto" }}>
 
         {/* ── Header ── */}
@@ -95,6 +115,7 @@ const headingScale = useTransform(
           {/* Eyebrow */}
           <motion.div
            
+            className="eyebrow-container"
             style={{
               display: "flex",
               alignItems: "center",
@@ -103,8 +124,8 @@ const headingScale = useTransform(
               willChange: "transform",
             }}
           >
-            <span style={{ width: 32, height: 1, background: T.amber, display: "block" }} />
-            <span style={{
+            <span className="eyebrow-line" style={{ width: 32, height: 1, background: T.amber, display: "block" }} />
+            <span className="eyebrow-text" style={{
               fontFamily: "Inter, sans-serif",
               fontSize: 10,
               color: T.amber,
@@ -116,7 +137,7 @@ const headingScale = useTransform(
           </motion.div>
 
           {/* Headline + sub */}
-          <div style={{
+          <div className="headline-container" style={{
             display: "flex",
             flexWrap: "wrap",
             alignItems: "flex-end",
@@ -137,6 +158,7 @@ const headingScale = useTransform(
                 lineHeight: 1.05,
                 willChange: "transform",
               }}
+              className="section-title"
             >
               Our{" "}
               <span style={{ fontStyle: "italic", color: T.amber }}>Core</span>

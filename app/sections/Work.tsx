@@ -125,6 +125,22 @@ export function Work() {
         position: "relative",
       }}
     >
+      <style>{`
+        @media (max-width: 640px) {
+          .eyebrow-container {
+            justify-content: center !important;
+          }
+          .eyebrow-line {
+            display: none !important;
+          }
+          .eyebrow-text {
+            text-align: center !important;
+          }
+          .section-title {
+            text-align: center !important;
+          }
+        }
+      `}</style>
      
 
       <style>{`
@@ -215,6 +231,7 @@ export function Work() {
         >
           <motion.div
             variants={fadeUp}
+            className="eyebrow-container"
             style={{
               marginBottom: 16,
               display: "flex",
@@ -223,6 +240,7 @@ export function Work() {
             }}
           >
             <span
+              className="eyebrow-line"
               style={{
                 width: 32,
                 height: 1,
@@ -232,6 +250,7 @@ export function Work() {
             />
 
             <span
+              className="eyebrow-text"
               style={{
                 fontFamily: "Inter, sans-serif",
                 fontSize: 10,
@@ -255,6 +274,7 @@ export function Work() {
               lineHeight: 1.05,
               margin: 0,
             }}
+            className="section-title"
           >
             Selected Work & <br />
             <span

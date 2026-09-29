@@ -51,11 +51,11 @@ export default function TermsPage() {
             {[
               {
                 title: "Acceptance of Terms",
-                content: "By accessing and using Veraa Digital's services, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services. We reserve the right to modify these terms at any time, and your continued use constitutes acceptance of any changes."
+                content: "By accessing and using Axony Digital's services, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services. We reserve the right to modify these terms at any time, and your continued use constitutes acceptance of any changes."
               },
               {
                 title: "Services Provided",
-                content: "Veraa Digital provides web development, digital marketing, and related services as described on our website. We strive to deliver high-quality work, but specific outcomes and timelines may vary based on project scope, client cooperation, and external factors beyond our control."
+                content: "axony Digital provides web development, digital marketing, and related services as described on our website. We strive to deliver high-quality work, but specific outcomes and timelines may vary based on project scope, client cooperation, and external factors beyond our control."
               },
               {
                 title: "Client Responsibilities",
@@ -67,7 +67,7 @@ export default function TermsPage() {
               },
               {
                 title: "Intellectual Property",
-                content: "Upon full payment, clients receive ownership of final deliverables as specified in their agreement. Veraa Digital retains rights to pre-existing code, frameworks, and tools. We reserve the right to showcase completed work in our portfolio unless otherwise agreed."
+                content: "Upon full payment, clients receive ownership of final deliverables as specified in their agreement. axony Digital retains rights to pre-existing code, frameworks, and tools. We reserve the right to showcase completed work in our portfolio unless otherwise agreed."
               },
               {
                 title: "Confidentiality",
@@ -75,15 +75,15 @@ export default function TermsPage() {
               },
               {
                 title: "Limitation of Liability",
-                content: "Veraa Digital shall not be liable for any indirect, incidental, or consequential damages arising from the use of our services. Our total liability is limited to the amount paid for the specific service in question."
+                content: "axony Digital shall not be liable for any indirect, incidental, or consequential damages arising from the use of our services. Our total liability is limited to the amount paid for the specific service in question."
               },
               {
                 title: "Termination",
-                content: "Either party may terminate the agreement with written notice. Clients will be responsible for payment for work completed up to the termination date. Veraa Digital reserves the right to terminate services for violation of these terms or non-payment."
+                content: "Either party may terminate the agreement with written notice. Clients will be responsible for payment for work completed up to the termination date. axony Digital reserves the right to terminate services for violation of these terms or non-payment."
               },
               {
                 title: "Contact Information",
-                content: "For questions about these Terms of Service, please contact us at info@veraa.digital. We are committed to addressing any concerns promptly and professionally."
+                content: "For questions about these Terms of Service, please contact us at info@axony.digital. We are committed to addressing any concerns promptly and professionally."
               }
             ].map((section, i) => (
               <motion.div key={i} variants={fadeUp} style={{ marginBottom: 48, borderBottom: `1px solid ${T.cream}10`, paddingBottom: 32 }}>

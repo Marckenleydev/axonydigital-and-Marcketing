@@ -8,7 +8,7 @@ export const NAV = [
   { label: "Work", href: "/work" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
-  { label: "Terms", href: "/terms" },
+
 ];
 
 export function Navbar() {

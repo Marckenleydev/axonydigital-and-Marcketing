@@ -1,9 +1,17 @@
 
 
 
-import { NAV } from "./Navbar";
+
 import { T } from "../data";
 
+
+export const FOOTER = [
+  { label: "Terms Of Service", href: "/terms" },
+  { label: "Privacy Policy", href: "/privacy" },
+  { label: "Cookies Policy", href: "/cookies" },
+
+
+];
 /* ─────────────────────────── FOOTER ─────────────────────────── */
 export function Footer() {
   return (
@@ -17,7 +25,7 @@ export function Footer() {
             <span style={{fontFamily:"Inter, sans-serif",fontWeight:800,fontSize:13,letterSpacing:"0.22em",color:T.cream,textTransform:"uppercase"}}>AXONY<span style={{color:T.amber}}>.</span>DIGITAL</span>
           </a>
           <nav style={{display:"flex",flexWrap:"wrap",gap:32}}>
-            {NAV.map(l=>(
+            {FOOTER.map(l=>(
               <a key={l.label} href={l.href} data-h
                 style={{fontFamily:"Inter, sans-serif",fontSize:10,fontWeight:600,color:`${T.cream}30`,textDecoration:"none",letterSpacing:"0.22em",textTransform:"uppercase",transition:"color 0.25s"}}
                 onMouseEnter={e=>(e.target as HTMLElement).style.color=`${T.cream}70`}

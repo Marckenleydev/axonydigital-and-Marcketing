@@ -389,7 +389,7 @@ export function Hero() {
             opacity: headingOpacity,
             fontFamily: "Inter, sans-serif",
             fontSize: "clamp(2.5rem, 10.5vw, 7rem)",
-            fontWeight: 600,
+            fontWeight: 700,
             lineHeight: 0.9,
             letterSpacing: "0.01em",
             color: T.cream,
@@ -463,14 +463,14 @@ export function Hero() {
             style={{
               fontFamily: "Inter, sans-serif",
               color: "rgba(255,255,255,0.55)",
-              fontSize: "clamp(15px, 3vw, 17px)",
+              fontSize: "clamp(17px, 3.4vw, 20px)",
               maxWidth: "min(680px, 100%)",
               lineHeight: 1.7,
               flex: "0 1 auto",
               textAlign: "center",
             }}
           >
-            Web platforms, marketing, and content built to scale ambitious brands.
+           Web platforms, marketing, and content built to scale ambitious businesses.
           </motion.p>
 
           <motion.div

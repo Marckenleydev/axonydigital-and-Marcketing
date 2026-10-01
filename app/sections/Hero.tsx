@@ -25,12 +25,12 @@ export function Hero() {
   const lines = [
     {
       segments: [
-        { text: "WE TURN", italic: false },
-        { text: "ATTENTION", italic: true },
+        { text: "Scale your revenue with", italic: false },
+        { text: "predictable", italic: true },
       ],
     },
     {
-      segments: [{ text: "Into Sales", italic: false }],
+      segments: [{ text: "web marketing.", italic: false }],
     },
   ];
 
@@ -269,27 +269,7 @@ export function Hero() {
               width: "100%",
             }}
           >
-            {/* <span
-              style={{
-                fontFamily: "Inter, sans-serif",
-
-                fontSize: isMobile
-                  ? "10px"
-                  : "clamp(9px, 2vw, 11px)",
-
-                color: T.amber,
-
-                letterSpacing: isMobile
-                  ? "0.24em"
-                  : "0.28em",
-
-                textTransform: "uppercase",
-
-                whiteSpace: "nowrap",
-              }}
-            >
-              Premium Digital Agency · Est. 2024
-            </span> */}
+           
           </motion.div>
 
           {/* =================================================
@@ -309,26 +289,17 @@ export function Hero() {
             }}
           >
             <motion.h1
-              initial={{
-                opacity: 0,
-              }}
-              animate={{
-                opacity: 1,
-              }}
-              transition={{
-                duration: 0.5,
-                delay: 0.25,
-              }}
+             
               style={{
                 fontFamily: "Inter, sans-serif",
 
                 fontSize: isMobile
-                  ? "clamp(1.8rem, 11vw, 3.2rem)"
-                  : "clamp(2.8rem, 10.5vw, 7rem)",
+                  ? "clamp(1.3rem, 9vw, 2.4rem)"
+                  : "clamp(2.2rem, 9vw, 5.5rem)",
 
-                fontWeight: 600,
+                fontWeight: isMobile ? 500 : 600,
 
-                lineHeight: isMobile ? 0.95 : 0.85,
+                lineHeight: isMobile ? 1.05 : 1.05,
 
                 letterSpacing: "-0.035em",
 
@@ -348,37 +319,21 @@ export function Hero() {
                   key={li}
                   style={{
                     display: "block",
-                    overflow: "hidden",
+                  
                   }}
                 >
                   {line.segments.map((seg, wi) =>
                     seg.text.split(" ").map((word, i) => (
-                      <span
+                      <h1
                         key={`${li}-${wi}-${i}`}
                         style={{
-                          overflow: "hidden",
+                         
                           display: "inline-block",
                           marginRight: "0.28em",
                         }}
                       >
                         <motion.span
-                          initial={{
-                            y: "115%",
-                            rotate: 2,
-                          }}
-                          animate={{
-                            y: "0%",
-                            rotate: 0,
-                          }}
-                          transition={{
-                            duration: 1,
-                            delay:
-                              0.3 +
-                              li * 0.18 +
-                              wi * 0.12 +
-                              i * 0.07,
-                            ease: ease as any,
-                          }}
+                         
                           style={{
                             display: "inline-block",
                             color: T.creamDark,
@@ -386,7 +341,7 @@ export function Hero() {
                         >
                           {word}
                         </motion.span>
-                      </span>
+                      </h1>
                     ))
                   )}
                 </span>

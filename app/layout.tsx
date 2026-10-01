@@ -137,7 +137,8 @@ export default function RootLayout({
         />
  <div className="orb orb-1" />
         <div className="orb orb-2" />
-        <div className="orb orb-3" />
+        <div  className="orb orb-3" />
+        
         {children}
 
         <div className="fixed bottom-6 right-6 z-[9999] pointer-events-auto">

@@ -209,8 +209,8 @@ body {
           justify-self: end;
           padding: 16px 26px;
           border-radius: 999px;
-          background: linear-gradient(110deg, #7437ea, #5720d3);
-          box-shadow: 0 5px 18px rgba(87, 32, 211, .25);
+          background: #E5433F;
+          box-shadow: 0 5px 18px rgba(229, 67, 63, .25);
           color: #fff;
           font: 500 14px Inter, sans-serif;
           text-decoration: none;
@@ -223,7 +223,7 @@ body {
     box-shadow 0.6s cubic-bezier(0.22, 1, 0.36, 1);
         }
         .contact-btn:hover{
-          background: linear-gradient(110deg, #7437ea, #5720d3);
+          background: #E5433F;
           filter: brightness(1.12);
           transform: translateY(-3px);
         }
@@ -231,7 +231,7 @@ body {
 
         .send-message-btn {
   width: 100%;
-  background: linear-gradient(110deg, #7437ea, #5720d3);
+  background: #E5433F;
   color: var(--cream);
   font-family: "Inter", sans-serif;
   font-weight: 800;
@@ -267,7 +267,7 @@ body {
   display: flex;
   align-items: center;
   gap: 14px;
-   background: linear-gradient(110deg, #7437ea, #5720d3);
+   background: #E5433F;
   color: var(--cream);
   font-family: "Inter", sans-serif;
   font-weight: 700;
@@ -286,7 +286,7 @@ body {
 }
 
 .cta_link:hover{
-  background: linear-gradient(110deg, #7437ea, #5720d3);
+  background: #E5433F;
   filter: brightness(1.12);
   transform: translateY(-3px);
 }
@@ -306,7 +306,7 @@ display: flex;
   text-decoration: none;
   transition: background 0.3s;
    border-radius: 999px;
-   border: 1px solid  #7437ea;
+   border: 1px solid  #E5433F;
 
    
 }
@@ -314,7 +314,7 @@ display: flex;
 
 .start_project_link {
  
-   background: linear-gradient(110deg, #7437ea, #5720d3);
+   background: #E5433F;
    display: inline-flex;
   align-items: center;
   gap: 14px;
@@ -358,7 +358,7 @@ display: flex;
   white-space: nowrap;
   border-radius: 999px;
 
-  background: linear-gradient(110deg, #7437ea, #5720d3);
+  background: #E5433F;
 
   transition:
     filter 0.5s cubic-bezier(0.22, 1, 0.36, 1),
@@ -369,5 +369,5 @@ display: flex;
 .start-project-link:hover {
   filter: brightness(1.1);
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(87, 32, 211, 0.25);
+  box-shadow: 0 10px 25px rgba(229, 67, 63, 0.25);
 }

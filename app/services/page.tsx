@@ -41,8 +41,8 @@ function Hero(){
           <span style={{fontFamily:"Inter, sans-serif",fontSize:11,color:T.amber,letterSpacing:"0.28em",textTransform:"uppercase"}}>Our Services</span>
         </motion.div>
         <motion.h1 initial={{opacity:0,y:40}} animate={v?{opacity:1,y:0}:{}} transition={{duration:1,delay:0.2,ease}}
-          style={{fontFamily:"Inter, sans-serif",fontSize:"clamp(3rem,8vw,8rem)",fontWeight:900,lineHeight:0.9,letterSpacing:"-0.03em",color:"white",marginBottom:28,maxWidth:800}}>
-          What We<br/><span style={{fontStyle:"italic",color:T.amber}}>Build</span><br/>For You.
+          style={{fontFamily:"Inter, sans-serif",fontSize:"clamp(3rem,8vw,8rem)",fontWeight:900,lineHeight:0.9,letterSpacing:"-0.03em",color:T.cream,marginBottom:28,maxWidth:800}}>
+          What We<br/><span style={{fontStyle:"italic",color:T.creamDark}}>Build</span><br/>For You.
         </motion.h1>
         <motion.div initial={{opacity:0,y:20}} animate={v?{opacity:1,y:0}:{}} transition={{duration:0.8,delay:0.45}}
           style={{display:"flex",flexWrap:"wrap",alignItems:"flex-end",justifyContent:"space-between",gap:32,marginTop:40}}>
@@ -138,7 +138,7 @@ function ServiceBlock({svc,i}){
               fontFamily: "Georgia,serif",
               fontSize: "clamp(1.8rem, 5vw, 3.8rem)",
               fontWeight: 900,
-              color: T.ink,
+              color: T.cream,
               letterSpacing: "-0.03em",
               lineHeight: 1.05,
               marginBottom: "clamp(8px, 2vh, 12px)",
@@ -346,7 +346,7 @@ function FAQ(){
             <span style={{fontFamily:"Inter, sans-serif",fontSize:10,color:T.amber,letterSpacing:"0.28em",textTransform:"uppercase"}}>FAQ</span>
           </motion.div>
           <motion.h2 variants={fadeUp} style={{fontFamily:"Inter, sans-serif",fontSize:"clamp(2.5rem,5vw,4.5rem)",fontWeight:900,color:T.cream,letterSpacing:"-0.03em",lineHeight:1.05,marginBottom:56}}>
-            Common<br/><span style={{fontStyle:"italic",color:T.amber}}>Questions.</span>
+            Common<br/><span style={{fontStyle:"italic",color:T.creamDark}}>Questions.</span>
           </motion.h2>
         </motion.div>
         <div style={{borderTop:`1px solid ${T.cream}10`}}>
@@ -387,8 +387,8 @@ function CTA(){
             <span style={{fontFamily:"Inter, sans-serif",fontSize:10,color:T.amber,letterSpacing:"0.28em",textTransform:"uppercase"}}>Ready to Start</span>
             <span style={{width:32,height:1,background:T.amber,display:"block"}}/>
           </div>
-          <h2 style={{fontFamily:"Inter, sans-serif",fontSize:"clamp(2.5rem,6vw,5.5rem)",fontWeight:900,color:T.ink,letterSpacing:"-0.03em",lineHeight:1.05,marginBottom:20}}>
-            Ready to Build<br/><span style={{fontStyle:"italic",color:T.amber}}>Something Great?</span>
+          <h2 style={{fontFamily:"Inter, sans-serif",fontSize:"clamp(2.5rem,6vw,5.5rem)",fontWeight:900,color:T.cream,letterSpacing:"-0.03em",lineHeight:1.05,marginBottom:20}}>
+            Ready to Build<br/><span style={{fontStyle:"italic",color:T.creamDark}}>Something Great?</span>
           </h2>
           <p style={{fontFamily:"Inter, sans-serif",color:`${T.ink}55`,fontSize:16,lineHeight:1.75,maxWidth:440,margin:"0 auto 44px"}}>
             Schedule a free 30-minute discovery call. No commitment — just honest conversation about your project.

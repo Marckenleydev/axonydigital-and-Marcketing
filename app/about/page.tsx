@@ -59,9 +59,9 @@ function Hero(){
           </span>
         </motion.div>
         
-        <motion.h1 
-          initial={{opacity:0, y:40}} 
-          animate={v ? {opacity:1, y:0} : {}} 
+        <motion.h1
+          initial={{opacity:0, y:40}}
+          animate={v ? {opacity:1, y:0} : {}}
           transition={{duration:1, delay:0.2, ease}}
           style={{
             fontFamily: "Inter, sans-serif",
@@ -69,12 +69,12 @@ function Hero(){
             fontWeight: 900,
             lineHeight: 0.9,
             letterSpacing: "-0.03em",
-            color: "white",
+            color: T.cream,
             marginBottom: "clamp(20px, 4vh, 28px)",
             maxWidth: "100%",
             wordBreak: "break-word"
           }}>
-          Obsessed<br/>With <span style={{fontStyle: "italic", color: T.amber}}>Digital</span><br/>Craft.
+          Obsessed<br/>With <span style={{fontStyle: "italic", color: T.creamDark}}>Digital</span><br/>Craft.
         </motion.h1>
         
         <motion.div 
@@ -106,7 +106,7 @@ function Hero(){
             lineHeight: 1.78,
             maxWidth: "100%"
           }}>
-            Founded in 2022, we've partnered with startups and scale-ups across Europe, the Middle East. We don't do templated work — every project starts from first principles.
+            Founded in 2024, we've partnered with startups and scale-ups across Europe, the Middle East. We don't do templated work — every project starts from first principles.
           </p>
         </motion.div>
       </div>
@@ -169,18 +169,18 @@ function Values(){
             </span>
           </motion.div>
           
-          <motion.h2 
-            variants={fadeUp} 
+          <motion.h2
+            variants={fadeUp}
             style={{
               fontFamily: "Inter, sans-serif",
               fontSize: "clamp(2rem, 7vw, 5rem)",
               fontWeight: 900,
-              color: "white",
+              color: T.cream,
               letterSpacing: "-0.03em",
               lineHeight: 1.05,
               maxWidth: "100%"
             }}>
-            Our Values —<br/><span style={{fontStyle: "italic", color: T.amber}}>Non-Negotiable.</span>
+            Our Values —<br/><span style={{fontStyle: "italic", color: T.creamDark}}>Non-Negotiable.</span>
           </motion.h2>
         </motion.div>
         
@@ -227,7 +227,7 @@ function Values(){
                   fontFamily: "Inter, sans-serif",
                   fontWeight: 900,
                   fontSize: "clamp(1.3rem, 3vw, 1.5rem)",
-                  color: T.ink,
+                  color: T.cream,
                   marginBottom: "clamp(8px, 2vh, 12px)",
                   letterSpacing: "-0.02em",
                   wordBreak: "break-word"
@@ -334,7 +334,7 @@ function Skills(){
             marginBottom: "clamp(12px, 2vh, 16px)",
             wordBreak: "break-word"
           }}>
-            Experienced Specialists,<br/><span style={{fontStyle: "italic", color: T.amber}}>Focused on Results.</span>
+            Experienced Specialists,<br/><span style={{fontStyle: "italic", color: T.creamDark}}>Focused on Results.</span>
           </h2>
           
           <p style={{
@@ -575,7 +575,7 @@ function Timeline(){
             <span style={{fontFamily:"Inter, sans-serif",fontSize:10,color:T.amber,letterSpacing:"0.28em",textTransform:"uppercase"}}>Our Journey</span>
           </motion.div>
           <motion.h2 variants={fadeUp} style={{fontFamily:"Inter, sans-serif",fontSize:"clamp(2.5rem,5.5vw,5rem)",fontWeight:900,color:T.cream,letterSpacing:"-0.03em",lineHeight:1.05}}>
-            Four Years of<br/><span style={{fontStyle:"italic",color:T.amber}}>Building.</span>
+            Four Years of<br/><span style={{fontStyle:"italic",color:T.creamDark}}>Building.</span>
           </motion.h2>
         </motion.div>
         <div style={{position:"relative"}}>
@@ -640,7 +640,7 @@ function Team(){
             <span style={{fontFamily:"Inter, sans-serif",fontSize:10,color:T.amber,letterSpacing:"0.28em",textTransform:"uppercase"}}>The Team</span>
           </motion.div>
           <motion.h2 variants={fadeUp} style={{fontFamily:"Inter, sans-serif",fontSize:"clamp(2.5rem,5.5vw,5rem)",fontWeight:900,color:T.cream,letterSpacing:"-0.03em",lineHeight:1.05}}>
-            People Behind<br/><span style={{fontStyle:"italic",color:T.amber}}>The Work.</span>
+            People Behind<br/><span style={{fontStyle:"italic",color:T.creamDark}}>The Work.</span>
           </motion.h2>
         </motion.div>
            {loading && <Loading />}
@@ -674,7 +674,7 @@ function CTA(){
             <span style={{width:32,height:1,background:T.amber,display:"block"}}/>
           </div>
           <h2 style={{fontFamily:"Inter, sans-serif",fontSize:"clamp(2.5rem,6vw,5.5rem)",fontWeight:900,color:T.cream,letterSpacing:"-0.03em",lineHeight:1.05,marginBottom:20}}>
-            Become<br/><span style={{fontStyle:"italic",color:T.amber}}>Client #88.</span>
+            Become<br/><span style={{fontStyle:"italic",color:T.creamDark}}>Client #88.</span>
           </h2>
           <p style={{fontFamily:"Inter, sans-serif",color:`${T.cream}45`,fontSize:16,lineHeight:1.75,maxWidth:440,margin:"0 auto 44px"}}>
             We take on 3–4 new projects per quarter. Spots go fast. Let's talk before they're gone.

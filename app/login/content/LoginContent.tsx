@@ -1,9 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSearchParams } from "next/navigation";
 import { T } from "@/app/data";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export const dynamic = 'force-dynamic';
 
@@ -86,12 +90,12 @@ function BrandPanel({ mode }: { mode: "login" | "register" }) {
           {mode === "login" ? (
             <motion.h1 key="login-h" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -16 }} transition={{ duration: 0.5, ease }}
               style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(2.4rem,4vw,3.4rem)", fontWeight: 900, lineHeight: 1.05, letterSpacing: "-0.03em", color: T.cream, maxWidth: 380 }}>
-              Welcome<br/>Back to the<br/><span style={{ fontStyle: "italic", color: T.amber }}>Studio.</span>
+              Welcome<br/>Back to the<br/><span style={{ fontStyle: "italic", color: T.cream }}>Studio.</span>
             </motion.h1>
           ) : (
             <motion.h1 key="reg-h" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -16 }} transition={{ duration: 0.5, ease }}
               style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(2.4rem,4vw,3.4rem)", fontWeight: 900, lineHeight: 1.05, letterSpacing: "-0.03em", color: T.cream, maxWidth: 380 }}>
-              Join the<br/><span style={{ fontStyle: "italic", color: T.amber }}>Team.</span><br/>Create Access.
+              Join the<br/><span style={{ fontStyle: "italic", color: T.cream }}>Team.</span><br/>Create Access.
             </motion.h1>
           )}
         </AnimatePresence>
@@ -178,8 +182,8 @@ export default function LoginContent() {
             <span style={{ width: 24, height: 1, background: T.amber, display: "block" }} />
             <span style={{ fontFamily: "Inter, sans-serif", fontSize: 9, color: T.amber, letterSpacing: "0.26em", textTransform: "uppercase" }}>Sign In</span>
           </div>
-          <h2 style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, fontSize: 32, color: T.ink, letterSpacing: "-0.03em", marginBottom: 8 }}>
-            Access Your <span style={{ fontStyle: "italic", color: T.amber }}>Dashboard.</span>
+          <h2 style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, fontSize: 32, color: T.creamDark, letterSpacing: "-0.03em", marginBottom: 8 }}>
+            Access Your <span style={{ fontStyle: "italic", color: T.cream }}>Dashboard.</span>
           </h2>
           <p style={{ fontFamily: "Inter, sans-serif", color: `${T.ink}45`, fontSize: 13, marginBottom: 40 }}>
             Enter your credentials to manage your studio's content.

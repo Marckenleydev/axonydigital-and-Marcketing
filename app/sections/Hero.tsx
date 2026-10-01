@@ -1,250 +1,12 @@
-// import { useRef, useEffect } from "react";
-// import { motion } from "framer-motion";
-// import gsap from "gsap";
-// import { ScrollTrigger } from "gsap/ScrollTrigger";
-// import { T } from "../data";
-
-// gsap.registerPlugin(ScrollTrigger);
-
-// const ease = [0.22, 1, 0.36, 1];
-
-// export function Hero() {
-//   const sectionRef = useRef<HTMLElement>(null);
-//   // Orb refs for idle float animation
-//   const orb1Ref    = useRef<HTMLDivElement>(null);
-//   const orb2Ref    = useRef<HTMLDivElement>(null);
-//   const orb3Ref    = useRef<HTMLDivElement>(null);
-
-//   const lines = [
-//     {
-//       segments: [
-//         { text: "WE TURN",   italic: false },
-//         { text: "ATTENTION", italic: true  },
-//       ],
-//     },
-//     {
-//       segments: [
-//         { text: "Into Sales", italic: false },
-//       ],
-//     },
-//   ];
-
-//   useEffect(() => {
-//     const ctx = gsap.context(() => {
-
-//       // ── Idle float animation on orbs (CSS keyframe would work too) ──
-//       gsap.to(orb1Ref.current, {
-//         y: "+=18", x: "+=10",
-//         duration: 6, ease: "sine.inOut",
-//         yoyo: true, repeat: -1,
-//       });
-//       gsap.to(orb2Ref.current, {
-//         y: "-=14", x: "-=8",
-//         duration: 7.5, ease: "sine.inOut",
-//         yoyo: true, repeat: -1,
-//       });
-//       gsap.to(orb3Ref.current, {
-//         y: "+=10",
-//         duration: 5, ease: "sine.inOut",
-//         yoyo: true, repeat: -1,
-//       });
-
-//     }, sectionRef);
-
-//     return () => ctx.revert();
-//   }, []);
-
-//   return (
-//     <section
-//       ref={sectionRef}
-//       style={{
-//         minHeight: "100vh",
-//         position: "relative",
-//         display: "flex",
-//         flexDirection: "column",
-//         justifyContent: "center",
-//         paddingTop: "clamp(72px, 10vh, 112px)",
-//         paddingBottom: "clamp(32px, 6vh, 56px)",
-//         overflow: "hidden",
-       
-//         background: "radial-gradient(ellipse 80% 60% at 50% -10%, #1B2A6B 0%, #0D1535 45%, #050E1F 100%)",
-//       }}
-//     >
-      
-
-      
-
-     
-
-//       {/* ── Content ── */}
-//       <motion.div style={{
-//         position: "relative",
-//         zIndex: 10,
-//         maxWidth: 1200,
-//         margin: "0 auto",
-//         padding: "clamp(32px, 6vh, 56px) clamp(16px, 5vw, 24px)",
-//         width: "100%",
-//         display: "flex",
-//         flexDirection: "column",
-//         alignItems: "center",
-//         textAlign: "center",
-//       }}>
-
-//         {/* Eyebrow */}
-//         <motion.div
-//           initial={{ opacity: 0, x: -20 }}
-//           animate={{ opacity: 1, x: 0 }}
-//           transition={{ duration: 0.8, delay: 0.2 }}
-//           style={{
-//             display: "flex",
-//             alignItems: "center",
-//             justifyContent: "center",
-//             gap: "clamp(8px, 2vw, 16px)",
-//             marginBottom: "clamp(20px, 4vh, 36px)",
-//             flexWrap: "wrap",
-//           }}
-//         >
-         
-//           <span style={{
-//             fontFamily: "Inter, sans-serif",
-//             fontSize: "clamp(9px, 2vw, 11px)",
-//             color: T.amber,
-//             letterSpacing: "0.28em",
-//             textTransform: "uppercase",
-//             whiteSpace: "nowrap",
-//           }}>
-//             Premium Digital Agency · Est. 2024
-//           </span>
-//         </motion.div>
-
-//         {/* Heading */}
-//         <motion.h1 style={{
-//           fontFamily: "Inter, sans-serif",
-//           fontSize: "clamp(2.5rem, 10.5vw, 7rem)",
-//           fontWeight: 600,
-//           lineHeight: 0.9,
-//           letterSpacing: "0.01em",
-//           color: T.cream,           // white on dark bg
-//           marginBottom: "clamp(12px, 2.5vh, 24px)",
-//           maxWidth: "min(1100px, 100%)",
-//           marginLeft: "auto",
-//           marginRight: "auto",
-//           textAlign: "center",
-//           transformOrigin: "center center",
-//         }}>
-//           {lines.map((line, li) => (
-//             <span key={li} style={{ display: "block" }}>
-//               {line.segments.map((seg, wi) =>
-//                 seg.text.split(" ").map((word, i) => (
-//                   <span
-//                     key={`${wi}-${i}`}
-//                     style={{
-//                       overflow: "hidden",
-//                       display: "inline-block",
-//                       marginRight: "0.3em",
-//                       paddingRight: "0.1em",
-//                     }}
-//                   >
-//                     <motion.span
-//                       initial={{ y: "115%", rotate: 2 }}
-//                       animate={{ y: "0%", rotate: 0 }}
-//                       transition={{
-//                         duration: 1,
-//                         delay: 0.3 + li * 0.18 + wi * 0.12 + i * 0.07,
-//                         ease,
-//                       }}
-//                       style={{
-//                         display: "inline-block",
-//                         color: seg.italic ? T.amber : T.cream,
-//                         fontSize: "inherit",
-//                       }}
-//                     >
-//                       {word}
-//                     </motion.span>
-//                   </span>
-//                 ))
-//               )}
-//             </span>
-//           ))}
-//         </motion.h1>
-
-//         {/* Sub + CTA */}
-//         <motion.div style={{
-//           display: "flex",
-//           flexDirection: "column",
-//           flexWrap: "wrap",
-//           alignItems: "center",
-//           justifyContent: "center",
-//           gap: "clamp(16px, 3vh, 24px)",
-//           marginTop: "clamp(12px, 2.5vh, 24px)",
-//           marginBottom: "clamp(20px, 4vh, 36px)",
-//           textAlign: "center",
-//         }}>
-//           <motion.p
-//             initial={{ opacity: 0, y: 20 }}
-//             animate={{ opacity: 1, y: 0 }}
-//             transition={{ duration: 0.8, delay: 0.9 }}
-//             style={{
-//               fontFamily: "Inter, sans-serif",
-//               color: "rgba(255,255,255,0.55)",
-//               fontSize: "clamp(15px, 3vw, 17px)",
-//               maxWidth: "min(680px, 100%)",
-//               lineHeight: 1.7,
-//               flex: "0 1 auto",
-//               textAlign: "center",
-//             }}
-//           >
-//             Web platforms, marketing, and content built to scale ambitious brands.
-//           </motion.p>
-
-//           <motion.div
-//             initial={{ opacity: 0, y: 20 }}
-//             animate={{ opacity: 1, y: 0 }}
-//             transition={{ duration: 0.8, delay: 1.05 }}
-//             style={{
-//               display: "flex",
-//               alignItems: "center",
-//               gap: "clamp(12px, 3vw, 20px)",
-//               flexWrap: "wrap",
-//               flex: "0 0 auto",
-//               justifyContent: "center",
-//             }}
-//           >
-//             <a
-//             className="contact-btn"
-//               href="/contact"
-//               data-h
-             
-              
-//             >
-//               Get in touch <span style={{ fontSize: "clamp(16px, 3vw, 18px)" }}>→</span>
-//             </a>
-//           </motion.div>
-//         </motion.div>
-
-//       </motion.div>
-//     </section>
-//   );
-// }
 
 
 
+"use client";
 
-
-
-
-
-
-import { useRef, useEffect } from "react";
-import {
-  motion,
-  useScroll,
-  useTransform,
-} from "framer-motion";
-
+import { useRef, useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
 import { T } from "../data";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -253,11 +15,12 @@ const ease = [0.22, 1, 0.36, 1];
 
 export function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
+  const stickyRef = useRef<HTMLDivElement>(null);
+  const headingRef = useRef<HTMLDivElement>(null);
+  const subRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLDivElement>(null);
 
-  // Orb refs for idle float animation
-  const orb1Ref = useRef<HTMLDivElement>(null);
-  const orb2Ref = useRef<HTMLDivElement>(null);
-  const orb3Ref = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
 
   const lines = [
     {
@@ -271,234 +34,524 @@ export function Hero() {
     },
   ];
 
-  // Framer Motion scroll animation
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end start"],
-  });
-
-  const headingScale = useTransform(
-    scrollYProgress,
-    [0, 0.7],
-    [1, 1.6]
-  );
-
-  const headingOpacity = useTransform(
-    scrollYProgress,
-    [0, 0.55, 0.8],
-    [1, 0.5, 0]
-  );
+  // ------------------------------------------------
+  // DETECT MOBILE
+  // ------------------------------------------------
 
   useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 767px)");
+
+    const handleChange = () => {
+      setIsMobile(mediaQuery.matches);
+    };
+
+    handleChange();
+
+    mediaQuery.addEventListener("change", handleChange);
+
+    return () => {
+      mediaQuery.removeEventListener("change", handleChange);
+    };
+  }, []);
+
+  // ------------------------------------------------
+  // DESKTOP SCROLL ANIMATION ONLY
+  // ------------------------------------------------
+
+  useEffect(() => {
+    if (isMobile) {
+      return;
+    }
+
     const ctx = gsap.context(() => {
-      // Idle float animation on orbs
-      gsap.to(orb1Ref.current, {
-        y: "+=18",
-        x: "+=10",
-        duration: 6,
-        ease: "sine.inOut",
-        yoyo: true,
-        repeat: -1,
+      // ------------------------------------------------
+      // INITIAL STATES
+      // ------------------------------------------------
+
+      gsap.set(headingRef.current, {
+        scale: 1,
+        opacity: 1,
+        y: 0,
+        transformOrigin: "center center",
       });
 
-      gsap.to(orb2Ref.current, {
-        y: "-=14",
-        x: "-=8",
-        duration: 7.5,
-        ease: "sine.inOut",
-        yoyo: true,
-        repeat: -1,
+      gsap.set(subRef.current, {
+        opacity: 1,
+        y: 0,
       });
 
-      gsap.to(orb3Ref.current, {
-        y: "+=10",
-        duration: 5,
-        ease: "sine.inOut",
-        yoyo: true,
-        repeat: -1,
+      gsap.set(imageRef.current, {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        transformOrigin: "center center",
       });
+
+      // ------------------------------------------------
+      // MAIN DESKTOP SCROLL TIMELINE
+      // ------------------------------------------------
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top top",
+          end: "bottom bottom",
+          scrub: true,
+          pin: stickyRef.current,
+          pinSpacing: true,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+        },
+      });
+
+      // ------------------------------------------------
+      // STEP 1
+      // HEADING DISAPPEARS
+      // ------------------------------------------------
+
+      tl.to(
+        headingRef.current,
+        {
+          scale: 1.15,
+          opacity: 0,
+          ease: "power1.inOut",
+          duration: 2,
+        },
+        0
+      );
+
+      // ------------------------------------------------
+      // SUBTITLE DISAPPEARS
+      // ------------------------------------------------
+
+      tl.to(
+        subRef.current,
+        {
+          opacity: 0,
+          y: -15,
+          ease: "power1.inOut",
+          duration: 2,
+        },
+        0
+      );
+
+      // ------------------------------------------------
+      // DASHBOARD MOVES UP
+      // ------------------------------------------------
+
+      tl.to(
+        imageRef.current,
+        {
+          y: "-50vh",
+          scale: 1,
+          ease: "none",
+          duration: 1.2,
+        },
+        0
+      );
+
+      // ------------------------------------------------
+      // DASHBOARD SCALE
+      // ------------------------------------------------
+
+      tl.to(imageRef.current, {
+        scale: 1.18,
+        ease: "power2.inOut",
+        duration: 1,
+      });
+
+      tl.to(imageRef.current, {
+        scale: 1.18,
+        ease: "none",
+        duration: 0.5,
+      });
+
+      tl.to(imageRef.current, {
+        scale: 1.18,
+        y: "-50vh",
+        ease: "none",
+        duration: 0.1,
+      });
+
+      ScrollTrigger.refresh();
     }, sectionRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [isMobile]);
 
   return (
     <section
       ref={sectionRef}
       style={{
-        minHeight: "100vh",
         position: "relative",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        paddingTop: "clamp(72px, 10vh, 112px)",
-        paddingBottom: "clamp(32px, 6vh, 56px)",
-        overflow: "hidden",
+
+        // Desktop = scroll animation
+        // Mobile = natural page height
+        height: isMobile ? "auto" : "400vh",
+
         background:
           "radial-gradient(ellipse 80% 60% at 50% -10%, #1B2A6B 0%, #0D1535 45%, #050E1F 100%)",
       }}
     >
-      {/* Content */}
-      <motion.div
+      {/* =================================================
+          HERO VIEWPORT
+          ================================================= */}
+
+      <div
+        ref={stickyRef}
         style={{
           position: "relative",
-          zIndex: 10,
-          maxWidth: 1200,
-          margin: "0 auto",
-          padding:
-            "clamp(32px, 6vh, 56px) clamp(16px, 5vw, 24px)",
+
+          // Desktop pinned viewport
+          // Mobile natural height
+          height: isMobile ? "auto" : "100vh",
+
+          minHeight: isMobile ? "auto" : "100vh",
+
           width: "100%",
+
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          textAlign: "center",
+          justifyContent: "flex-start",
+
+          overflow: isMobile ? "visible" : "hidden",
+
+          paddingTop: isMobile
+            ? "clamp(115px, 22vw, 150px)"
+            : "clamp(100px, 14vh, 140px)",
+
+          paddingBottom: isMobile
+            ? "40px"
+            : "clamp(32px, 5vh, 56px)",
         }}
       >
-        {/* Eyebrow */}
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+        <div
           style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: "clamp(8px, 2vw, 16px)",
-            marginBottom: "clamp(20px, 4vh, 36px)",
-            flexWrap: "wrap",
-          }}
-        >
-          <span
-            style={{
-              fontFamily: "Inter, sans-serif",
-              fontSize: "clamp(9px, 2vw, 11px)",
-              color: T.amber,
-              letterSpacing: "0.28em",
-              textTransform: "uppercase",
-              whiteSpace: "nowrap",
-            }}
-          >
-            Premium Digital Agency · Est. 2024
-          </span>
-        </motion.div>
+            position: "relative",
+            zIndex: 10,
 
-        {/* Heading */}
-        <motion.h1
-          style={{
-            scale: headingScale,
-            opacity: headingOpacity,
-            fontFamily: "Inter, sans-serif",
-            fontSize: "clamp(2.5rem, 10.5vw, 7rem)",
-            fontWeight: 700,
-            lineHeight: 0.9,
-            letterSpacing: "0.01em",
-            color: T.cream,
-            marginBottom: "clamp(12px, 2.5vh, 24px)",
-            maxWidth: "min(1100px, 100%)",
-            marginLeft: "auto",
-            marginRight: "auto",
-            textAlign: "center",
-            transformOrigin: "center center",
-            willChange: "transform, opacity",
-          }}
-        >
-          {lines.map((line, li) => (
-            <span key={li} style={{ display: "block" }}>
-              {line.segments.map((seg, wi) =>
-                seg.text.split(" ").map((word, i) => (
-                  <span
-                    key={`${wi}-${i}`}
-                    style={{
-                      overflow: "hidden",
-                      display: "inline-block",
-                      marginRight: "0.3em",
-                      paddingRight: "0.1em",
-                    }}
-                  >
-                    <motion.span
-                      initial={{ y: "115%", rotate: 2 }}
-                      animate={{ y: "0%", rotate: 0 }}
-                      transition={{
-                        duration: 1,
-                        delay:
-                          0.3 +
-                          li * 0.18 +
-                          wi * 0.12 +
-                          i * 0.07,
-                        ease,
-                      }}
-                      style={{
-                        display: "inline-block",
-                        color: seg.italic ? T.amber : T.cream,
-                        fontSize: "inherit",
-                      }}
-                    >
-                      {word}
-                    </motion.span>
-                  </span>
-                ))
-              )}
-            </span>
-          ))}
-        </motion.h1>
+            width: "100%",
 
-        {/* Sub + CTA */}
-        <motion.div
-          style={{
+            maxWidth: isMobile ? "100%" : 1200,
+
+            padding: isMobile
+              ? "0 16px"
+              : "0 clamp(16px, 5vw, 24px)",
+
             display: "flex",
             flexDirection: "column",
-            flexWrap: "wrap",
             alignItems: "center",
-            justifyContent: "center",
-            gap: "clamp(16px, 3vh, 24px)",
-            marginTop: "clamp(12px, 2.5vh, 24px)",
-            marginBottom: "clamp(20px, 4vh, 36px)",
+
             textAlign: "center",
           }}
         >
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.9 }}
-            style={{
-              fontFamily: "Inter, sans-serif",
-              color: "rgba(255,255,255,0.55)",
-              fontSize: "clamp(17px, 3.4vw, 20px)",
-              maxWidth: "min(680px, 100%)",
-              lineHeight: 1.7,
-              flex: "0 1 auto",
-              textAlign: "center",
-            }}
-          >
-           Web platforms, marketing, and content built to scale ambitious businesses.
-          </motion.p>
+          {/* =================================================
+              EYEBROW
+              ================================================= */}
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.05 }}
+            initial={{
+              opacity: 0,
+              y: 16,
+            }}
+            animate={{
+              opacity: 1,
+              y: 0,
+            }}
+            transition={{
+              duration: 0.8,
+              delay: 0.15,
+              ease,
+            }}
             style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "clamp(12px, 3vw, 20px)",
-              flexWrap: "wrap",
-              flex: "0 0 auto",
-              justifyContent: "center",
+              marginBottom: isMobile ? "22px" : "clamp(16px, 3vh, 28px)",
+              width: "100%",
             }}
           >
-            <a
-              className="contact-btn"
-              href="/contact"
-              data-h
+            {/* <span
+              style={{
+                fontFamily: "Inter, sans-serif",
+
+                fontSize: isMobile
+                  ? "10px"
+                  : "clamp(9px, 2vw, 11px)",
+
+                color: T.amber,
+
+                letterSpacing: isMobile
+                  ? "0.24em"
+                  : "0.28em",
+
+                textTransform: "uppercase",
+
+                whiteSpace: "nowrap",
+              }}
             >
-              Get in touch{" "}
-              <span style={{ fontSize: "clamp(16px, 3vw, 18px)" }}>
-                →
-              </span>
-            </a>
+              Premium Digital Agency · Est. 2024
+            </span> */}
           </motion.div>
-        </motion.div>
-      </motion.div>
+
+          {/* =================================================
+              HEADING
+              ================================================= */}
+
+          <div
+            ref={headingRef}
+            style={{
+              willChange: isMobile ? "auto" : "transform, opacity",
+
+              marginBottom: isMobile
+                ? "24px"
+                : "clamp(16px, 3vh, 28px)",
+
+              width: "100%",
+            }}
+          >
+            <motion.h1
+              initial={{
+                opacity: 0,
+              }}
+              animate={{
+                opacity: 1,
+              }}
+              transition={{
+                duration: 0.5,
+                delay: 0.25,
+              }}
+              style={{
+                fontFamily: "Inter, sans-serif",
+
+                fontSize: isMobile
+                  ? "clamp(1.8rem, 11vw, 3.2rem)"
+                  : "clamp(2.8rem, 10.5vw, 7rem)",
+
+                fontWeight: 600,
+
+                lineHeight: isMobile ? 0.95 : 0.85,
+
+                letterSpacing: "-0.035em",
+
+                color: T.creamDark,
+
+                maxWidth: isMobile
+                  ? "100%"
+                  : "min(1100px, 100%)",
+
+                margin: "0 auto",
+
+                textAlign: "center",
+              }}
+            >
+              {lines.map((line, li) => (
+                <span
+                  key={li}
+                  style={{
+                    display: "block",
+                    overflow: "hidden",
+                  }}
+                >
+                  {line.segments.map((seg, wi) =>
+                    seg.text.split(" ").map((word, i) => (
+                      <span
+                        key={`${li}-${wi}-${i}`}
+                        style={{
+                          overflow: "hidden",
+                          display: "inline-block",
+                          marginRight: "0.28em",
+                        }}
+                      >
+                        <motion.span
+                          initial={{
+                            y: "115%",
+                            rotate: 2,
+                          }}
+                          animate={{
+                            y: "0%",
+                            rotate: 0,
+                          }}
+                          transition={{
+                            duration: 1,
+                            delay:
+                              0.3 +
+                              li * 0.18 +
+                              wi * 0.12 +
+                              i * 0.07,
+                            ease: ease as any,
+                          }}
+                          style={{
+                            display: "inline-block",
+                            color: T.creamDark,
+                          }}
+                        >
+                          {word}
+                        </motion.span>
+                      </span>
+                    ))
+                  )}
+                </span>
+              ))}
+            </motion.h1>
+          </div>
+
+          {/* =================================================
+              SUBTITLE + CTA
+              ================================================= */}
+
+          <div
+            ref={subRef}
+            style={{
+              willChange: isMobile ? "auto" : "opacity, transform",
+
+              width: "100%",
+            }}
+          >
+            <motion.p
+              initial={{
+                opacity: 0,
+                y: 20,
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+              }}
+              transition={{
+                duration: 0.8,
+                delay: 0.9,
+              }}
+              style={{
+                fontFamily: "Inter, sans-serif",
+
+                color: "rgba(255,255,255,0.55)",
+
+                fontSize: isMobile
+                  ? "16px"
+                  : "clamp(15px, 2.5vw, 17px)",
+
+                maxWidth: isMobile
+                  ? "350px"
+                  : "min(620px, 100%)",
+
+                lineHeight: isMobile ? 1.65 : 1.7,
+
+                margin: isMobile
+                  ? "0 auto 24px"
+                  : "0 auto clamp(20px, 3vh, 28px)",
+
+                textAlign: "center",
+              }}
+            >
+              Web platforms, marketing, and content built to scale ambitious
+              businesses.
+            </motion.p>
+
+            <motion.div
+              initial={{
+                opacity: 0,
+                y: 20,
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+              }}
+              transition={{
+                duration: 0.8,
+                delay: 1.05,
+              }}
+              style={{
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
+              <a
+                className="contact-btn"
+                href="/contact"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+
+                  minWidth: isMobile ? "250px" : undefined,
+
+                  padding: isMobile
+                    ? "20px 38px"
+                    : undefined,
+
+                  borderRadius: isMobile ? "999px" : undefined,
+                }}
+              >
+                Get in touch{" "}
+                <span
+                  style={{
+                    fontSize: isMobile ? "19px" : "clamp(16px, 3vw, 18px)",
+                  }}
+                >
+                  →
+                </span>
+              </a>
+            </motion.div>
+          </div>
+
+          {/* =================================================
+              DASHBOARD
+              ================================================= */}
+
+          <div
+            ref={imageRef}
+            style={{
+              width: "100%",
+
+              maxWidth: isMobile ? "100%" : 1000,
+
+              marginTop: isMobile
+                ? "54px"
+                : "clamp(40px, 7vh, 80px)",
+
+              opacity: 1,
+
+              willChange: isMobile ? "auto" : "transform",
+
+              position: "relative",
+              zIndex: 5,
+
+              // Mobile image is intentionally large
+              padding: isMobile ? "0 0px" : undefined,
+            }}
+          >
+            <motion.div
+              initial={{
+                opacity: 0,
+                y: 40,
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+              }}
+              transition={{
+                duration: 0.6,
+                delay: 0.5,
+                ease,
+              }}
+            >
+              <img
+                src="/images/marketing-dashboard-4.png"
+                alt="Digital marketing performance dashboard"
+                style={{
+                  width: "100%",
+                  height: "auto",
+                  display: "block",
+
+                  borderRadius: isMobile ? 18 : 16,
+
+                  objectFit: "contain",
+
+                  border: "1px solid rgba(255, 255, 255, 0.1)",
+                }}
+              />
+            </motion.div>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

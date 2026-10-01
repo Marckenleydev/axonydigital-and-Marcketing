@@ -5,7 +5,7 @@ import { Axony3DLogo } from "./Axony3DLogo";
 export const NAV = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
-  { label: "Work", href: "/work" },
+   { label: "Clients", href: "/work" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 
@@ -182,8 +182,8 @@ export function Navbar() {
           justify-self: end;
           padding: 14px 24px;
           border-radius: 999px;
-          background: linear-gradient(110deg, #7437ea, #5720d3);
-          box-shadow: 0 5px 18px rgba(87, 32, 211, .25);
+          background: #E5433F;
+          box-shadow: 0 5px 18px rgba(229, 67, 63, .25);
           color: #fff;
           font: 500 14px Inter, sans-serif;
           text-decoration: none;

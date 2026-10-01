@@ -19,7 +19,7 @@ export function Footer() {
       <div style={{maxWidth:1200,margin:"0 auto"}}>
         <div style={{display:"flex",flexWrap:"wrap",alignItems:"center",justifyContent:"space-between",gap:32,paddingBottom:40,marginBottom:32,borderBottom:`1px solid ${T.cream}07`}}>
           <a href="#" data-h style={{display:"flex",alignItems:"center",gap:12,textDecoration:"none"}}>
-            <div style={{width:36,height:36,background:"linear-gradient(110deg, #7437ea, #5720d3)",display:"flex",alignItems:"center",justifyContent:"center"}}>
+            <div style={{width:36,height:36,background:"#E5433F",display:"flex",alignItems:"center",justifyContent:"center"}}>
               <span style={{color:T.cream,fontFamily:"Inter, sans-serif",fontWeight:900,fontSize:14}}>A</span>
             </div>
             <span style={{fontFamily:"Inter, sans-serif",fontWeight:800,fontSize:13,letterSpacing:"0.22em",color:T.cream,textTransform:"uppercase"}}>AXONY<span style={{color:T.amber}}>.</span>DIGITAL</span>
@@ -42,7 +42,7 @@ export function Footer() {
           </div>
         </div>
         <div style={{display:"flex",flexWrap:"wrap",alignItems:"center",justifyContent:"space-between",gap:12}}>
-          <span style={{fontFamily:"Inter, sans-serif",fontSize:10,color:`${T.cream}30`,letterSpacing:"0.18em"}}>© 2026 CRAFT.STUDIO — All rights reserved.</span>
+          <span style={{fontFamily:"Inter, sans-serif",fontSize:10,color:`${T.cream}30`,letterSpacing:"0.18em"}}>© 2026 AXONY.DIGITAL — All rights reserved.</span>
           <div style={{display:"flex",alignItems:"center",gap:8}}>
             <span style={{width:6,height:6,borderRadius:"50%",background:"#4ade80"}} />
             <span style={{fontFamily:"Inter, sans-serif",fontSize:10,color:`${T.cream}30`,letterSpacing:"0.18em"}}>Open for new projects</span>

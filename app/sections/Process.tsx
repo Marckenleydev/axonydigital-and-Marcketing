@@ -4,9 +4,10 @@ import { useRef, useState, useEffect } from "react";
 import { useInView, motion, useScroll, useTransform } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SplitText } from "gsap/all";
 import { T, STEPS } from "../data";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, SplitText);
 
 function useRev(margin = "-70px") {
   const r = useRef(null);
@@ -15,19 +16,31 @@ function useRev(margin = "-70px") {
 }
 
 const ease = [0.22, 1, 0.36, 1];
+
 const fadeUp = {
   hidden: { opacity: 0, y: 36 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.75, ease } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.75, ease },
+  },
 };
+
 const stag = (d = 0) => ({
   hidden: {},
-  visible: { transition: { staggerChildren: 0.1, delayChildren: d } },
+  visible: {
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: d,
+    },
+  },
 });
 
 /* ─────────────────────────── PROCESS SECTION ─────────────────────────── */
 
 export function Process() {
   const [r, v] = useRev();
+
   const sectionRef = useRef<HTMLElement>(null);
   const orb1Ref = useRef<HTMLDivElement>(null);
   const orb2Ref = useRef<HTMLDivElement>(null);
@@ -36,52 +49,87 @@ export function Process() {
   const subRef = useRef<HTMLParagraphElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
 
-   // Framer Motion scroll animation
+  // Framer Motion scroll animation
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-     offset: ["start 25%", "start -30%"],
+    offset: ["start 25%", "start -30%"],
   });
-const headingScale = useTransform(
-    scrollYProgress,
-    [0, 0.7],
-    [1, 1.6]
-  );
 
-  const headingOpacity = useTransform(
-    scrollYProgress,
-    [0, 0.55, 0.8],
-    [1, 0.5, 0]
-  );
  
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+      /* ── Heading word color ── */
 
-      // ── Idle float animation on orbs ──
+      if (headlineRef.current) {
+        const headlineSplit = SplitText.create(
+          headlineRef.current,
+          {
+            type: "words",
+          }
+        );
+
+        gsap.fromTo(
+          headlineSplit.words,
+          {
+            color: "rgba(255,255,255,0.55)",
+          },
+          {
+            color: T.creamDark,
+            ease: "none",
+            stagger: 0.5,
+
+            scrollTrigger: {
+              trigger: headlineRef.current,
+              start: "top 50%",
+              end: "bottom 50%",
+              scrub: true,
+            },
+          }
+        );
+      }
+
+      /* ── Idle float animation on orbs ── */
+
       gsap.to(orb1Ref.current, {
-        y: "+=18", x: "+=10",
-        duration: 6, ease: "sine.inOut",
-        yoyo: true, repeat: -1,
+        y: "+=18",
+        x: "+=10",
+        duration: 6,
+        ease: "sine.inOut",
+        yoyo: true,
+        repeat: -1,
       });
+
       gsap.to(orb2Ref.current, {
-        y: "-=14", x: "-=8",
-        duration: 7.5, ease: "sine.inOut",
-        yoyo: true, repeat: -1,
+        y: "-=14",
+        x: "-=8",
+        duration: 7.5,
+        ease: "sine.inOut",
+        yoyo: true,
+        repeat: -1,
       });
+
       gsap.to(orb3Ref.current, {
         y: "+=10",
-        duration: 5, ease: "sine.inOut",
-        yoyo: true, repeat: -1,
+        duration: 5,
+        ease: "sine.inOut",
+        yoyo: true,
+        repeat: -1,
       });
 
-      // ── Headline horizontal skew + drift on scroll ──
+      /* ── Headline horizontal skew + drift on scroll ── */
+
       gsap.fromTo(
         headlineRef.current,
-        { x: 0, skewX: 0 },
+        {
+          x: 0,
+          skewX: 0,
+        },
         {
           x: -60,
           skewX: -2,
           ease: "none",
+
           scrollTrigger: {
             trigger: sectionRef.current,
             start: "top bottom",
@@ -91,13 +139,17 @@ const headingScale = useTransform(
         }
       );
 
-      // ── Sub paragraph drifts opposite direction ──
+      /* ── Sub paragraph drifts opposite direction ── */
+
       gsap.fromTo(
         subRef.current,
-        { x: 0 },
+        {
+          x: 0,
+        },
         {
           x: 40,
           ease: "none",
+
           scrollTrigger: {
             trigger: sectionRef.current,
             start: "top bottom",
@@ -107,8 +159,13 @@ const headingScale = useTransform(
         }
       );
 
-      // ── Cards stagger-reveal with slight rotation ──
-      const cards = gridRef.current?.querySelectorAll<HTMLElement>(".step-card");
+      /* ── Cards stagger-reveal with slight rotation ── */
+
+      const cards =
+        gridRef.current?.querySelectorAll<HTMLElement>(
+          ".step-card"
+        );
+
       cards?.forEach((card, i) => {
         gsap.fromTo(
           card,
@@ -123,16 +180,17 @@ const headingScale = useTransform(
             rotateX: 0,
             duration: 0.9,
             ease: "power3.out",
+
             scrollTrigger: {
               trigger: card,
               start: "top 88%",
               toggleActions: "play none none none",
             },
+
             delay: i * 0.07,
           }
         );
       });
-
     }, sectionRef);
 
     return () => ctx.revert();
@@ -143,31 +201,34 @@ const headingScale = useTransform(
       ref={sectionRef}
       id="process"
       style={{
-        padding: "clamp(60px, 10vh, 120px) clamp(16px, 5vw, 24px)",
+        padding:
+          "clamp(60px, 10vh, 120px) clamp(16px, 5vw, 24px)",
         overflow: "hidden",
-        background: "radial-gradient(ellipse 80% 60% at 50% -10%, #1B2A6B 0%, #0D1535 45%, #050E1F 100%)",
+        background:
+          "radial-gradient(ellipse 80% 60% at 50% -10%, #1B2A6B 0%, #0D1535 45%, #050E1F 100%)",
         position: "relative",
       }}
     >
       <style>{`
         @media (max-width: 640px) {
-          .eyebrow-container {
+          .process-header {
+            text-align: center !important;
+          }
+          .process-eyebrow {
             justify-content: center !important;
           }
-          .eyebrow-line {
+          .process-line {
             display: none !important;
-          }
-          .eyebrow-text {
-            text-align: center !important;
-          }
-          .section-title {
-            text-align: center !important;
           }
         }
       `}</style>
-     
-
-      <div style={{ maxWidth: 1200, margin: "0 auto", width: "100%" }}>
+      <div
+        style={{
+          maxWidth: 1200,
+          margin: "0 auto",
+          width: "100%",
+        }}
+      >
         <motion.div
           ref={r}
           variants={stag()}
@@ -182,10 +243,10 @@ const headingScale = useTransform(
             width: "100%",
           }}
         >
-          <div style={{ width: "100%" }}>
+          <div style={{ width: "100%" }} className="process-header">
             <motion.div
               variants={fadeUp}
-              className="eyebrow-container"
+              className="process-eyebrow"
               style={{
                 display: "flex",
                 alignItems: "center",
@@ -195,7 +256,7 @@ const headingScale = useTransform(
               }}
             >
               <span
-                className="eyebrow-line"
+                className="process-line"
                 style={{
                   width: "clamp(24px, 4vw, 32px)",
                   height: 1,
@@ -203,8 +264,8 @@ const headingScale = useTransform(
                   display: "block",
                 }}
               />
+
               <span
-                className="eyebrow-text"
                 style={{
                   fontFamily: "Inter, sans-serif",
                   fontSize: "clamp(9px, 2vw, 10px)",
@@ -218,23 +279,27 @@ const headingScale = useTransform(
             </motion.div>
 
             <motion.h2
-             
+              ref={headlineRef}
               style={{
-                 scale: headingScale,
-            opacity: headingOpacity,
                 fontFamily: "Inter, sans-serif",
                 fontSize: "clamp(2rem, 8vw, 5.5rem)",
                 fontWeight: 900,
-                color: "#FFFFFF",
+                color: T.cream,
                 letterSpacing: "-0.03em",
                 lineHeight: 1.05,
                 maxWidth: "100%",
                 willChange: "transform",
               }}
-              className="section-title"
             >
-              Our Process <br />
-              <span style={{ fontStyle: "italic", color: T.amber }}>
+              Our Process
+              <br />
+
+              <span
+                style={{
+                  fontStyle: "italic",
+                  color: T.creamDark,
+                }}
+              >
                 Structured for Results.
               </span>
             </motion.h2>
@@ -253,17 +318,19 @@ const headingScale = useTransform(
               willChange: "transform",
             }}
           >
-            A repeatable framework refined over four years and 87 projects.
-            Transparent, collaborative, always on time.
+            A repeatable framework refined over four years and 87
+            projects. Transparent, collaborative, always on time.
           </motion.p>
         </motion.div>
 
         {/* Responsive grid */}
+
         <div
           ref={gridRef}
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 300px), 1fr))",
+            gridTemplateColumns:
+              "repeat(auto-fit, minmax(min(100%, 300px), 1fr))",
             gap: 2,
             width: "100%",
             willChange: "transform",
@@ -283,18 +350,46 @@ const headingScale = useTransform(
 
 function StepCard({ s, i }) {
   const [hov, setHov] = useState(false);
+
   const cardRef = useRef<HTMLDivElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
 
-  // ── Mouse-tracking tilt (local to each card) ──
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+  /* ── Mouse-tracking tilt (local to each card) ── */
+
+  const handleMouseMove = (
+    e: React.MouseEvent<HTMLDivElement>
+  ) => {
     const card = cardRef.current;
+
     if (!card) return;
+
     const rect = card.getBoundingClientRect();
-   
 
-   
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
 
+    const rotateY =
+      ((x / rect.width) - 0.5) * 10;
+
+    const rotateX =
+      ((y / rect.height) - 0.5) * -10;
+
+    gsap.to(card, {
+      rotateY,
+      rotateX,
+      duration: 0.4,
+      ease: "power2.out",
+    });
+
+    gsap.to(overlayRef.current, {
+      background: `radial-gradient(
+        circle at ${x}px ${y}px,
+        rgba(116,55,234,0.12) 0%,
+        rgba(5,14,31,0.35) 35%,
+        rgba(5,14,31,0.88) 100%
+      )`,
+      duration: 0.4,
+    });
   };
 
   const handleMouseLeave = () => {
@@ -304,18 +399,20 @@ function StepCard({ s, i }) {
       duration: 0.7,
       ease: "elastic.out(1, 0.5)",
     });
+
     gsap.to(overlayRef.current, {
       background:
         "linear-gradient(to top, rgba(5,14,31,0.88) 0%, rgba(5,14,31,0.60) 50%, rgba(5,14,31,0.35) 100%)",
       duration: 0.5,
     });
+
     setHov(false);
   };
 
   return (
     <div
       className="step-card"
-      ref={cardRef}
+    
       onMouseEnter={() => setHov(true)}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
@@ -333,12 +430,13 @@ function StepCard({ s, i }) {
       }}
       data-h
     >
-      {/* ── Background image — UNCHANGED, gets parallax via GSAP ScrollTrigger ── */}
+      {/* ── Background image ── */}
+
       <div
         className="card-bg"
         style={{
           position: "absolute",
-          inset: "-15%",          // oversized so parallax y travel doesn't show edge
+          inset: "-15%",
           backgroundImage: `url(${s.img})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
@@ -348,7 +446,8 @@ function StepCard({ s, i }) {
         }}
       />
 
-      {/* ── Gradient overlay — cursor-reactive via GSAP ── */}
+      {/* ── Gradient overlay ── */}
+
       <div
         ref={overlayRef}
         style={{
@@ -361,6 +460,7 @@ function StepCard({ s, i }) {
       />
 
       {/* ── Watermark number ── */}
+
       <span
         style={{
           position: "absolute",
@@ -381,6 +481,7 @@ function StepCard({ s, i }) {
       </span>
 
       {/* ── Content pinned to bottom ── */}
+
       <div
         style={{
           position: "relative",
@@ -392,7 +493,8 @@ function StepCard({ s, i }) {
           padding: "clamp(20px, 3.5vh, 32px)",
         }}
       >
-        {/* Duration badge — top-right absolute */}
+        {/* Duration badge */}
+
         <div
           style={{
             position: "absolute",
@@ -415,6 +517,7 @@ function StepCard({ s, i }) {
         </div>
 
         {/* Title */}
+
         <h3
           style={{
             fontFamily: "Inter, sans-serif",
@@ -429,10 +532,17 @@ function StepCard({ s, i }) {
           {s.t}
         </h3>
 
-        {/* Description — fades in on hover */}
+        {/* Description */}
+
         <motion.p
-          animate={{ opacity: hov ? 1 : 0, y: hov ? 0 : 8 }}
-          transition={{ duration: 0.35, ease }}
+          animate={{
+            opacity: hov ? 1 : 0,
+            y: hov ? 0 : 8,
+          }}
+          transition={{
+            duration: 0.35,
+            ease,
+          }}
           style={{
             fontSize: "clamp(12px, 1.8vw, 14px)",
             color: "rgba(255,255,255,0.72)",
@@ -446,9 +556,15 @@ function StepCard({ s, i }) {
       </div>
 
       {/* ── Amber bottom accent line on hover ── */}
+
       <motion.div
-        animate={{ scaleX: hov ? 1 : 0 }}
-        transition={{ duration: 0.4, ease }}
+        animate={{
+          scaleX: hov ? 1 : 0,
+        }}
+        transition={{
+          duration: 0.4,
+          ease,
+        }}
         style={{
           position: "absolute",
           bottom: 0,

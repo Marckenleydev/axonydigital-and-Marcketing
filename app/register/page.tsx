@@ -1,8 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { T } from "../data";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export const dynamic = 'force-dynamic';
 
@@ -78,10 +82,9 @@ function BrandPanel() {
             Studio Dashboard
           </span>
         </motion.div>
-        <motion.h1 initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease }}
-          style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(2.4rem,4vw,3.4rem)", fontWeight: 900, lineHeight: 1.05, letterSpacing: "-0.03em", color: T.cream, maxWidth: 380 }}>
-          Join the<br/><span style={{ fontStyle: "italic", color: T.amber }}>Team.</span><br/>Create Access.
-        </motion.h1>
+        <h1  style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(2.4rem,4vw,3.4rem)", fontWeight: 900, lineHeight: 1.05, letterSpacing: "-0.03em", color: T.cream, maxWidth: 380 }}>
+          Join the<br/><span style={{ fontStyle: "italic", color: T.cream }}>Team.</span><br/>Create Access.
+        </h1>
         <motion.p initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.3 }}
           style={{ fontFamily: "Inter, sans-serif", color: `${T.cream}45`, fontSize: 14, lineHeight: 1.75, maxWidth: 320, marginTop: 24 }}>
           Get an account set up to manage projects, team members, and case studies from the studio dashboard.
@@ -136,6 +139,35 @@ export default function RegisterPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [done, setDone] = useState(false);
+  const h1Ref = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    if (!h1Ref.current) return;
+
+    const h1 = h1Ref.current;
+    const words = h1.innerText.split(' ');
+    h1.innerHTML = words.map(word => `<span class="word">${word}</span>`).join(' ');
+
+    const wordSpans = h1.querySelectorAll('.word');
+
+    gsap.fromTo(wordSpans,
+      { color: T.cream },
+      {
+        color: T.amber,
+        scrollTrigger: {
+          trigger: h1,
+          start: "top center",
+          end: "bottom center",
+          scrub: true,
+        },
+        stagger: 0.05,
+      }
+    );
+
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
+  }, []);
 
   const pwStrength = strength(password);
   const mismatch = confirm.length > 0 && password !== confirm;
@@ -191,7 +223,7 @@ export default function RegisterPage() {
               style={{ width: "100%", maxWidth: 380, position: "relative", zIndex: 1, textAlign: "center" }}>
               <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: "spring", delay: 0.15 }}
                 style={{ width: 64, height: 64, border: `1px solid ${T.amber}60`, display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 24px", color: T.amber, fontSize: 24 }}>✓</motion.div>
-              <h2 style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, fontSize: 28, color: T.ink, marginBottom: 12, letterSpacing: "-0.02em" }}>
+              <h2 style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, fontSize: 28, color: T.cream, marginBottom: 12, letterSpacing: "-0.02em" }}>
                 Account Created.
               </h2>
               <p style={{ fontFamily: "Inter, sans-serif", color: `${T.ink}50`, fontSize: 13, lineHeight: 1.7, marginBottom: 32 }}>
@@ -209,8 +241,8 @@ export default function RegisterPage() {
                 <span style={{ width: 24, height: 1, background: T.amber, display: "block" }} />
                 <span style={{ fontFamily: "Inter, sans-serif", fontSize: 9, color: T.amber, letterSpacing: "0.26em", textTransform: "uppercase" }}>Create Account</span>
               </div>
-              <h2 style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, fontSize: 32, color: T.ink, letterSpacing: "-0.03em", marginBottom: 8 }}>
-                Set Up Your <span style={{ fontStyle: "italic", color: T.amber }}>Access.</span>
+              <h2 style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, fontSize: 32, color: T.cream, letterSpacing: "-0.03em", marginBottom: 8 }}>
+                Set Up Your <span style={{ fontStyle: "italic", color: T.cream }}>Access.</span>
               </h2>
               <p style={{ fontFamily: "Inter, sans-serif", color: `${T.ink}45`, fontSize: 13, marginBottom: 36 }}>
                 Takes less than a minute. We'll review and confirm by email.

@@ -50,7 +50,7 @@ export function TeamCard({ member, i }: { member: any; i: number }) {
         </span>
       </div>
 
-      <h3 style={{ fontWeight: 800, fontSize: 15 }}>{member.name}</h3>
+      <h3 style={{ fontWeight: 800, fontSize: 15, color: T.cream }}>{member.name}</h3>
       <p style={{ fontSize: 12, opacity: 0.6 }}>{member.role}</p>
       <p style={{ fontSize: 10, opacity: 0.4 }}>{member.exp}</p>
     </motion.div>

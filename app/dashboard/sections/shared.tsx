@@ -118,7 +118,7 @@ export function SectionPanel({ title, subtitle, form, list }: { title: string; s
           <span style={{ width: 28, height: 1, background: T.amber, display: "block" }} />
           <span style={{ fontFamily: "Inter, sans-serif", fontSize: 9, color: T.amber, letterSpacing: "0.28em", textTransform: "uppercase" }}>{subtitle}</span>
         </div>
-        <h2 style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, fontSize: 28, color: T.ink, letterSpacing: "-0.03em", lineHeight: 1.1, marginBottom: 32 }}>{title}</h2>
+        <h2 style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, fontSize: 28, color: T.cream, letterSpacing: "-0.03em", lineHeight: 1.1, marginBottom: 32 }}>{title}</h2>
         {form}
       </div>
       {/* List column */}

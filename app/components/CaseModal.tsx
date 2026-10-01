@@ -15,7 +15,7 @@ export function CaseModal({project,onClose}: {project: any; onClose: () => void}
         <div style={{position:"sticky",top:0,background:T.creamDark,borderBottom:`1px solid ${T.sand}30`,padding:"20px 32px",display:"flex",alignItems:"center",justifyContent:"space-between",zIndex:10}}>
           <div>
             <div style={{fontFamily:"Inter, sans-serif",fontSize:10,color:T.sand,letterSpacing:"0.22em",textTransform:"uppercase",marginBottom:4}}>{project.cat} · {project.year}</div>
-            <h2 style={{fontFamily:"Inter, sans-serif",fontWeight:900,fontSize:"1.8rem",color:T.ink,letterSpacing:"-0.02em"}}>{project.title} — {project.sub}</h2>
+            <h2 style={{fontFamily:"Inter, sans-serif",fontWeight:900,fontSize:"1.8rem",color:T.cream,letterSpacing:"-0.02em"}}>{project.title} — {project.sub}</h2>
           </div>
           <button onClick={onClose} data-h
             style={{width:38,height:38,border:`1px solid ${T.sand}60`,background:"none",display:"flex",alignItems:"center",justifyContent:"center",color:T.sand,fontSize:20,transition:"all 0.2s"}}

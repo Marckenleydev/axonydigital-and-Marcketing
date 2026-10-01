@@ -117,10 +117,10 @@ export default function WorkPage(){
             <span style={{fontFamily:"Inter, sans-serif",fontSize:11,color:T.amber,letterSpacing:"0.28em",textTransform:"uppercase"}}>Selected Work</span>
           </motion.div>
           <motion.h1 initial={{opacity:0,y:40}} animate={v?{opacity:1,y:0}:{}} transition={{duration:1,delay:0.2,ease}}
-            style={{fontFamily:"Inter, sans-serif",fontSize:"clamp(3rem,8vw,8rem)",fontWeight:900,lineHeight:0.9,letterSpacing:"-0.03em",color:"white",marginBottom:28,maxWidth:800}}>
+            style={{fontFamily:"Inter, sans-serif",fontSize:"clamp(3rem,8vw,8rem)",fontWeight:900,lineHeight:0.9,letterSpacing:"-0.03em",color:T.cream,marginBottom:28,maxWidth:800}}>
             Selected Work &
             <br/>
-           <span style={{ fontStyle: "italic", color: T.amber, whiteSpace: "nowrap" }}>Case Studies.</span>
+           <span style={{ fontStyle: "italic", color: T.creamDark, whiteSpace: "nowrap" }}>Case Studies.</span>
           </motion.h1>
           <motion.p initial={{opacity:0,y:20}} animate={v?{opacity:1,y:0}:{}} transition={{duration:0.8,delay:0.45}}
             style={{fontFamily:"Inter, sans-serif",color:`white`,fontSize:17,maxWidth:440,lineHeight:1.75}}>
@@ -288,8 +288,8 @@ export default function WorkPage(){
               <span style={{fontFamily:"Inter, sans-serif",fontSize:10,color:T.amber,letterSpacing:"0.28em",textTransform:"uppercase"}}>Your Turn</span>
               <span style={{width:32,height:1,background:T.amber,display:"block"}}/>
             </div>
-            <h2 style={{fontFamily:"Inter, sans-serif",fontSize:"clamp(2.5rem,6vw,5rem)",fontWeight:900,color:T.ink,letterSpacing:"-0.03em",lineHeight:1.05,marginBottom:20}}>
-              Your Project<br/><span style={{fontStyle:"italic",color:T.amber}}>Could Be Next.</span>
+            <h2 style={{fontFamily:"Inter, sans-serif",fontSize:"clamp(2.5rem,6vw,5rem)",fontWeight:900,color:T.cream,letterSpacing:"-0.03em",lineHeight:1.05,marginBottom:20}}>
+              Your Project<br/><span style={{fontStyle:"italic",color:T.cream}}>Could Be Next.</span>
             </h2>
             <p style={{fontFamily:"Inter, sans-serif",color:`${T.ink}55`,fontSize:16,lineHeight:1.75,marginBottom:40}}>
               Free discovery call to kick things off. No commitment — just a conversation.

@@ -35,7 +35,7 @@ export default function TermsPage() {
           </motion.div>
           <motion.h1 initial={{ opacity: 0, y: 40 }} animate={v ? { opacity: 1, y: 0 } : {}} transition={{ duration: 1, delay: 0.2, ease }}
             style={{ fontFamily: "Inter, sans-serif", fontSize: "clamp(3rem, 8vw, 8rem)", fontWeight: 900, lineHeight: 0.9, letterSpacing: "-0.03em", color: T.cream, marginBottom: 28, maxWidth: 800 }}>
-            Terms of<br /><span style={{ fontStyle: "italic", color: T.amber }}>Service.</span>
+            Terms of<br /><span style={{ fontStyle: "italic", color: T.creamDark }}>Service.</span>
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={v ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.8, delay: 0.45 }}
             style={{ fontFamily: "Inter, sans-serif", color: `${T.cream}65`, fontSize: 17, maxWidth: 440, lineHeight: 1.75 }}>

@@ -98,7 +98,7 @@ export default function PrivacyPage() {
           <motion.h1
             initial={{ opacity: 0, y: 40 }} animate={heroV ? { opacity: 1, y: 0 } : {}} transition={{ duration: 1, delay: 0.2, ease }}
             style={{ fontSize: "clamp(3rem, 8vw, 8rem)", fontWeight: 900, lineHeight: 0.9, letterSpacing: "-0.03em", color: T.cream, marginBottom: 28, maxWidth: 800 }}>
-            Privacy<br /><span style={{ fontStyle: "italic", color: T.amber }}>Policy.</span>
+            Privacy<br /><span style={{ fontStyle: "italic", color: T.creamDark }}>Policy.</span>
           </motion.h1>
 
           <motion.p

@@ -269,7 +269,7 @@ export function Work() {
               fontFamily: "Inter, sans-serif",
               fontSize: "clamp(2rem, 8vw, 5.5rem)",
               fontWeight: 900,
-              color: "#FFFFFF",
+              color: T.cream,
               letterSpacing: "-0.03em",
               lineHeight: 1.05,
               margin: 0,
@@ -277,12 +277,7 @@ export function Work() {
             className="section-title"
           >
             Selected Work & <br />
-            <span
-              style={{
-                fontStyle: "italic",
-                color: T.amber,
-              }}
-            >
+            <span style={{ fontStyle: "italic", color: T.cream }}>
               Case Studies.
             </span>
           </motion.h2>
@@ -492,7 +487,7 @@ function WorkCard({ w, i }) {
             fontFamily: "Inter, sans-serif",
             fontSize: "clamp(2rem, 4vw, 3rem)",
             fontWeight: 900,
-            color: "#FFFFFF",
+            color: T.cream,
             lineHeight: 1.05,
             letterSpacing: "-0.02em",
             marginBottom: 4,

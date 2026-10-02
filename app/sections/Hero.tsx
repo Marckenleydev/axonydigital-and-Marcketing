@@ -142,7 +142,7 @@ export function Hero() {
       tl.to(
         imageRef.current,
         {
-          y: "-50vh",
+          y: "-45vh",
           scale: 1,
           ease: "none",
           duration: 1.2,

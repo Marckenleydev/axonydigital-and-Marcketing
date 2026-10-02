@@ -1,3 +1,6 @@
+
+
+
 "use client";
 
 import { useRef, useEffect, useState } from "react";
@@ -114,7 +117,7 @@ export function Hero() {
           ease: "power1.inOut",
           duration: 1.5,
         },
-        0,
+        0
       );
 
       // ------------------------------------------------
@@ -127,60 +130,48 @@ export function Hero() {
           opacity: 0,
           y: -15,
           ease: "power1.inOut",
-          duration: 1.5,
+          duration:1.5,
         },
-        0,
+        0
       );
 
       // ------------------------------------------------
       // DASHBOARD MOVES UP
       // ------------------------------------------------
 
-      // tl.to(
-      //   imageRef.current,
-      //   {
-      //     y: "-50vh",
-      //     scale: 1,
-      //     ease: "none",
-      //     duration: 1.2,
-      //   },
-      //   0
-      // );
+      tl.to(
+        imageRef.current,
+        {
+          y: "-50vh",
+          scale: 1,
+          ease: "none",
+          duration: 1.2,
+        },
+        0
+      );
 
       // ------------------------------------------------
       // DASHBOARD SCALE
       // ------------------------------------------------
 
-      // tl.to(imageRef.current, {
-      //   scale: 1.18,
-      //   ease: "power2.inOut",
-      //   duration: 1.5,
-      // });
+      tl.to(imageRef.current, {
+        scale: 1.18,
+        ease: "power2.inOut",
+        duration: 1.5,
+      });
 
-      // tl.to(imageRef.current, {
-      //   scale: 1.18,
-      //   ease: "none",
-      //   duration: 0.8,
-      // });
+      tl.to(imageRef.current, {
+        scale: 1.18,
+        ease: "none",
+        duration: 0.8,
+      });
 
-      // tl.to(imageRef.current, {
-      //   scale: 1.18,
-      //   y: "-50vh",
-      //   ease: "none",
-      //   duration: 0.5,
-      // });
-
-      tl.fromTo(
-        imageRef.current,
-        { scale: 1, y: "0vh", immediateRender: false },
-        {
-          scale: 1.18,
-          y: "-50vh",
-          ease: "power2.inOut",
-          duration: 2.5,
-        },
-        0,
-      );
+      tl.to(imageRef.current, {
+        scale: 1.18,
+        y: "-50vh",
+        ease: "none",
+        duration: 0.5,
+      });
 
       ScrollTrigger.refresh();
     }, sectionRef);
@@ -230,7 +221,9 @@ export function Hero() {
             ? "clamp(115px, 22vw, 150px)"
             : "clamp(100px, 14vh, 140px)",
 
-          paddingBottom: isMobile ? "40px" : "clamp(32px, 5vh, 56px)",
+          paddingBottom: isMobile
+            ? "40px"
+            : "clamp(32px, 5vh, 56px)",
         }}
       >
         <div
@@ -242,7 +235,9 @@ export function Hero() {
 
             maxWidth: isMobile ? "100%" : 1200,
 
-            padding: isMobile ? "0 16px" : "0 clamp(16px, 5vw, 24px)",
+            padding: isMobile
+              ? "0 16px"
+              : "0 clamp(16px, 5vw, 24px)",
 
             display: "flex",
             flexDirection: "column",
@@ -273,7 +268,9 @@ export function Hero() {
               marginBottom: isMobile ? "22px" : "clamp(16px, 3vh, 28px)",
               width: "100%",
             }}
-          ></motion.div>
+          >
+           
+          </motion.div>
 
           {/* =================================================
               HEADING
@@ -284,12 +281,15 @@ export function Hero() {
             style={{
               willChange: isMobile ? "auto" : "transform, opacity",
 
-              marginBottom: isMobile ? "24px" : "clamp(16px, 3vh, 28px)",
+              marginBottom: isMobile
+                ? "24px"
+                : "clamp(16px, 3vh, 28px)",
 
               width: "100%",
             }}
           >
             <motion.h1
+             
               style={{
                 fontFamily: "Inter, sans-serif",
 
@@ -305,7 +305,9 @@ export function Hero() {
 
                 color: T.creamDark,
 
-                maxWidth: isMobile ? "100%" : "min(1100px, 100%)",
+                maxWidth: isMobile
+                  ? "100%"
+                  : "min(1100px, 100%)",
 
                 margin: "0 auto",
 
@@ -317,6 +319,7 @@ export function Hero() {
                   key={li}
                   style={{
                     display: "block",
+                  
                   }}
                 >
                   {line.segments.map((seg, wi) =>
@@ -324,11 +327,13 @@ export function Hero() {
                       <h1
                         key={`${li}-${wi}-${i}`}
                         style={{
+                         
                           display: "inline-block",
                           marginRight: "0.28em",
                         }}
                       >
                         <motion.span
+                         
                           style={{
                             display: "inline-block",
                             color: T.creamDark,
@@ -337,7 +342,7 @@ export function Hero() {
                           {word}
                         </motion.span>
                       </h1>
-                    )),
+                    ))
                   )}
                 </span>
               ))}
@@ -374,9 +379,13 @@ export function Hero() {
 
                 color: "rgba(255,255,255,0.55)",
 
-                fontSize: isMobile ? "16px" : "clamp(15px, 2.5vw, 17px)",
+                fontSize: isMobile
+                  ? "16px"
+                  : "clamp(15px, 2.5vw, 17px)",
 
-                maxWidth: isMobile ? "350px" : "min(620px, 100%)",
+                maxWidth: isMobile
+                  ? "350px"
+                  : "min(620px, 100%)",
 
                 lineHeight: isMobile ? 1.65 : 1.7,
 
@@ -419,7 +428,9 @@ export function Hero() {
 
                   minWidth: isMobile ? "250px" : undefined,
 
-                  padding: isMobile ? "20px 38px" : undefined,
+                  padding: isMobile
+                    ? "20px 38px"
+                    : undefined,
 
                   borderRadius: isMobile ? "999px" : undefined,
                 }}
@@ -447,7 +458,9 @@ export function Hero() {
 
               maxWidth: isMobile ? "100%" : 1000,
 
-              marginTop: isMobile ? "54px" : "clamp(40px, 7vh, 80px)",
+              marginTop: isMobile
+                ? "54px"
+                : "clamp(40px, 7vh, 80px)",
 
               opacity: 1,
 

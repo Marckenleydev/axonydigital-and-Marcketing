@@ -156,7 +156,7 @@ export function Hero() {
 
       tl.to(imageRef.current, {
         scale: 1.18,
-        ease: "power2.inOut",
+        ease: "none",
         duration: 1.5,
       });
 

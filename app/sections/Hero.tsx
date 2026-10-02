@@ -396,8 +396,7 @@ export function Hero() {
                 textAlign: "center",
               }}
             >
-              Web platforms, marketing, and content built to scale ambitious
-              businesses.
+              Get a custom digital marketing system designed to drive qualified leads, lower acquisition costs, and grow your business.
             </motion.p>
 
             <motion.div

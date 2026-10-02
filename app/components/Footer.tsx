@@ -32,14 +32,7 @@ export function Footer() {
                 onMouseLeave={e=>(e.target as HTMLElement).style.color=`${T.cream}30`}>{l.label}</a>
             ))}
           </nav>
-          <div style={{display:"flex",gap:20}}>
-            {["Dribbble","LinkedIn","GitHub"].map(s=>(
-              <a key={s} href="#" data-h
-                style={{fontFamily:"Inter, sans-serif",fontSize:10,color:`${T.cream}25`,textDecoration:"none",letterSpacing:"0.2em",textTransform:"uppercase",transition:"color 0.25s"}}
-                onMouseEnter={e=>(e.target as HTMLElement).style.color=T.amber}
-                onMouseLeave={e=>(e.target as HTMLElement).style.color=`${T.cream}25`}>{s}</a>
-            ))}
-          </div>
+         
         </div>
         <div style={{display:"flex",flexWrap:"wrap",alignItems:"center",justifyContent:"space-between",gap:12}}>
           <span style={{fontFamily:"Inter, sans-serif",fontSize:10,color:`${T.cream}30`,letterSpacing:"0.18em"}}>© 2026 AXONY.DIGITAL — All rights reserved.</span>

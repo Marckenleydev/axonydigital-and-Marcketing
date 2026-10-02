@@ -274,10 +274,7 @@ export function Contact() {
             {[
               { l: "Email", v: "info@axonydigital.com" },
               { l: "Based in", v: "Dubai · Remote" },
-              {
-                l: "Availability",
-                v: "Currently onboarding select projects.",
-              },
+             
             ].map((item) => (
               <div
                 key={item.l}
@@ -545,65 +542,7 @@ export function Contact() {
                     </div>
                   </div>
 
-                  {/* Budget Range */}
-
-                  <div style={{ width: "100%" }}>
-                    <div
-                      style={{
-                        fontFamily: "Inter, sans-serif",
-                        fontSize: "clamp(8px, 1.8vw, 9px)",
-                        color: `${T.cream}35`,
-                        letterSpacing: "0.24em",
-                        textTransform: "uppercase",
-                        marginBottom: "clamp(8px, 1.5vh, 10px)",
-                      }}
-                    >
-                      Budget Range
-                    </div>
-
-                    <div
-                      style={{
-                        display: "grid",
-                        gridTemplateColumns:
-                          "repeat(auto-fit, minmax(min(100px, 25%), 1fr))",
-                        gap: "clamp(6px, 1.5vw, 8px)",
-                        width: "100%",
-                      }}
-                    >
-                      {BUDGETS.map((b) => (
-                        <button
-                          key={b}
-                          onClick={() => up("budget", b)}
-                          data-h
-                          style={{
-                            fontFamily: "Inter, sans-serif",
-                            fontSize: "clamp(10px, 2vw, 11px)",
-                            padding:
-                              "clamp(8px, 1.5vh, 12px) clamp(4px, 1vw, 8px)",
-                            border: `1px solid ${
-                              form.budget === b
-                                ? T.amber
-                                : `${T.cream}12`
-                            }`,
-                            background:
-                              form.budget === b
-                                ? `${T.amber}18`
-                                : "transparent",
-                            color:
-                              form.budget === b
-                                ? T.amber
-                                : `${T.cream}35`,
-                            transition: "all 0.2s",
-                            letterSpacing: "0.1em",
-                            textAlign: "center",
-                            whiteSpace: "nowrap",
-                          }}
-                        >
-                          {b}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
+                 
 
                   {/* Project Brief */}
 

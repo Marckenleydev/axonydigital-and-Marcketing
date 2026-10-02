@@ -55,8 +55,6 @@ export function Process() {
     offset: ["start 25%", "start -30%"],
   });
 
- 
-
   useEffect(() => {
     const ctx = gsap.context(() => {
       /* ── Heading word color ── */
@@ -214,14 +212,17 @@ export function Process() {
           .process-header {
             text-align: center !important;
           }
+
           .process-eyebrow {
             justify-content: center !important;
           }
+
           .process-line {
             display: none !important;
           }
         }
       `}</style>
+
       <div
         style={{
           maxWidth: 1200,
@@ -243,7 +244,10 @@ export function Process() {
             width: "100%",
           }}
         >
-          <div style={{ width: "100%" }} className="process-header">
+          <div
+            style={{ width: "100%" }}
+            className="process-header"
+          >
             <motion.div
               variants={fadeUp}
               className="process-eyebrow"
@@ -354,67 +358,48 @@ function StepCard({ s, i }) {
   const cardRef = useRef<HTMLDivElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
 
-  /* ── Mouse-tracking tilt (local to each card) ── */
+  /* ── Simple hover interaction ── */
 
-  const handleMouseMove = (
-    e: React.MouseEvent<HTMLDivElement>
-  ) => {
-    const card = cardRef.current;
+  const handleMouseEnter = () => {
+    setHov(true);
 
-    if (!card) return;
-
-    const rect = card.getBoundingClientRect();
-
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    const rotateY =
-      ((x / rect.width) - 0.5) * 10;
-
-    const rotateX =
-      ((y / rect.height) - 0.5) * -10;
-
-    gsap.to(card, {
-      rotateY,
-      rotateX,
-      duration: 0.4,
+    gsap.to(cardRef.current, {
+      scale: 1.02,
+      duration: 0.45,
       ease: "power2.out",
+      overwrite: true,
     });
 
     gsap.to(overlayRef.current, {
-      background: `radial-gradient(
-        circle at ${x}px ${y}px,
-        rgba(116,55,234,0.12) 0%,
-        rgba(5,14,31,0.35) 35%,
-        rgba(5,14,31,0.88) 100%
-      )`,
+      background:
+        "linear-gradient(to top, rgba(5,14,31,0.92) 0%, rgba(5,14,31,0.52) 50%, rgba(116,55,234,0.18) 100%)",
       duration: 0.4,
+      overwrite: true,
     });
   };
 
   const handleMouseLeave = () => {
+    setHov(false);
+
     gsap.to(cardRef.current, {
-      rotateY: 0,
-      rotateX: 0,
-      duration: 0.7,
-      ease: "elastic.out(1, 0.5)",
+      scale: 1,
+      duration: 0.6,
+      ease: "power3.out",
+      overwrite: true,
     });
 
     gsap.to(overlayRef.current, {
       background:
         "linear-gradient(to top, rgba(5,14,31,0.88) 0%, rgba(5,14,31,0.60) 50%, rgba(5,14,31,0.35) 100%)",
       duration: 0.5,
+      overwrite: true,
     });
-
-    setHov(false);
   };
 
   return (
     <div
       className="step-card"
-    
-      onMouseEnter={() => setHov(true)}
-      onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       style={{
         position: "relative",
@@ -428,7 +413,6 @@ function StepCard({ s, i }) {
         transformStyle: "preserve-3d",
         willChange: "transform",
       }}
-      data-h
     >
       {/* ── Background image ── */}
 
@@ -441,7 +425,7 @@ function StepCard({ s, i }) {
           backgroundSize: "cover",
           backgroundPosition: "center",
           transition: "transform 0.5s ease",
-          transform: hov ? "scale(1.05)" : "scale(1)",
+          transform: hov ? "scale(1.08)" : "scale(1)",
           willChange: "transform",
         }}
       />

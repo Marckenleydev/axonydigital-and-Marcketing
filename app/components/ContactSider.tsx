@@ -43,7 +43,7 @@ export function ContactSidebar(){
           Get In Touch Directly
         </div>
         
-        {[{l:"Email", v:"info@codeveraa.studio"},
+        {[{l:"Email", v:"info@axonydigital.com"},
           {l:"Based In", v:"Dubai "},
           {l:"Phone", v:"+971 55 263 5229"}
         ].map(item=>(
@@ -136,84 +136,7 @@ export function ContactSidebar(){
         ))}
       </motion.div>
 
-      {/* Availability */}
-      <motion.div variants={fadeUp} style={{
-        border: `1px solid ${T.cream}10`,
-        padding: "clamp(20px, 3vh, 28px) clamp(16px, 3vw, 28px)",
-        width: "100%",
-        boxSizing: "border-box"
-      }}>
-        <div style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "clamp(8px, 2vw, 12px)",
-          marginBottom: "clamp(8px, 2vh, 12px)",
-          flexWrap: "wrap"
-        }}>
-          <span style={{
-            width: "clamp(6px, 1.5vw, 8px)",
-            height: "clamp(6px, 1.5vw, 8px)",
-            borderRadius: "50%",
-            background: "#4ade80",
-            boxShadow: "0 0 0 3px rgba(74,222,128,0.2)",
-            flexShrink: 0
-          }}/>
-          
-          <span style={{
-            fontFamily: "Inter, sans-serif",
-            fontSize: "clamp(11px, 2vw, 12px)",
-            fontWeight: 700,
-            color: `${T.cream}65`,
-            wordBreak: "break-word"
-          }}>
-            Currently accepting new clients
-          </span>
-        </div>
-        
-        <p style={{
-          fontFamily: "Inter, sans-serif",
-          fontSize: "clamp(11px, 2vw, 12px)",
-          color: `${T.cream}30`,
-          lineHeight: 1.65,
-          marginBottom: "clamp(16px, 3vh, 20px)",
-          wordBreak: "break-word"
-        }}>
-         Limited partnerships available for 2026. We reserve our capacity for brands looking for strategic digital growth and exceptional execution.
-        </p>
-        
-        <div style={{
-          display: "flex",
-          flexWrap: "wrap",
-          gap: "clamp(6px, 1.5vw, 10px)",
-          width: "100%"
-        }}>
-          {["Dribbble","LinkedIn","GitHub","Twitter"].map(s=>(
-            <a key={s} href="#" data-h
-              style={{
-                fontFamily: "Inter, sans-serif",
-                fontSize: "clamp(8px, 1.8vw, 9px)",
-                padding: "clamp(4px, 1vh, 6px) clamp(8px, 2vw, 12px)",
-                border: `1px solid ${T.cream}12`,
-                color: `${T.cream}25`,
-                textDecoration: "none",
-                letterSpacing: "0.18em",
-                textTransform: "uppercase",
-                transition: "all 0.25s",
-                whiteSpace: "nowrap"
-              }}
-              onMouseEnter={e=>{
-                e.target.style.borderColor=`${T.amber}60`;
-                e.target.style.color=T.amber;
-              }}
-              onMouseLeave={e=>{
-                e.target.style.borderColor=`${T.cream}12`;
-                e.target.style.color=`${T.cream}25`;
-              }}>
-              {s}
-            </a>
-          ))}
-        </div>
-      </motion.div>
+     
     </motion.div>
   );
 }

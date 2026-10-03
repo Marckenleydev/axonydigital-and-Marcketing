@@ -19,7 +19,7 @@ function useRev(m:"-70px"){const r=useRef(null);const v=useInView(r,{once:true,m
 export default function ContactPage(){
   const [r,v]=useRev();
   return(
-    <div className="orbit-page" style={{fontFamily:"Inter, sans-serif",background:T.cream,minHeight:"100vh"}}>
+    <div className="orbit-page" style={{fontFamily:"Inter, sans-serif",minHeight:"100vh"}}>
       <Cursor/>
       <OrbitBackground />
       <Navbar />

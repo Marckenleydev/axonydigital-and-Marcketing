@@ -5,7 +5,7 @@ import { Axony3DLogo } from "./Axony3DLogo";
 export const NAV = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
-   { label: "Clients", href: "/work" },
+   { label: "Clients", href: "/clients" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 

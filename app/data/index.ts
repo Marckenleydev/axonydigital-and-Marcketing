@@ -246,7 +246,14 @@ export const SERVICESHome = [
     desc:"High-impact visual content for social media and brands. From photoshoots to cinematic video, crafted to engage, convert, and elevate your digital presence.",
     tags:["Photography","Videography","Reels","Brand Content","Social Media"]
   },
-  { n:"03", title:"Web Development & Design",   desc:"High-performance apps built with Next.js, React, and TypeScript. Scalable, accessible, and blazing fast.", tags:["Next.js","React","Node.js","TypeScript"] },
+  { n:"03", title:"Web Development & Design",   desc:"Premium websites and digital platforms designed to showcase your brand, simplify operations, and turn more visitors into customers.", tags:[
+    "Shopify",
+    "E-Commerce",
+    "Inventory Systems",
+    "Booking Systems",
+    "Payment Integration",
+    "Customer Portals"
+  ] },
 ];
 
 export const WORKS = [

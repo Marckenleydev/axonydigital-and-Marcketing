@@ -95,8 +95,8 @@ export function Hero() {
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top top",
-          end: "bottom bottom",
-          scrub: true,
+          end: "bottom bottom+=90",
+          scrub: 1.5,
           pin: stickyRef.current,
           pinSpacing: true,
           anticipatePin: 1,
@@ -109,33 +109,34 @@ export function Hero() {
       // HEADING DISAPPEARS
       // ------------------------------------------------
 
-      tl.to(
-        headingRef.current,
-        {
-          scale: 1.15,
-          opacity: 0,
-          ease: "power1.inOut",
-          duration: 1.5,
-        },
-        0
-      );
+      tl.to(headingRef.current, {
+  scale: 1.15,
+  opacity: 0,
+  ease: "power2.out",
+  duration: 0.9,
+}, 0);
 
       // ------------------------------------------------
-      // SUBTITLE DISAPPEARS
+      // STEP 2
+      // SUBTITLE + CTA FADE OUT
+      // ------------------------------------------------
+      // Because both the paragraph and button are inside
+      // subRef, they fade together automatically.
+      //
+      // The fade begins immediately when scrolling starts.
       // ------------------------------------------------
 
       tl.to(
         subRef.current,
         {
-          opacity: 0,
-          y: -15,
-          ease: "power1.inOut",
-          duration:1.5,
-        },
-        0
-      );
+         scale: 1.15,
+  opacity: 0,
+  ease: "power2.out",
+  duration: 0.4,
+}, 0);
 
       // ------------------------------------------------
+      // STEP 3
       // DASHBOARD MOVES UP
       // ------------------------------------------------
 
@@ -144,21 +145,27 @@ export function Hero() {
         {
           y: "-45vh",
           scale: 1,
-          ease: "none",
+          ease: "power2.out",
           duration: 1.2,
         },
         0
       );
 
       // ------------------------------------------------
+      // STEP 4
       // DASHBOARD SCALE
       // ------------------------------------------------
 
       tl.to(imageRef.current, {
         scale: 1.18,
         ease: "none",
-        duration: 1.5,
+        duration: 1,
       });
+
+      // ------------------------------------------------
+      // STEP 5
+      // HOLD DASHBOARD SCALE
+      // ------------------------------------------------
 
       tl.to(imageRef.current, {
         scale: 1.18,
@@ -166,11 +173,16 @@ export function Hero() {
         duration: 0.8,
       });
 
+      // ------------------------------------------------
+      // STEP 6
+      // FINAL DASHBOARD POSITION
+      // ------------------------------------------------
+
       tl.to(imageRef.current, {
         scale: 1.18,
         y: "-50vh",
         ease: "none",
-        duration: 0.5,
+        duration: 0.8,
       });
 
       ScrollTrigger.refresh();
@@ -269,7 +281,7 @@ export function Hero() {
               width: "100%",
             }}
           >
-           
+            {/* Eyebrow content stays here */}
           </motion.div>
 
           {/* =================================================
@@ -289,7 +301,6 @@ export function Hero() {
             }}
           >
             <motion.h1
-             
               style={{
                 fontFamily: "Inter, sans-serif",
 
@@ -319,7 +330,6 @@ export function Hero() {
                   key={li}
                   style={{
                     display: "block",
-                  
                   }}
                 >
                   {line.segments.map((seg, wi) =>
@@ -327,13 +337,11 @@ export function Hero() {
                       <h1
                         key={`${li}-${wi}-${i}`}
                         style={{
-                         
                           display: "inline-block",
                           marginRight: "0.28em",
                         }}
                       >
                         <motion.span
-                         
                           style={{
                             display: "inline-block",
                             color: T.creamDark,
@@ -396,7 +404,9 @@ export function Hero() {
                 textAlign: "center",
               }}
             >
-              Get a custom digital marketing system designed to drive qualified leads, lower acquisition costs, and grow your business.
+              Get a custom digital marketing system designed to drive
+              qualified leads, lower acquisition costs, and grow your
+              business.
             </motion.p>
 
             <motion.div
@@ -437,7 +447,9 @@ export function Hero() {
                 Get in touch{" "}
                 <span
                   style={{
-                    fontSize: isMobile ? "19px" : "clamp(16px, 3vw, 18px)",
+                    fontSize: isMobile
+                      ? "19px"
+                      : "clamp(16px, 3vw, 18px)",
                   }}
                 >
                   →

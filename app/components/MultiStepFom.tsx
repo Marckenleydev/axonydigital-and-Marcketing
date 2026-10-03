@@ -614,24 +614,26 @@ export function MultiStepForm(){
                 disabled={submitting}
                 data-h
                 style={{
-                  background: canNext()&&!submitting?T.amber:`${T.cream}10`,
-                  color: canNext()&&!submitting?T.ink:`${T.cream}20`,
+                  background: canNext()&&!submitting?"#E5433F":`${T.cream}10`,
+                  color: canNext()&&!submitting?"#fff":`${T.cream}20`,
                   fontFamily:"Inter, sans-serif",
-                  fontWeight: 800,
+                  fontWeight: 700,
                   fontSize: "clamp(10px, 2vw, 11px)",
                   letterSpacing: "0.22em",
                   textTransform: "uppercase",
                   padding: "clamp(12px, 2vh, 16px) clamp(20px, 4vw, 32px)",
                   border: "none",
+                  borderRadius: "999px",
                   transition: "all 0.3s",
                   display: "flex",
                   alignItems: "center",
                   gap: "clamp(8px, 2vw, 12px)",
                   whiteSpace: "nowrap",
-                  opacity: submitting?0.6:1
+                  opacity: submitting?0.6:1,
+                  cursor: canNext()&&!submitting?"pointer":"not-allowed"
                 }}
-                onMouseEnter={e=>{if(canNext()&&!submitting){e.currentTarget.style.background=T.cream; e.currentTarget.style.color=T.ink;}}}
-                onMouseLeave={e=>{if(canNext()&&!submitting){e.currentTarget.style.background=T.sand; e.currentTarget.style.color=T.cream;}}}>
+                onMouseEnter={e=>{if(canNext()&&!submitting){e.currentTarget.style.filter="brightness(1.12)"; e.currentTarget.style.transform="translateY(-1px)";}}}
+                onMouseLeave={e=>{if(canNext()&&!submitting){e.currentTarget.style.filter="brightness(1)"; e.currentTarget.style.transform="translateY(0)";}}}>
                 {submitting?"Sending...":step===4?"Send Brief ":"Continue "}<span style={{fontSize:"clamp(14px, 3vw, 16px)"}}>{!submitting&&"→"}</span>
               </button>
             </div>

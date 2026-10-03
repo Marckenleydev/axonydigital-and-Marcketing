@@ -512,48 +512,9 @@ function Skills(){
                 gap: "clamp(8px, 2vw, 12px)",
                 flexWrap: "wrap"
               }}>
-                <div style={{
-                  width: "clamp(32px, 6vw, 36px)",
-                  height: "clamp(32px, 6vw, 36px)",
-                  background: `${T.amber}20`,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  border: `1px solid ${T.amber}35`,
-                  flexShrink: 0
-                }}>
-                  <span style={{
-                    fontFamily: "Inter, sans-serif",
-                    color: T.amber,
-                    fontWeight: 900,
-                    fontSize: "clamp(11px, 2vw, 13px)"
-                  }}>
-                    M
-                  </span>
-                </div>
+               
                 
-                <div style={{ minWidth: 0 }}>
-                  <span style={{
-                    display: "block",
-                    fontFamily: "Inter, sans-serif",
-                    fontWeight: 700,
-                    fontSize: "clamp(11px, 2.2vw, 12px)",
-                    color: `${T.ink}65`,
-                    whiteSpace: "nowrap"
-                  }}>
-                    Marckenley Dorsainvil
-                  </span>
-                  <span style={{
-                    fontFamily: "Inter, sans-serif",
-                    fontSize: "clamp(9px, 1.8vw, 10px)",
-                    color: `${T.ink}35`,
-                    letterSpacing: "0.2em",
-                    display: "block",
-                    whiteSpace: "nowrap"
-                  }}>
-                    Founder & Lead Engineer
-                  </span>
-                </div>
+              
               </footer>
             </blockquote>
           </div>

@@ -20,12 +20,7 @@ function useRev(margin = "-60px") {
 
 /* ── MOCK DATA — replace with real content ── */
 
-const STATS = [
-  { val: "34+",  label: "Clients Served"      },
-  { val: "98%",  label: "Retention Rate"       },
-  { val: "3.8×", label: "Average ROAS"         },
-  { val: "$2M+", label: "Revenue Generated"    },
-];
+
 
 const SERVICES_MAP: Record<string, string> = {
   web:     "Web Development",
@@ -48,7 +43,7 @@ const CLIENTS = [
     color:    "#4FA8F0",
     services: ["web", "ads"],
     since:    "2023",
-    result:   { metric: "Revenue increase", value: "+142%" },
+    result:   { metric: "Revenue increase", value: "+42%" },
     quote:    "Axony completely transformed our online presence. Our sales doubled within 3 months of launching the new site.",
     author:   "Sarah Mitchell",
     role:     "CEO, NovaBrand",
@@ -62,7 +57,7 @@ const CLIENTS = [
     color:    "#C8A84B",
     services: ["web", "content"],
     since:    "2023",
-    result:   { metric: "Lead generation", value: "+89%" },
+    result:   { metric: "Lead generation", value: "+69%" },
     quote:    "The content strategy they built for us elevated our brand to a level we never thought possible in such a short time.",
     author:   "James Hartwell",
     role:     "Founder, Luxe Interiors",
@@ -76,7 +71,7 @@ const CLIENTS = [
     color:    "#E5433F",
     services: ["ads", "content"],
     since:    "2024",
-    result:   { metric: "Cost per lead", value: "-61%" },
+    result:   { metric: "Cost per lead", value: "-51%" },
     quote:    "Our Meta ads went from burning cash to printing memberships. Best investment we made this year.",
     author:   "Khalid Al Mansoori",
     role:     "Owner, FitCore Dubai",
@@ -104,7 +99,7 @@ const CLIENTS = [
     color:    "#4FA8F0",
     services: ["web", "ads"],
     since:    "2023",
-    result:   { metric: "Appointment bookings", value: "+210%" },
+    result:   { metric: "Appointment bookings", value: "+60%" },
     quote:    "Professional, fast, and results-driven. Our booking system is now flawless and our ads finally convert.",
     author:   "Dr. Omar ",
     role:     "Director, Apex Clinics",
@@ -118,7 +113,7 @@ const CLIENTS = [
     color:    "#A78BFA",
     services: ["content", "ads"],
     since:    "2024",
-    result:   { metric: "Engagement rate", value: "+320%" },
+    result:   { metric: "Engagement rate", value: "+70%" },
     quote:    "Our Instagram went from 2k to 18k in 4 months. The content quality is unlike anything we had before.",
     author:   "Leila Fontaine",
     role:     "Brand Manager, StyleHaus",
@@ -146,7 +141,7 @@ const CLIENTS = [
     color:    "#C8A84B",
     services: ["web", "ads", "content"],
     since:    "2023",
-    result:   { metric: "Qualified leads / month", value: "85+" },
+    result:   { metric: "Qualified leads / month", value: "75+" },
     quote:    "Every service they offer works together seamlessly. Our pipeline has never been this full.",
     author:   "Fatima Al Zaabi",
     role:     "Sales Director, Dunes Realty",

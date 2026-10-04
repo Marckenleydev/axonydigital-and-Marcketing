@@ -9,8 +9,14 @@ export function Cursor() {
   const [p, setP] = useState(() => lastPointerPosition);
   const [hl, setHl] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    // Check if mobile on mount and resize
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
     const handleMove = (event: PointerEvent) => {
       lastPointerPosition = { x: event.clientX, y: event.clientY };
       setP(lastPointerPosition);
@@ -25,12 +31,13 @@ export function Cursor() {
     setMounted(true);
 
     return () => {
+      window.removeEventListener("resize", checkMobile);
       window.removeEventListener("pointermove", handleMove);
       window.removeEventListener("mouseover", handleHover);
     };
   }, []);
 
-  if (!mounted) return null;
+  if (!mounted || isMobile) return null;
 
   return createPortal(
     <>

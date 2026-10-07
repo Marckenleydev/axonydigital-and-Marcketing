@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Axony3DLogo } from "./Axony3DLogo";
+import Image from "next/image";
 
 export const NAV = [
   { label: "Home", href: "/" },
@@ -35,7 +36,15 @@ export function Navbar() {
       >
         <div className="axony-nav-layout">
           <a href="/" data-h className="axony-brand" aria-label="AXONY.DIGITAL home">
-            <span className="axony-brand-mark"><Axony3DLogo /></span>
+            <span className="axony-brand-mark">
+              <Image
+                src="/images/logo_axony_marketing1.jpg"
+                alt="AXONY.DIGITAL logo"
+                width={56}
+                height={56}
+                style={{ width: "100%", height: "100%" }}
+              />
+            </span>
             <span className="axony-brand-name">AXONY<span>.</span>DIGITAL</span>
           </a>
 
@@ -149,10 +158,7 @@ export function Navbar() {
           height: 100%;
           overflow: visible;
         }
-        .axony-brand:hover .axony-brand-mark {
-          transform: perspective(100px) rotateY(-12deg) rotateX(7deg) translateY(-1px);
-          filter: drop-shadow(0 7px 8px rgba(61, 57, 210, .58));
-        }
+       
         .axony-brand-name {
           color: #fff;
           font: 800 13px Inter, sans-serif;

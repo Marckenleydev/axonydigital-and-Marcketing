@@ -341,14 +341,25 @@ export function Hero() {
                           marginRight: "0.28em",
                         }}
                       >
-                        <motion.span
-                          style={{
-                            display: "inline-block",
-                            color: T.creamDark,
-                          }}
-                        >
-                          {word}
-                        </motion.span>
+        <motion.span
+  style={{
+    display: "inline-block",
+    background:
+      "linear-gradient(180deg, #E4EEFF 0%, #AFC8F5 45%, #6F91C9 100%)",
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent",
+    backgroundClip: "text",
+
+    // Prevent descenders like "g", "y", "p" from getting clipped
+    paddingBottom: "0.05em",
+  
+    overflow: "visible",
+
+    textShadow: "0 0 18px rgba(80, 130, 210, 0.16)",
+  }}
+>
+  {word}
+</motion.span>
                       </h1>
                     ))
                   )}

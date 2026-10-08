@@ -1,33 +1,25 @@
-// "use client";
+"use client";
 
-// import { useEffect } from "react";
-// import gsap from "gsap";
-// import { ScrollTrigger } from "gsap/ScrollTrigger";
-// import { ScrollSmoother } from "gsap/ScrollSmoother";
+import { useEffect } from "react";
+import Lenis from "lenis";
 
-// gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+export function SmoothScroll() {
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+    });
 
-// export default function SmoothScroll({
-//   children,
-// }: {
-//   children: React.ReactNode;
-// }) {
-//   useEffect(() => {
-//     const smoother = ScrollSmoother.create({
-//       wrapper: "#smooth-wrapper",
-//       content: "#smooth-content",
-//       smooth: 3,
-//       effects: true,
-//     });
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
 
-//     return () => {
-//       smoother.kill();
-//     };
-//   }, []);
+    requestAnimationFrame(raf);
 
-//   return (
-//     <div id="smooth-wrapper">
-//       <div id="smooth-content">{children}</div>
-//     </div>
-//   );
-// }
+    return () => lenis.destroy();
+  }, []);
+
+  return null;
+}

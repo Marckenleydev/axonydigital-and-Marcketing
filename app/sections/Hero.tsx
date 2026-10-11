@@ -300,72 +300,71 @@ export function Hero() {
               width: "100%",
             }}
           >
-            <motion.h1
-              style={{
-                fontFamily: "Inter, sans-serif",
-
-                fontSize: isMobile
-                  ? "clamp(1.3rem, 9vw, 2.4rem)"
-                  : "clamp(2.2rem, 9vw, 5.5rem)",
-
-                fontWeight: isMobile ? 500 : 600,
-
-                lineHeight: isMobile ? 1.05 : 1.05,
-
-                letterSpacing: "-0.035em",
-
-                color: T.creamDark,
-
-                maxWidth: isMobile
-                  ? "100%"
-                  : "min(1100px, 100%)",
-
-                margin: "0 auto",
-
-                textAlign: "center",
-              }}
-            >
-              {lines.map((line, li) => (
-                <span
-                  key={li}
-                  style={{
-                    display: "block",
-                  }}
-                >
-                  {line.segments.map((seg, wi) =>
-                    seg.text.split(" ").map((word, i) => (
-                      <h1
-                        key={`${li}-${wi}-${i}`}
-                        style={{
-                          display: "inline-block",
-                          marginRight: "0.28em",
-                        }}
-                      >
-        <motion.span
+            <h1
   style={{
-    display: "inline-block",
-    background:
-      "linear-gradient(180deg, #E4EEFF 0%, #AFC8F5 45%, #6F91C9 100%)",
-    WebkitBackgroundClip: "text",
-    WebkitTextFillColor: "transparent",
-    backgroundClip: "text",
-
-    // Prevent descenders like "g", "y", "p" from getting clipped
-    paddingBottom: "0.05em",
-  
-    overflow: "visible",
-
-    textShadow: "0 0 18px rgba(80, 130, 210, 0.16)",
+    fontFamily: "Inter, sans-serif",
+    fontSize: isMobile
+      ? "clamp(1.3rem, 9vw, 2.4rem)"
+      : "clamp(2.2rem, 9vw, 5.5rem)",
+    fontWeight: isMobile ? 500 : 600,
+    lineHeight: 1.05,
+    letterSpacing: "-0.035em",
+    color: T.creamDark,
+    maxWidth: isMobile ? "100%" : "min(1100px, 100%)",
+    margin: "0 auto",
+    textAlign: "center",
   }}
 >
-  {word}
-</motion.span>
-                      </h1>
-                    ))
-                  )}
-                </span>
-              ))}
-            </motion.h1>
+  {lines.map((line, li) => (
+    <span
+      key={li}
+      style={{
+        display: "block",
+      }}
+    >
+      {line.segments.flatMap((seg, wi) =>
+        seg.text.split(" ").map((word, i) => (
+          <span
+            key={`${li}-${wi}-${i}`}
+            style={{
+              display: "inline-block",
+              overflow: "hidden",
+              verticalAlign: "top",
+              paddingBottom: "0.08em",
+              marginRight: "0.28em",
+            }}
+          >
+            <motion.span
+              // initial={{ y: "110%", opacity: 0 }}
+              // animate={{ y: "0%", opacity: 1 }}
+              // transition={{
+              //   duration: 0.8,
+              //   ease: [0.22, 1, 0.36, 1],
+              //   delay: li * 0.15 + wi * 0.08 + i * 0.045,
+              // }}
+
+              initial={{ filter: "blur(10px)", opacity: 0, scale: 0.95 }}
+animate={{ filter: "blur(0px)", opacity: 1, scale: 1 }}
+transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+              style={{
+                display: "inline-block",
+                background:
+                  "linear-gradient(180deg, #E4EEFF 0%, #AFC8F5 45%, #6F91C9 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+                paddingBottom: "0.05em",
+                textShadow: "0 0 18px rgba(80, 130, 210, 0.16)",
+              }}
+            >
+              {word}
+            </motion.span>
+          </span>
+        ))
+      )}
+    </span>
+  ))}
+            </h1>
           </div>
 
           {/* =================================================
@@ -391,10 +390,10 @@ export function Hero() {
               }}
               transition={{
                 duration: 0.8,
-                delay: 0.9,
+                delay: 0.6,
               }}
               style={{
-                fontFamily: "Inter, sans-serif",
+                fontFamily: "var(--font-roboto), sans-serif",
 
                 color: "rgba(255,255,255,0.55)",
 
@@ -413,11 +412,11 @@ export function Hero() {
                   : "0 auto clamp(20px, 3vh, 28px)",
 
                 textAlign: "center",
+               
+
               }}
             >
-              Get a custom digital marketing system designed to drive
-              qualified leads, lower acquisition costs, and grow your
-              business.
+            Strategy, digital experiences, and creative campaigns designed to move your business forward.
             </motion.p>
 
             <motion.div
@@ -431,7 +430,7 @@ export function Hero() {
               }}
               transition={{
                 duration: 0.8,
-                delay: 1.05,
+                delay: 0.7,
               }}
               style={{
                 display: "flex",
@@ -506,8 +505,8 @@ export function Hero() {
               }}
               transition={{
                 duration: 0.6,
-                delay: 0.5,
-                ease,
+                delay: 0.9,
+                ease: "easeOut",
               }}
             >
               <img

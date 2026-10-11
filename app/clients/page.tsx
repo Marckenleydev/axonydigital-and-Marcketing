@@ -7,6 +7,7 @@ import { Footer } from "../components/Footer";
 import { Cursor } from "../components/Cursor";
 import { OrbitBackground } from "../components/OrbitBackground";
 import { T } from "../data";
+import { ClientsMarqueeSection } from "../components/ClientsMarquee";
 
 const ease = [0.22, 1, 0.36, 1];
 const fadeUp = { hidden: { opacity: 0, y: 36 }, visible: { opacity: 1, y: 0, transition: { duration: 0.75, ease } } };
@@ -75,7 +76,7 @@ const CLIENTS = [
     quote:    "Our Meta ads went from burning cash to printing memberships. Best investment we made this year.",
     author:   "Khalid Al Mansoori",
     role:     "Owner, FitCore Dubai",
-    featured: true,
+    featured: false,
   },
   {
     id: 4,
@@ -149,7 +150,7 @@ const CLIENTS = [
   },
 ];
 
-const FILTERS = ["All", "Web Development", "Meta Ads", "Content Production"];
+
 
 /* ── COMPONENTS ── */
 
@@ -231,76 +232,7 @@ function FeaturedCard({ client }: { client: typeof CLIENTS[0] }) {
   );
 }
 
-function ClientCard({ client, i }: { client: typeof CLIENTS[0]; i: number }) {
-  const [hov, setHov] = useState(false);
-  const [r, v] = useRev();
 
-  return (
-    <motion.div
-      ref={r}
-      initial={{ opacity: 0, y: 28 }}
-      animate={v ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, delay: (i % 3) * 0.08, ease }}
-      onMouseEnter={() => setHov(true)}
-      onMouseLeave={() => setHov(false)}
-      style={{
-        background: hov ? "rgba(255,255,255,0.05)" : "rgba(255,255,255,0.025)",
-        border: `1px solid ${hov ? `${client.color}30` : "rgba(255,255,255,0.07)"}`,
-        borderRadius: 16,
-        padding: "clamp(20px,3.5vh,32px) clamp(18px,3vw,28px)",
-        cursor: "default",
-        transition: "all 0.3s ease",
-        position: "relative",
-        overflow: "hidden",
-      }}
-    >
-      <div style={{ position: "absolute", bottom: "-20%", right: "-10%", width: 180, height: 180, borderRadius: "50%", background: `${client.color}08`, filter: "blur(40px)", pointerEvents: "none", transition: "opacity 0.3s", opacity: hov ? 1 : 0 }} />
-
-      {/* Top row */}
-      <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", marginBottom: 20 }}>
-        <div style={{ width: 48, height: 48, borderRadius: 12, background: `${client.color}15`, border: `1px solid ${client.color}30`, display: "flex", alignItems: "center", justifyContent: "center" }}>
-          <span style={{ fontFamily: "Inter, sans-serif", fontWeight: 800, fontSize: 14, color: client.color }}>{client.logo}</span>
-        </div>
-        <span style={{ fontFamily: "Inter, sans-serif", fontSize: 10, color: "rgba(255,255,255,0.25)", letterSpacing: "0.16em", textTransform: "uppercase", marginTop: 4 }}>Since {client.since}</span>
-      </div>
-
-      {/* Name + industry */}
-      <div style={{ fontFamily: "Inter, sans-serif", fontWeight: 700, fontSize: "clamp(15px,2vw,18px)", color: T.cream, marginBottom: 4 }}>{client.name}</div>
-      <div style={{ fontFamily: "Inter, sans-serif", fontSize: 12, color: "rgba(255,255,255,0.35)", marginBottom: 18, letterSpacing: "0.04em" }}>{client.industry}</div>
-
-      {/* Result */}
-      <div style={{ background: `${client.color}0D`, border: `1px solid ${client.color}20`, borderRadius: 10, padding: "12px 16px", marginBottom: 18 }}>
-        <div style={{ fontFamily: "Inter, sans-serif", fontWeight: 800, fontSize: "clamp(18px,2.5vw,24px)", color: client.color, letterSpacing: "-0.03em" }}>{client.result.value}</div>
-        <div style={{ fontFamily: "Inter, sans-serif", fontSize: 11, color: "rgba(255,255,255,0.38)", marginTop: 3, letterSpacing: "0.06em" }}>{client.result.metric}</div>
-      </div>
-
-      {/* Quote preview */}
-      <p style={{ fontFamily: "Inter, sans-serif", fontSize: 13, color: "rgba(255,255,255,0.45)", lineHeight: 1.65, fontStyle: "italic", marginBottom: 18 }}>
-        "{client.quote.substring(0, 90)}{client.quote.length > 90 ? "…" : ""}"
-      </p>
-
-      {/* Author */}
-      <div style={{ display: "flex", alignItems: "center", gap: 10, paddingTop: 16, borderTop: "1px solid rgba(255,255,255,0.06)" }}>
-        <div style={{ width: 32, height: 32, borderRadius: "50%", background: `${client.color}18`, border: `1px solid ${client.color}30`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-          <span style={{ fontFamily: "Inter, sans-serif", fontWeight: 700, fontSize: 11, color: client.color }}>{client.author.split(" ").map(w => w[0]).join("")}</span>
-        </div>
-        <div>
-          <div style={{ fontFamily: "Inter, sans-serif", fontWeight: 600, fontSize: 12, color: "rgba(255,255,255,0.7)" }}>{client.author}</div>
-          <div style={{ fontFamily: "Inter, sans-serif", fontSize: 10, color: "rgba(255,255,255,0.3)", marginTop: 1 }}>{client.role}</div>
-        </div>
-      </div>
-
-      {/* Services */}
-      <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginTop: 14 }}>
-        {client.services.map(s => (
-          <span key={s} style={{ fontFamily: "Inter, sans-serif", fontSize: 9, padding: "3px 9px", borderRadius: 999, border: `1px solid ${SERVICE_COLORS[s]}35`, color: SERVICE_COLORS[s], letterSpacing: "0.1em", textTransform: "uppercase" }}>
-            {SERVICES_MAP[s]}
-          </span>
-        ))}
-      </div>
-    </motion.div>
-  );
-}
 
 /* ── PAGE ── */
 
@@ -358,41 +290,8 @@ export default function ClientsPage() {
         </div>
       </section>
 
-      {/* ── ALL CLIENTS ── */}
-      <section style={{ padding: "60px 24px 120px", position: "relative", zIndex: 1 }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-
-          {/* Filter bar */}
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 16, marginBottom: 40 }}>
-            <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }} style={{ display: "flex", alignItems: "center", gap: 12 }}>
-              <span style={{ width: 28, height: 1, background: T.amber, display: "block" }} />
-              <span style={{ fontSize: 10, color: T.amber, letterSpacing: "0.28em", textTransform: "uppercase" }}>All Clients</span>
-            </motion.div>
-
-            <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
-              {FILTERS.map(f => (
-                <button key={f} onClick={() => setFilter(f)}
-                  style={{
-                    fontFamily: "Inter, sans-serif", fontSize: 11, padding: "8px 16px", borderRadius: 999, border: `1px solid ${filter === f ? T.amber : "rgba(255,255,255,0.12)"}`,
-                    background: filter === f ? `${T.amber}15` : "transparent", color: filter === f ? T.amber : "rgba(255,255,255,0.45)",
-                    cursor: "pointer", letterSpacing: "0.06em", transition: "all 0.2s",
-                  }}>
-                  {f}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Grid */}
-          <AnimatePresence mode="popLayout">
-            <motion.div layout style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(100%,320px),1fr))", gap: 16 }}>
-              {rest.map((client, i) => (
-                <ClientCard key={client.id} client={client} i={i} />
-              ))}
-            </motion.div>
-          </AnimatePresence>
-        </div>
-      </section>
+      ── ALL CLIENTS ──
+     <ClientsMarqueeSection />
 
       {/* ── CTA ── */}
       <section style={{ padding: "0 24px 120px" }}>
@@ -401,10 +300,7 @@ export default function ClientsPage() {
             style={{ textAlign: "center", padding: "clamp(40px,8vh,72px) clamp(24px,5vw,72px)", border: "1px solid rgba(79,168,240,0.14)", borderRadius: 24, background: "rgba(79,168,240,0.03)", position: "relative", overflow: "hidden" }}>
             <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: 500, height: 300, borderRadius: "50%", background: "rgba(79,168,240,0.05)", filter: "blur(80px)", pointerEvents: "none" }} />
             <div style={{ position: "relative", zIndex: 1 }}>
-              <div style={{ display: "inline-flex", alignItems: "center", gap: 8, marginBottom: 20, padding: "6px 16px", borderRadius: 999, border: "1px solid rgba(255,255,255,0.1)", background: "rgba(255,255,255,0.04)" }}>
-                <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#4ade80", boxShadow: "0 0 0 3px rgba(74,222,128,0.15)" }} />
-                <span style={{ fontFamily: "Inter, sans-serif", fontSize: 11, color: "rgba(255,255,255,0.5)", letterSpacing: "0.14em" }}>Currently accepting new clients</span>
-              </div>
+             
               <h2 style={{ fontFamily: "Inter, sans-serif", fontWeight: 900, fontSize: "clamp(2rem,5vw,3.8rem)", color: T.cream, letterSpacing: "-0.03em", lineHeight: 1.05, marginBottom: 16 }}>
                 Ready to be our<br />
                 <span style={{ fontStyle: "italic"}}>next success story?</span>

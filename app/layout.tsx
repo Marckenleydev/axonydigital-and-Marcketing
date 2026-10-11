@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Roboto } from "next/font/google";
 import "./globals.css";
 import Image from "next/image";
 import { SmoothScroll } from "./components/SmoothScroll";
@@ -7,6 +7,12 @@ import { SmoothScroll } from "./components/SmoothScroll";
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+});
+
+const roboto = Roboto({
+  variable: "--font-roboto",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "700"],
 });
 
 export const metadata: Metadata = {
@@ -118,7 +124,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className={`${inter.variable} antialiased`}>
+      <body className={`${inter.variable} ${roboto.variable} antialiased`}>
  <SmoothScroll />
         <script
           type="application/ld+json"

@@ -274,7 +274,7 @@ export function Hero() {
             transition={{
               duration: 0.8,
               delay: 0.15,
-              ease,
+              ease: "easeOut",
             }}
             style={{
               marginBottom: isMobile ? "22px" : "clamp(16px, 3vh, 28px)",
@@ -335,26 +335,15 @@ export function Hero() {
             }}
           >
             <motion.span
-              // initial={{ y: "110%", opacity: 0 }}
-              // animate={{ y: "0%", opacity: 1 }}
-              // transition={{
-              //   duration: 0.8,
-              //   ease: [0.22, 1, 0.36, 1],
-              //   delay: li * 0.15 + wi * 0.08 + i * 0.045,
-              // }}
-
+            
               initial={{ filter: "blur(10px)", opacity: 0, scale: 0.95 }}
 animate={{ filter: "blur(0px)", opacity: 1, scale: 1 }}
 transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
               style={{
                 display: "inline-block",
-                background:
-                  "linear-gradient(180deg, #E4EEFF 0%, #AFC8F5 45%, #6F91C9 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
+                color: T.creamDark,
                 paddingBottom: "0.05em",
-                textShadow: "0 0 18px rgba(80, 130, 210, 0.16)",
+                lineHeight: 1.05,
               }}
             >
               {word}

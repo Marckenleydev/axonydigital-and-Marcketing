@@ -37,8 +37,8 @@ function Hero(){
 
       <div ref={r} style={{maxWidth:1200,margin:"0 auto",position:"relative",zIndex:1}}>
         <motion.div initial={{opacity:0,x:-20}} animate={v?{opacity:1,x:0}:{}} transition={{duration:0.8,delay:0.1}} style={{display:"flex",alignItems:"center",gap:16,marginBottom:28}}>
-          <span style={{width:48,height:1,background:T.amber,display:"block"}}/>
-          <span style={{fontFamily:"Inter, sans-serif",fontSize:11,color:T.amber,letterSpacing:"0.28em",textTransform:"uppercase"}}>Our Services</span>
+          <span style={{width:48,height:1,background:T.cream,display:"block"}}/>
+          <span style={{fontFamily:"Inter, sans-serif",fontSize:11,color:T.cream,letterSpacing:"0.28em",textTransform:"uppercase"}}>Our Services</span>
         </motion.div>
         <motion.h1 initial={{opacity:0,y:40}} animate={v?{opacity:1,y:0}:{}} transition={{duration:1,delay:0.2,ease}}
           style={{fontFamily:"Inter, sans-serif",fontSize:"clamp(3rem,8vw,8rem)",fontWeight:900,lineHeight:0.9,letterSpacing:"-0.03em",color:T.cream,marginBottom:28,maxWidth:800}}>
@@ -94,7 +94,7 @@ function ServiceBlock({svc,i}){
           <span style={{
             fontFamily: "'JetBrains Mono',monospace",
             fontSize: "clamp(9px, 2vw, 10px)",
-            color: T.amber,
+            color: T.cream,
             letterSpacing: "0.28em",
             textTransform: "uppercase"
           }}>
@@ -103,7 +103,7 @@ function ServiceBlock({svc,i}){
           <span style={{
             flex: 1,
             height: 1,
-            background: `${T.cream}40`,
+            background: "rgba(231, 237, 247, 0.5)",
             minWidth: "50px"
           }}/>
         </motion.div>
@@ -168,76 +168,7 @@ function ServiceBlock({svc,i}){
               {svc.desc}
             </p>
 
-            {/* Pricing tiers - responsive grid */}
-            <div style={{
-              borderTop: `1px solid ${T.cream}40`,
-              paddingTop: "clamp(20px, 4vh, 28px)",
-              width: "100%"
-            }}>
-              <div style={{
-                fontFamily: "'JetBrains Mono',monospace",
-                fontSize: "clamp(8px, 1.8vw, 9px)",
-                color: `${T.ink}35`,
-                letterSpacing: "0.26em",
-                textTransform: "uppercase",
-                marginBottom: "clamp(12px, 2vh, 16px)"
-              }}>
-                Pricing
-              </div>
-              
-              <div style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(min(120px, 100%), 1fr))",
-                gap: "clamp(8px, 2vw, 12px)",
-                width: "100%"
-              }}>
-                {svc.tiers.map((tier, ti) => (
-                  <div key={tier.n} style={{
-                    padding: "clamp(12px, 2vh, 16px) clamp(8px, 1.5vw, 14px)",
-                    border: `1px solid ${ti === 1 ? T.amber : `${T.cream}50`}`,
-                    
-                    textAlign: "center",
-                    width: "100%"
-                  }}>
-                    <div style={{
-                      fontFamily: "'JetBrains Mono',monospace",
-                      fontSize: "clamp(8px, 1.8vw, 9px)",
-                      color: `${T.ink}35`,
-                      letterSpacing: "0.22em",
-                      textTransform: "uppercase",
-                      marginBottom: "clamp(4px, 1vh, 6px)"
-                    }}>
-                      {tier.n}
-                    </div>
-                    <div style={{
-                      fontFamily: "Georgia,serif",
-                      fontWeight: 900,
-                      fontSize: "clamp(16px, 3vw, 18px)",
-                      color: ti === 1 ? T.amber : T.ink,
-                      marginBottom: "clamp(2px, 0.5vh, 4px)",
-                      wordBreak: "break-word"
-                    }}>
-                      {tier.p}
-                    </div>
-                    <div style={{
-                      fontFamily: "'Syne',sans-serif",
-                      fontSize: "clamp(10px, 2vw, 11px)",
-                      color: `${T.ink}40`,
-                      lineHeight: 1.45
-                    }}>
-                      {tier.d}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <a href="/contact" data-h
-           className="start-project-link"
-              
-              >
-              Start This Project →
-            </a>
+          
           </motion.div>
 
           {/* Right Column */}
@@ -284,7 +215,7 @@ function ServiceBlock({svc,i}){
                     width: "100%"
                   }}>
                     <span style={{
-                      color: T.amber,
+                      color: T.creamDark,
                       fontSize: "clamp(11px, 2vw, 12px)",
                       marginTop: 2,
                       flexShrink: 0
@@ -294,7 +225,7 @@ function ServiceBlock({svc,i}){
                     <span style={{
                       fontFamily: "'Syne',sans-serif",
                       fontSize: "clamp(12px, 2.2vw, 13px)",
-                      color: `${T.ink}60`,
+                      color: `${T.creamDark}`,
                       lineHeight: 1.55,
                       wordBreak: "break-word"
                     }}>
@@ -399,11 +330,7 @@ function CTA(){
               >
               Book a Discovery Call →
             </a>
-            <a href="/work" data-h
-              className="cta_work_link"
-              >
-              See Our Work
-            </a>
+           
           </div>
         </motion.div>
       </div>

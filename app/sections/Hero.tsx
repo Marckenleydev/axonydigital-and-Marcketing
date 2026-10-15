@@ -146,7 +146,7 @@ export function Hero() {
           y: "-45vh",
           scale: 1,
           ease: "power2.out",
-          duration: 1.2,
+          duration: 1,
         },
         0
       );
@@ -499,7 +499,7 @@ transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
               }}
             >
               <img
-                src="/images/marketing-dashboard-4.png"
+                src="/images/marketing-dashboard-5.png"
                 alt="Digital marketing performance dashboard"
                 style={{
                   width: "100%",

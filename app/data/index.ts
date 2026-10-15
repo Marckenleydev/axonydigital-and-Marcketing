@@ -19,7 +19,7 @@ export const SERVICES = [
   {
   n:"01",
   icon:"◎",
-  title:"Meta Ads",
+  title:"Meta & Google Ads",
   tagline:"High-converting campaigns that turn attention into customers.",
   desc:"We create and optimize Facebook and Instagram advertising campaigns designed to generate leads, sales, and measurable growth. From strategy and creative testing to audience targeting and performance tracking, we manage the full advertising process.",
   features:[
@@ -56,8 +56,45 @@ export const SERVICES = [
   }
 ]
 },
+{
+    n:"02", icon:"⬡", title:"Web Development", tagline:"High-performance applications built for scale.",
+    desc:"We architect and build web products that are fast by default, maintainable by design, and engineered to grow with your business. From marketing sites to complex SaaS platforms, we've shipped it all.",
+   features: [
+  "E-Commerce & Shopify Stores",
+  "Inventory Management Systems",
+  "Online Booking & Scheduling",
+  "Payment Gateway Integration",
+  "Customer Portals & Dashboards",
+  "Business Process Automation",
+],
+tech: [
+  "Shopify",
+  "E-Commerce",
+  "Booking Systems",
+  "Inventory Systems",
+  "Payment Integration",
+  "Customer Portals",
+],
+tiers: [
+  { 
+    n: "Starter", 
+    p: "AED 12,000", 
+    d: "High-converting marketing website (up to 5 pages)" 
+  },
+  { 
+    n: "Growth", 
+    p: "AED 18,000", 
+    d: "Custom website with CMS and scalable backend integration" 
+  },
+  { 
+    n: "Enterprise", 
+    p: "Custom", 
+    d: "Advanced platforms, web applications, or system migrations" 
+  }
+]
+  },
   {
-  n:"02",
+  n:"03",
   icon:"⬢",
   title:"Content Production",
   tagline:"High-impact visuals that build brands and drive attention.",
@@ -97,28 +134,45 @@ export const SERVICES = [
 ]
 },
 {
-    n:"03", icon:"⬡", title:"Web Development", tagline:"High-performance applications built for scale.",
-    desc:"We architect and build web products that are fast by default, maintainable by design, and engineered to grow with your business. From marketing sites to complex SaaS platforms, we've shipped it all.",
-    features:["Next.js / React / Node.js","REST & GraphQL APIs","Database design & optimisation","Authentication & authorisation","CI/CD pipeline setup","Core Web Vitals & Lighthouse 100"],
-    tech:["Next.js","TypeScript","Node.js","PostgreSQL","Redis","Vercel / AWS"],
+  n:"04",
+  icon:"◎",
+  title:"Social Media Management",
+  tagline:"Grow your audience and build brand loyalty.",
+  desc:"We manage your social media presence with strategic content planning, community engagement, and data-driven growth strategies across Instagram, Facebook, LinkedIn, and TikTok.",
+  features:[
+    "Social media strategy & content calendar",
+    "Community management & engagement",
+    "Performance analytics & reporting",
+    "Hashtag research & optimization",
+    "Influencer collaboration & partnerships",
+    "Crisis management & brand reputation"
+  ],
+  tech:[
+    "Meta Business Suite",
+    "LinkedIn Analytics",
+    "TikTok Analytics",
+    "Canva / Adobe Creative Suite",
+    "Social listening tools"
+  ],
 tiers: [
-  { 
-    n: "Starter", 
-    p: "AED 12,000", 
-    d: "High-converting marketing website (up to 5 pages)" 
+  {
+    n: "Starter",
+    p: "AED 2,500/mo",
+    d: "Basic social media management for 2 platforms with content scheduling"
   },
-  { 
-    n: "Growth", 
-    p: "AED 18,000", 
-    d: "Custom website with CMS and scalable backend integration" 
+  {
+    n: "Growth",
+    p: "AED 6,000/mo",
+    d: "Full social media management for 3-4 platforms with content creation and analytics"
   },
-  { 
-    n: "Enterprise", 
-    p: "Custom", 
-    d: "Advanced platforms, web applications, or system migrations" 
+  {
+    n: "Scale",
+    p: "Custom",
+    d: "Advanced multi-platform strategy, paid social ads, and dedicated community manager"
   }
 ]
-  }
+}
+
 ];
 
 export const FAQS = [
@@ -239,14 +293,8 @@ export const SKILLS = [
 export const SERVICESHome = [
   
 
-  { n:"01", title:"Meta Ads",      desc:"Data-driven Meta Ads campaigns that combine high-converting creatives with precise audience targeting to generate consistent leads and measurable ROI.", tags:["Meta Ads","Google Ads","Content Production","SEO Strategy"] },
-   { 
-    n:"02",
-    title:"Content Production",
-    desc:"High-impact visual content for social media and brands. From photoshoots to cinematic video, crafted to engage, convert, and elevate your digital presence.",
-    tags:["Photography","Videography","Reels","Brand Content","Social Media"]
-  },
-  { n:"03", title:"Web Development & Design",   desc:"Premium websites and digital platforms designed to showcase your brand, simplify operations, and turn more visitors into customers.", tags:[
+  { n:"01", title:"Meta & Google Ads",      desc:"Data-driven Meta Ads campaigns that combine high-converting creatives with precise audience targeting to generate consistent leads and measurable ROI.", tags:["Meta Ads","Google Ads","Content Production","SEO Strategy"] },
+   { n:"02", title:"Web Development & Design",   desc:"Premium websites and digital platforms designed to showcase your brand, simplify operations, and turn more visitors into customers.", tags:[
     "Shopify",
     "E-Commerce",
     "Inventory Systems",
@@ -254,6 +302,16 @@ export const SERVICESHome = [
     "Payment Integration",
     "Customer Portals"
   ] },
+
+  { n:"03", title:"Social Media Management", desc:"Strategic social media management to grow your audience, increase engagement, and build brand loyalty across all platforms.", tags:["Instagram","Facebook","LinkedIn","TikTok","Community Management"] },
+   { 
+    n:"04",
+    title:"Content Production",
+    desc:"High-impact visual content for social media and brands. From photoshoots to cinematic video, crafted to engage, convert, and elevate your digital presence.",
+    tags:["Photography","Videography","Reels","Brand Content","Social Media"]
+  },
+  
+ 
 ];
 
 export const WORKS = [

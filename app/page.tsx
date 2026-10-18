@@ -10,6 +10,8 @@ import { Process } from "./sections/Process";
 import { AboutUs } from "./sections/AboutUs";
 import { Contact } from "./sections/Contact";
 import { OrbitBackground } from "./components/OrbitBackground";
+import BenefitSection from "./sections/BenefitSection";
+import FlavorSection from "./sections/FlavorSection";
 
 
 
@@ -26,6 +28,8 @@ export default function App() {
       <Navbar />
       <Hero />
       <Services />
+      <BenefitSection/>
+      
      
       <Process />
       <AboutUs />

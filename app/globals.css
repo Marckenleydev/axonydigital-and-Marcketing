@@ -371,3 +371,194 @@ display: flex;
   transform: translateY(-2px);
   box-shadow: 0 10px 25px rgba(229, 67, 63, 0.25);
 }
+
+
+
+
+
+.benefit-section {
+  min-height: 100dvh;
+  background-color: #222123;
+  overflow: hidden;
+  position: relative;
+}
+
+.benefit-section p {
+  color: var(--color-milk);
+  font-family: var(--font-paragraph);
+  text-align: center;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.benefit-section .first-title {
+  transform: rotate(3deg);
+  position: relative;
+  z-index: 10;
+}
+
+.benefit-section .second-title {
+  transform: rotate(-1deg);
+}
+
+.benefit-section .third-title {
+  transform: rotate(1deg);
+  position: relative;
+  z-index: 10;
+}
+
+.benefit-section .fourth-title {
+  transform: rotate(-5deg);
+}
+
+.benefit-section .vd-pin-section {
+  height: 100dvh;
+  overflow: hidden;
+  margin-top: 5rem;
+  position: relative;
+}
+
+.benefit-section .vd-pin-section video {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  object-fit: cover;
+}
+
+.benefit-section .vd-pin-section .play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 9vw;
+  height: 9vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff1a;
+  backdrop-filter: blur(24px);
+  border-radius: 9999px;
+}
+
+.benefit-section .vd-pin-section img:first-of-type {
+  width: 15vw;
+  height: 15vw;
+}
+
+@media (min-width: 768px) {
+  .benefit-section .second-title {
+    transform: translateY(-1.25rem) rotate(-1deg);
+  }
+
+  .benefit-section .third-title {
+    transform: translateY(-3rem) rotate(1deg);
+  }
+
+  .benefit-section .fourth-title {
+    transform: translateY(-3rem) rotate(-5deg);
+  }
+
+  .benefit-section .vd-pin-section {
+    height: 110vh;
+    margin-top: 0;
+    transform: translateY(-15%);
+  }
+}
+
+
+
+/* Title stack */
+.benefit-section .general-title {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+/* Individual title cards */
+.benefit-section .clip-title {
+  width: fit-content;
+  max-width: 94%;
+  padding: 0.15em 0.3em;
+  border: 3px solid;
+  overflow: hidden;
+  position: relative;
+  transform-origin: center;
+}
+
+.benefit-section .clip-title h2 {
+  margin: 0;
+  font-size: clamp(2.5rem, 7.2vw, 7rem);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.045em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Overlapping arrangement */
+.benefit-section .first-title {
+  transform: rotate(3deg);
+  z-index: 2;
+}
+
+.benefit-section .second-title {
+  transform: rotate(-1deg);
+  z-index: 3;
+}
+
+.benefit-section .third-title {
+  transform: rotate(1deg);
+  z-index: 2;
+}
+
+.benefit-section .fourth-title {
+  transform: rotate(-5deg);
+  z-index: 1;
+}
+
+@media (max-width: 767px) {
+  .benefit-section .clip-title {
+    max-width: 96%;
+    padding: 0.2em;
+  }
+
+  .benefit-section .clip-title h2 {
+    font-size: clamp(1.8rem, 8vw, 3.5rem);
+    white-space: normal;
+    text-align: center;
+  }
+}
+
+
+.hero-heading-line {
+  overflow: hidden;
+}
+
+.hero-heading-line .hero-char {
+  display: inline-block;
+}
+
+/* Default: heading remains visible if JavaScript is disabled */
+.hero-line,
+.hero-badge {
+  visibility: visible;
+}
+
+/* Hide animated elements before hydration when JS is enabled */
+html.js-enabled .hero-line,
+html.js-enabled .hero-badge {
+  visibility: hidden;
+}
+
+/* SplitText characters must be independently transformable */
+.hero-line .hero-char {
+  display: inline-block;
+}
+
+/* globals.css */
+.benefit-title {
+  opacity: 0;
+  clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+}

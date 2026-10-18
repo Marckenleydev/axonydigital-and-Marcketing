@@ -3,15 +3,15 @@
 
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import { useRef, useLayoutEffect, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { T } from "../data";
+import { SplitText } from "gsap/all";
+gsap.registerPlugin(ScrollTrigger, SplitText);
 
-gsap.registerPlugin(ScrollTrigger);
 
-const ease = [0.22, 1, 0.36, 1];
 
 export function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -20,20 +20,14 @@ export function Hero() {
   const subRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
 
+   // Refs for the three text parts
+  const line1Ref   = useRef<HTMLDivElement>(null); // "Scale your revenue with"
+  const badgeRef   = useRef<HTMLDivElement>(null); // "predictable" pill
+  const line2Ref   = useRef<HTMLDivElement>(null); // "
+
   const [isMobile, setIsMobile] = useState(false);
 
-  const lines = [
-    {
-      segments: [
-        { text: "Scale your revenue with", italic: false },
-        { text: "predictable", italic: true },
-      ],
-    },
-    {
-      segments: [{ text: "web marketing.", italic: false }],
-    },
-  ];
-
+ 
   // ------------------------------------------------
   // DETECT MOBILE
   // ------------------------------------------------
@@ -57,6 +51,113 @@ export function Hero() {
   // ------------------------------------------------
   // DESKTOP SCROLL ANIMATION ONLY
   // ------------------------------------------------
+
+useLayoutEffect(() => {
+  const ctx = gsap.context(() => {
+    const line1 = line1Ref.current;
+    const badge = badgeRef.current;
+    const line2 = line2Ref.current;
+
+    const splitInstances: SplitText[] = [];
+
+    // Set the initial animation states before removing the CSS guard.
+    // This prevents the original, unsplit text from flashing.
+    gsap.set([line1, line2].filter(Boolean), {
+      autoAlpha: 1,
+    });
+
+    if (badge) {
+      gsap.set(badge, {
+        autoAlpha: 1,
+        clipPath: "inset(0 100% 0 0)",
+      });
+    }
+
+    const tl = gsap.timeline();
+
+    // First line
+    if (line1) {
+      const split1 = SplitText.create(line1, {
+        type: "chars",
+        charsClass: "hero-char",
+      });
+
+      splitInstances.push(split1);
+
+      gsap.set(split1.chars, {
+        yPercent: 110,
+        autoAlpha: 0,
+      });
+
+      tl.to(
+        split1.chars,
+        {
+          yPercent: 0,
+          autoAlpha: 1,
+          duration: 0.7,
+          stagger: 0.025,
+          ease: "power3.out",
+        },
+        0.1
+      );
+    }
+
+    // Predictable badge
+    if (badge) {
+      tl.to(
+        badge,
+        {
+          clipPath: "inset(0 0% 0 0)",
+          duration: 0.8,
+          ease: "power2.inOut",
+        },
+        0.55
+      );
+    }
+
+    // Second line
+    if (line2) {
+      const split2 = SplitText.create(line2, {
+        type: "chars",
+        charsClass: "hero-char",
+      });
+
+      splitInstances.push(split2);
+
+      gsap.set(split2.chars, {
+        yPercent: 110,
+        autoAlpha: 0,
+      });
+
+      tl.to(
+        split2.chars,
+        {
+          yPercent: 0,
+          autoAlpha: 1,
+          duration: 0.7,
+          stagger: 0.025,
+          ease: "power3.out",
+        },
+        0.95
+      );
+    }
+
+    // All elements now have their GSAP initial states.
+    // Removing this class is safe before the next browser paint.
+    document.documentElement.classList.remove("js-enabled");
+
+    return () => {
+      splitInstances.forEach((split) => split.revert());
+    };
+  }, sectionRef);
+
+  return () => {
+    ctx.revert();
+
+    // Restore the safe default for cleanup and remounts.
+    document.documentElement.classList.remove("js-enabled");
+  };
+}, []);
 
   useEffect(() => {
     if (isMobile) {
@@ -170,7 +271,7 @@ export function Hero() {
       tl.to(imageRef.current, {
         scale: 1.18,
         ease: "none",
-        duration: 0.8,
+        duration: 0.5,
       });
 
       // ------------------------------------------------
@@ -182,7 +283,7 @@ export function Hero() {
         scale: 1.18,
         y: "-50vh",
         ease: "none",
-        duration: 0.8,
+        duration: 0.5,
       });
 
       ScrollTrigger.refresh();
@@ -291,68 +392,83 @@ export function Hero() {
           <div
             ref={headingRef}
             style={{
-              willChange: isMobile ? "auto" : "transform, opacity",
-
-              marginBottom: isMobile
-                ? "24px"
-                : "clamp(16px, 3vh, 28px)",
-
-              width: "100%",
+              willChange:   isMobile ? "auto" : "transform, opacity",
+              marginBottom: isMobile ? "24px" : "clamp(16px,3vh,28px)",
+              width:        "100%",
             }}
           >
             <h1
-  style={{
-    fontFamily: "Inter, sans-serif",
-    fontSize: isMobile
-      ? "clamp(1.3rem, 9vw, 2.4rem)"
-      : "clamp(2.2rem, 9vw, 5.5rem)",
-    fontWeight: isMobile ? 500 : 600,
-    lineHeight: 1.05,
-    letterSpacing: "-0.035em",
-    color: T.creamDark,
-    maxWidth: isMobile ? "100%" : "min(1100px, 100%)",
-    margin: "0 auto",
-    textAlign: "center",
-  }}
->
-  {lines.map((line, li) => (
-    <span
-      key={li}
-      style={{
-        display: "block",
-      }}
-    >
-      {line.segments.flatMap((seg, wi) =>
-        seg.text.split(" ").map((word, i) => (
-          <span
-            key={`${li}-${wi}-${i}`}
-            style={{
-              display: "inline-block",
-              overflow: "hidden",
-              verticalAlign: "top",
-              paddingBottom: "0.08em",
-              marginRight: "0.28em",
-            }}
-          >
-            <motion.span
-            
-              initial={{ filter: "blur(10px)", opacity: 0, scale: 0.95 }}
-animate={{ filter: "blur(0px)", opacity: 1, scale: 1 }}
-transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+             className="hero-title"
               style={{
-                display: "inline-block",
-                color: T.creamDark,
-                paddingBottom: "0.05em",
-                lineHeight: 1.05,
+                fontFamily:    "Inter, sans-serif",
+                fontSize:      isMobile ? "clamp(1.8rem,8vw,2.8rem)" : "clamp(2.5rem,7vw,5rem)",
+                fontWeight:    isMobile ? 600 : 800,
+                lineHeight:    1.1,
+                letterSpacing: "-0.035em",
+                color:         T.creamDark,
+                maxWidth:      isMobile ? "100%" : "min(1100px,100%)",
+                margin:        "0 auto",
+                textAlign:     "center",
+                // allow inline-flex for badge to sit inline
+                display:       "flex",
+                flexWrap:      "wrap",
+                justifyContent:"center",
+                alignItems:    "center",
+                gap:           "0.28em",
+                rowGap:        "0.18em",
               }}
             >
-              {word}
-            </motion.span>
-          </span>
-        ))
-      )}
-    </span>
-  ))}
+              {/* LINE 1 — "Scale your revenue with" — chars animate up */}
+              <span
+               className="hero-line"
+                ref={line1Ref}
+                style={{
+                  display:    "block",
+                  overflow:   "hidden",
+                  width:      "100%",
+                  // clip chars rising from below
+                  paddingBottom: "0.08em",
+                }}
+              >
+                Scale your revenue with
+              </span>
+
+              {/* BADGE — "predictable" — clipPath wipe */}
+              <span
+                ref={badgeRef}
+                 className="hero-badge"
+                style={{
+                  display:       "inline-block",
+                  background:    T.amber,           // your brand blue
+                  color:         "#050E1F",
+                  fontStyle:     "italic",
+                  fontWeight:    800,
+                  borderRadius:  "0",
+                  padding:       isMobile ? "4px 18px" : "6px 28px",
+                  fontSize:      isMobile ? "clamp(1.6rem,7vw,2.4rem)" : "clamp(2.2rem,6vw,4.4rem)",
+                  lineHeight:    1.1,
+                  letterSpacing: "-0.03em",
+                  // starts invisible — GSAP drives the reveal
+                  clipPath:      "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)",
+                  whiteSpace:    "nowrap",
+                }}
+              >
+                predictable
+              </span>
+
+              {/* LINE 2 — "web marketing." — chars animate up */}
+              <span
+                ref={line2Ref}
+                className="hero-line"
+                style={{
+                  display:       "block",
+                  overflow:      "hidden",
+                  width:         "100%",
+                  paddingBottom: "0.08em",
+                }}
+              >
+                web marketing.
+              </span>
             </h1>
           </div>
 

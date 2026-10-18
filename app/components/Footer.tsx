@@ -1,7 +1,8 @@
 
 
 
-
+"use client"
+import Image from "next/image";
 import { T } from "../data";
 
 
@@ -18,10 +19,19 @@ export function Footer() {
     <footer style={{ background: "transparent",borderTop:`1px solid ${T.cream}07`,padding:"56px 24px"}}>
       <div style={{maxWidth:1200,margin:"0 auto"}}>
         <div style={{display:"flex",flexWrap:"wrap",alignItems:"center",justifyContent:"space-between",gap:32,paddingBottom:40,marginBottom:32,borderBottom:`1px solid ${T.cream}07`}}>
-          <a href="#" data-h style={{display:"flex",alignItems:"center",gap:12,textDecoration:"none"}}>
-            <div style={{width:36,height:36,background:"#E5433F",display:"flex",alignItems:"center",justifyContent:"center"}}>
-              <span style={{color:T.cream,fontFamily:"Inter, sans-serif",fontWeight:900,fontSize:14}}>A</span>
-            </div>
+          <a href="/" data-h style={{display:"flex",alignItems:"center",gap:12,textDecoration:"none"}} data-h className="axony-brand" aria-label="AXONY.DIGITAL home">
+            
+            
+                          <span className="axony-brand-mark">
+                            <Image
+                              src="/images/logo_axony_marketing1.jpg"
+                              alt="AXONY.DIGITAL logo"
+                              width={56}
+                              height={56}
+                              style={{ width: "100%", height: "100%" }}
+                            />
+                          </span>
+                       
             <span style={{fontFamily:"Inter, sans-serif",fontWeight:800,fontSize:13,letterSpacing:"0.22em",color:T.cream,textTransform:"uppercase"}}>AXONY<span style={{color:T.amber}}>.</span>DIGITAL</span>
           </a>
           <nav style={{display:"flex",flexWrap:"wrap",gap:32}}>

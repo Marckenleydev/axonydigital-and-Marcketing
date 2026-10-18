@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Roboto } from "next/font/google";
+
 import "./globals.css";
 import Image from "next/image";
 import { SmoothScroll } from "./components/SmoothScroll";
@@ -14,6 +15,7 @@ const roboto = Roboto({
   subsets: ["latin"],
   weight: ["300", "400", "500", "700"],
 });
+
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://axonydigital.com"),
@@ -123,7 +125,14 @@ export default function RootLayout({
   
 
   return (
-    <html lang="en">
+   <html lang="en" suppressHydrationWarning>
+        <head>
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `document.documentElement.classList.add("js-enabled");`,
+        }}
+      />
+    </head>
       <body className={`${inter.variable} ${roboto.variable} antialiased`}>
  <SmoothScroll />
         <script

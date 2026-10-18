@@ -337,3 +337,36 @@ export const TESTIMONIALS = [
   { q:"They don't just build — they think. Every decision was explained. Genuinely the best agency experience I've had in 10 years.", a:"Marcus Webb", r:"CEO, Nomad OS" },
   { q:"Our organic traffic tripled in four months. Every service felt cohesive and intentional. Absolutely transformative.", a:"Leila Rashid", r:"Head of Growth, Botanica" },
 ];
+
+export const flavorlists = [
+  {
+    name: "Strategy & Planning",
+    image: "process_1.jpg",
+    rotation: "md:rotate-[-8deg] rotate-0",
+  },
+  {
+    name: "Content Creation",
+    image: "process_2.jpg",
+    rotation: "md:rotate-[8deg] rotate-0",
+  },
+  {
+    name: "Campaign Launch",
+    image: "process_3.avif",
+    rotation: "md:rotate-[-8deg] rotate-0",
+  },
+  {
+    name: "Performance Tracking",
+    image: "process_4.jpg",
+    rotation: "md:rotate-[8deg] rotate-0",
+  },
+  {
+    name: "Optimization",
+    image: "process_5.jpg",
+    rotation: "md:rotate-[-8deg] rotate-0",
+  },
+  {
+    name: "Growth & Scale",
+    image: "process_6.jpg",
+    rotation: "md:rotate-[8deg] rotate-0",
+  },
+];

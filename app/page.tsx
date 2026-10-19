@@ -11,7 +11,6 @@ import { AboutUs } from "./sections/AboutUs";
 import { Contact } from "./sections/Contact";
 import { OrbitBackground } from "./components/OrbitBackground";
 import BenefitSection from "./sections/BenefitSection";
-import FlavorSection from "./sections/FlavorSection";
 
 
 
@@ -29,7 +28,6 @@ export default function App() {
       <Hero />
       <Services />
       <BenefitSection/>
-      
      
       <Process />
       <AboutUs />

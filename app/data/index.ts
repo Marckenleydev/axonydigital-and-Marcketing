@@ -370,3 +370,6 @@ export const flavorlists = [
     rotation: "md:rotate-[8deg] rotate-0",
   },
 ];
+
+
+

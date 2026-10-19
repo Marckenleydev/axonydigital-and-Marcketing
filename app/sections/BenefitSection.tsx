@@ -5,7 +5,7 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { motion } from "framer-motion";
+
 
 import ClipPathTitle from "../components/ClipPathTitle";
 import { T } from "../data";
@@ -14,6 +14,7 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const BenefitSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
+  
 
 
 useGSAP(

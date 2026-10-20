@@ -1,21 +1,11 @@
-import type { Metadata } from "next";
-import { Inter, Roboto } from "next/font/google";
-
+import type { Metadata, Viewport } from "next";
+import "@fontsource-variable/instrument-sans";
+import "@fontsource/instrument-serif";
+import "@fontsource/instrument-serif/400-italic.css";
 import "./globals.css";
+import { site } from "@/lib/content";
+import { SmoothScroll } from "@/components/SmoothScroll";
 import Image from "next/image";
-import { SmoothScroll } from "./components/SmoothScroll";
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-});
-
-const roboto = Roboto({
-  variable: "--font-roboto",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "700"],
-});
-
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://axonydigital.com"),
@@ -81,80 +71,29 @@ export const metadata: Metadata = {
 
   icons: {
     icon: [
-      {
-        url: "/images/axony_favicon.jpg",
-        sizes: "any",
-        type: "image/jpeg",
-      },
+      { url: "/favicon.ico", sizes: "48x48" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
     ],
-    apple: "/images/axony_favicon.jpg",
+    apple: { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
   },
 
   category: "technology",
 };
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
 
-  const personSchema = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Marckenley Dorsainvil",
-    "jobTitle": "Founder, Engineer & Digital Marketing Strategist",
-    "url": "https://axonydigital.com",
-    "worksFor": {
-      "@type": "Organization",
-      "name": "axony digital ",
-      "url": "https://axonydigital.com"
-    }
-  };
+export const viewport: Viewport = {
+  themeColor: "#0b0b0a",
+  width: "device-width",
+  initialScale: 1,
+};
 
-  const organizationSchema = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "axony digital ",
-    "url": "https://axonydigital.com",
-    "founder": {
-      "@type": "Person",
-      "name": "Marckenley Dorsainvil"
-    }
-  };
-
-  
-
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-   <html lang="en" suppressHydrationWarning>
-        <head>
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `document.documentElement.classList.add("js-enabled");`,
-        }}
-      />
-    </head>
-      <body className={`${inter.variable} ${roboto.variable} antialiased`}>
- <SmoothScroll />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(personSchema),
-          }}
-        />
-
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationSchema),
-          }}
-        />
- <div className="orb orb-1" />
-        <div className="orb orb-2" />
-        <div  className="orb orb-3" />
-        
+    <html lang="en">
+      <body>
+        <SmoothScroll />
         {children}
-
-        <div className="fixed bottom-6 right-6 z-[9999] pointer-events-auto">
+         <div className="fixed bottom-6 right-6 z-[9999] pointer-events-auto">
           <a
             href="https://wa.me/971552635229"
             target="_blank"
@@ -184,7 +123,6 @@ export default function RootLayout({
             </svg>
           </a>
         </div>
-
       </body>
     </html>
   );

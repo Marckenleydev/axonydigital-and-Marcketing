@@ -1,38 +1,12 @@
-import { MetadataRoute } from "next";
+import type { MetadataRoute } from "next";
+import { site } from "@/lib/content";
+
+const routes = ["", "/services", "/clients", "/about", "/contact", "/terms", "/privacy", "/cookies"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
-    {
-      url: "https://axonydigital.com",
-      lastModified: new Date(),
-       changeFrequency: 'weekly',
-      priority: 1,
-    },
-    {
-      url: "https://axonydigital.com/services",
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: "https://axonydigital.com/work",
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: "https://axonydigital.com/contact",
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: "https://axonydigital.com/about",
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-  ];
+  return routes.map((route) => ({
+    url: `${site.url}${route}`,
+    lastModified: new Date(),
+    priority: route === "" ? 1 : route.match(/terms|privacy|cookies/) ? 0.3 : 0.8,
+  }));
 }
-
-

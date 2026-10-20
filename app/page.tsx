@@ -1,38 +1,32 @@
+import Header from "@/components/Header";
+import StackedPage from "@/components/StackedPage";
+import Hero from "@/components/sections/Hero";
+import Pain from "@/components/sections/Pain";
+import Services from "@/components/sections/Services";
+import AdsShowcase from "@/components/sections/AdsShowcase";
+import Results from "@/components/sections/Results";
+import Testimonials from "@/components/sections/Testimonials";
+import Contact from "@/components/sections/Contact";
+import Faq from "@/components/sections/Faq";
+import Footer from "@/components/sections/Footer";
 
-"use client";
-
-import { Cursor } from "./components/Cursor";
-import { Navbar } from "./components/Navbar";
-import { Footer } from "./components/Footer";
-import { Hero } from "./sections/Hero";
-import { Services } from "./sections/Services";
-import { Process } from "./sections/Process";
-import { AboutUs } from "./sections/AboutUs";
-import { Contact } from "./sections/Contact";
-import { OrbitBackground } from "./components/OrbitBackground";
-import BenefitSection from "./sections/BenefitSection";
-
-
-
-
-
-
-// ─── App ─────────────────────────────────────────────────────────────────────
-
-export default function App() {
+export default function Page() {
   return (
-    <div className="min-h-screen orbit-page" style={{ fontFamily: "Inter, sans-serif" }}>
-      <Cursor />
-       <OrbitBackground />
-      <Navbar />
-      <Hero />
-      <Services />
-      <BenefitSection/>
-     
-      <Process />
-      <AboutUs />
-      <Contact />
-      <Footer />
-    </div>
+    <>
+      <Header />
+      <main>
+        <StackedPage>
+          <Hero />
+          <Pain />
+          <Services />
+          <AdsShowcase />
+          <Results />
+          <Testimonials />
+          <Contact />
+          <Faq />
+          <Footer />
+        </StackedPage>
+      </main>
+    </>
   );
 }

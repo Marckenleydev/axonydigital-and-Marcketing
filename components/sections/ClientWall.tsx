@@ -37,7 +37,7 @@ export default function ClientWall({ z = 20 }: { z?: number }) {
           ))}
         </Rise>
 
-        {site.showPlaceholderNotice && <p className="mt-8 text-[12px] text-ink/45">{wall.notice}</p>}
+        {/* {site.showPlaceholderNotice && <p className="mt-8 text-[12px] text-ink/45">{wall.notice}</p>} */}
       </div>
     </Panel>
   );

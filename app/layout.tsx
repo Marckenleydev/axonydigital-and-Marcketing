@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://axonydigital.com"),
 
   title: {
-    default: "axony digital  | Marketing Digital Agency",
+    default: "axony digital",
     template: "%s | axony digital ",
   },
 

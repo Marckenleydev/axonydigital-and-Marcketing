@@ -43,7 +43,7 @@ export const logos = [
   "Brightline",
 ];
 
-export const certifications = ["Google Partner", "Meta Business Partner", "HubSpot Certified"];
+export const certifications = [ "HubSpot Certified"];
 
 export const pains = {
   eyebrow: "Sound familiar?",

@@ -15,7 +15,9 @@ export default function LeadForm() {
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
-    const data = Object.fromEntries(new FormData(form).entries());
+    const formData = new FormData(form);
+    const data: Record<string, unknown> = Object.fromEntries(formData.entries());
+    data.services = formData.getAll("services");
 
     setStatus("submitting");
     setMessage("");
@@ -82,6 +84,17 @@ export default function LeadForm() {
             ))}
           </select>
         </div>
+
+        <fieldset>
+          <legend className="mb-2 block text-[13px] font-medium text-bone/75">Services you’re interested in <span className="text-bone/40">(optional)</span></legend>
+          <div className="grid gap-2 sm:grid-cols-2">
+            {["Website development", "Meta Ads management", "Google Ads management", "Content production"].map((service) => (
+              <label key={service} className="flex items-center gap-2 rounded-xl border border-white/10 px-3 py-2.5 text-[13px] text-bone/65">
+                <input type="checkbox" name="services" value={service} className="accent-lime" />{service}
+              </label>
+            ))}
+          </div>
+        </fieldset>
 
         {/* Honeypot: hidden from people and assistive tech, bots fill it in. */}
         <div aria-hidden="true" className="absolute -left-[9999px] h-0 w-0 overflow-hidden">

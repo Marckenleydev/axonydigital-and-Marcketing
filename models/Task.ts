@@ -1,0 +1,15 @@
+import mongoose, { type InferSchemaType, type Model } from "mongoose";
+import { TASK_PRIORITIES, TASK_STATUSES } from "@/lib/validation/tasks";
+const activitySchema = new mongoose.Schema({ type: { type: String, required: true, enum: ["created", "edited", "status_changed", "priority_changed", "due_date_changed", "assigned", "completed", "reopened", "archived", "restored", "comment"] }, actorId: { type: mongoose.Schema.Types.ObjectId, ref: "CrmUser", required: true }, actorName: { type: String, required: true, maxlength: 100 }, details: { type: String, required: true, maxlength: 1000 }, metadata: { type: mongoose.Schema.Types.Mixed }, createdAt: { type: Date, required: true, default: Date.now } });
+const taskSchema = new mongoose.Schema({ title: { type: String, required: true, trim: true, minlength: 2, maxlength: 180 }, description: { type: String, trim: true, maxlength: 5000 }, status: { type: String, enum: TASK_STATUSES, required: true, default: "Todo" }, priority: { type: String, enum: TASK_PRIORITIES, required: true, default: "Medium" }, assignee: { type: mongoose.Schema.Types.ObjectId, ref: "CrmUser" }, creator: { type: mongoose.Schema.Types.ObjectId, ref: "CrmUser", required: true }, startDate: Date, dueDate: Date, lead: { type: mongoose.Schema.Types.ObjectId, ref: "Lead" }, client: { type: mongoose.Schema.Types.ObjectId, ref: "Client" }, project: { type: mongoose.Schema.Types.ObjectId, ref: "Project" }, notes: { type: String, trim: true, maxlength: 10000 }, completedAt: Date, archived: { type: Boolean, default: false, index: true }, revision: { type: Number, default: 0, select: false }, activities: { type: [activitySchema], default: [] } }, { timestamps: true, versionKey: false });
+taskSchema.index({ assignee: 1, status: 1, archived: 1, dueDate: 1 }, { name: "task_assignee_status_due" });
+taskSchema.index({ creator: 1, archived: 1, createdAt: -1 }, { name: "task_creator_created" });
+taskSchema.index({ project: 1, archived: 1, dueDate: 1 }, { name: "task_project_due" });
+taskSchema.index({ client: 1, archived: 1, dueDate: 1 }, { name: "task_client_due" });
+taskSchema.index({ lead: 1, archived: 1, dueDate: 1 }, { name: "task_lead_due" });
+taskSchema.index({ dueDate: 1, status: 1, archived: 1 }, { name: "task_deadline_status" });
+taskSchema.index({ assignee: 1, archived: 1, status: 1, completedAt: 1 }, { name: "task_assignee_completed" });
+taskSchema.index({ title: "text", description: "text", notes: "text" }, { name: "task_search_text" });
+export type TaskRecord = InferSchemaType<typeof taskSchema>;
+const Task: Model<TaskRecord> = (mongoose.models.Task as Model<TaskRecord> | undefined) ?? mongoose.model<TaskRecord>("Task", taskSchema);
+export default Task;

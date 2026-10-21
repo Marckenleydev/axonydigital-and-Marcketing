@@ -1,0 +1,13 @@
+import mongoose, { type InferSchemaType, type Model } from "mongoose";
+import { PROJECT_STATUSES } from "@/lib/validation/projects";
+import { LEAD_PRIORITIES, LEAD_SERVICES } from "@/lib/validation/leads";
+const activitySchema = new mongoose.Schema({ type: { type: String, required: true }, actorId: { type: mongoose.Schema.Types.ObjectId, ref: "CrmUser" }, actorName: String, details: { type: String, maxlength: 1000 }, createdAt: { type: Date, default: Date.now, required: true } });
+const projectSchema = new mongoose.Schema({ name: { type: String, required: true, trim: true, minlength: 2, maxlength: 160 }, description: { type: String, maxlength: 5000 }, client: { type: mongoose.Schema.Types.ObjectId, ref: "Client", required: true }, services: [{ type: String, enum: LEAD_SERVICES }], projectManager: { type: mongoose.Schema.Types.ObjectId, ref: "CrmUser" }, teamMembers: [{ type: mongoose.Schema.Types.ObjectId, ref: "CrmUser" }], budget: { type: Number, min: 0 }, startDate: Date, dueDate: Date, status: { type: String, enum: PROJECT_STATUSES, default: "Planning", required: true }, priority: { type: String, enum: LEAD_PRIORITIES, default: "Normal", required: true }, progress: { type: Number, min: 0, max: 100, default: 0 }, deliverables: [{ type: String, maxlength: 300 }], internalNotes: { type: String, maxlength: 10000 }, archived: { type: Boolean, default: false, index: true }, activities: { type: [activitySchema], default: [] } }, { timestamps: true, versionKey: false });
+projectSchema.index({ client: 1, archived: 1, dueDate: 1 }, { name: "project_client_due" });
+projectSchema.index({ status: 1, archived: 1, dueDate: 1 }, { name: "project_status_due" });
+projectSchema.index({ projectManager: 1, archived: 1, dueDate: 1 }, { name: "project_manager_due" });
+projectSchema.index({ teamMembers: 1, archived: 1, dueDate: 1 }, { name: "project_member_due" });
+projectSchema.index({ name: "text", description: "text" }, { name: "project_search_text" });
+export type ProjectRecord = InferSchemaType<typeof projectSchema>;
+const Project: Model<ProjectRecord> = (mongoose.models.Project as Model<ProjectRecord> | undefined) ?? mongoose.model<ProjectRecord>("Project", projectSchema);
+export default Project;

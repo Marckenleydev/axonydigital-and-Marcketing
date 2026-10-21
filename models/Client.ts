@@ -1,0 +1,13 @@
+import mongoose, { type InferSchemaType, type Model } from "mongoose";
+import { CLIENT_STATUSES } from "@/lib/validation/clients";
+import { LEAD_SERVICES } from "@/lib/validation/leads";
+const activitySchema = new mongoose.Schema({ type: { type: String, required: true }, actorId: { type: mongoose.Schema.Types.ObjectId, ref: "CrmUser" }, actorName: String, details: { type: String, maxlength: 1000 }, createdAt: { type: Date, default: Date.now, required: true } });
+const clientSchema = new mongoose.Schema({ contactName: { type: String, required: true, trim: true, maxlength: 120 }, companyName: { type: String, trim: true, maxlength: 160 }, email: { type: String, trim: true, lowercase: true, maxlength: 254 }, normalizedEmail: { type: String, trim: true, lowercase: true, maxlength: 254 }, phone: { type: String, trim: true, maxlength: 40 }, normalizedPhone: { type: String, trim: true, maxlength: 24 }, website: { type: String, trim: true, maxlength: 200 }, industry: { type: String, trim: true, maxlength: 100 }, address: { type: String, trim: true, maxlength: 500 }, servicesPurchased: [{ type: String, enum: LEAD_SERVICES }], engagementValue: { type: Number, min: 0 }, billingNotes: { type: String, maxlength: 5000 }, accountOwner: { type: mongoose.Schema.Types.ObjectId, ref: "CrmUser" }, status: { type: String, enum: CLIENT_STATUSES, default: "Active", required: true }, internalNotes: { type: String, maxlength: 10000 }, archived: { type: Boolean, default: false, index: true }, convertedFromLead: { type: mongoose.Schema.Types.ObjectId, ref: "Lead" }, activities: { type: [activitySchema], default: [] } }, { timestamps: true, versionKey: false });
+clientSchema.index({ normalizedEmail: 1 }, { unique: true, sparse: true, name: "client_normalized_email_unique" });
+clientSchema.index({ normalizedPhone: 1 }, { unique: true, sparse: true, name: "client_normalized_phone_unique" });
+clientSchema.index({ status: 1, archived: 1, createdAt: -1 }, { name: "client_status_created" });
+clientSchema.index({ accountOwner: 1, archived: 1, updatedAt: -1 }, { name: "client_owner_updated" });
+clientSchema.index({ contactName: "text", companyName: "text", email: "text", phone: "text" }, { name: "client_search_text" });
+export type ClientRecord = InferSchemaType<typeof clientSchema>;
+const Client: Model<ClientRecord> = (mongoose.models.Client as Model<ClientRecord> | undefined) ?? mongoose.model<ClientRecord>("Client", clientSchema);
+export default Client;

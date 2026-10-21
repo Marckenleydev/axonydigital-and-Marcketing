@@ -1,53 +1,62 @@
 import { NextResponse } from "next/server";
+import { connectMongo } from "@/lib/server/mongodb";
+import { allowPublicLead } from "@/lib/server/public-lead-rate-limit";
+import { receivePublicLead } from "@/lib/server/leads";
+import { readBoundedJson } from "@/lib/server/request-body";
+import { publicLeadSchema } from "@/lib/validation/leads";
 
-const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-
-function clean(value: unknown, max: number) {
-  return typeof value === "string" ? value.trim().slice(0, max) : "";
-}
+export const runtime = "nodejs";
 
 export async function POST(request: Request) {
-  let body: Record<string, unknown>;
+  const body = await readBoundedJson(request, 16 * 1024);
+  if (!body.ok) return NextResponse.json({ error: body.reason === "too_large" ? "Request is too large." : "Invalid request. Please review the form and try again." }, { status: body.reason === "too_large" ? 413 : 400 });
+  const raw = body.value;
+
+  // Preserve the existing honeypot behavior: return success to likely bots.
+  if (raw && typeof raw === "object" && "company" in raw && typeof raw.company === "string" && raw.company.trim()) {
+    return NextResponse.json({ ok: true });
+  }
+
   try {
-    body = await request.json();
-  } catch {
-    return NextResponse.json({ error: "Invalid request." }, { status: 400 });
-  }
-
-  // Honeypot: real visitors never fill this in. Pretend success so bots learn nothing.
-  if (clean(body.company, 200)) return NextResponse.json({ ok: true });
-
-  const lead = {
-    name: clean(body.name, 120),
-    email: clean(body.email, 200),
-    website: clean(body.website, 200),
-    budget: clean(body.budget, 80),
-    receivedAt: new Date().toISOString(),
-  };
-
-  if (!lead.name) return NextResponse.json({ error: "Please enter your name." }, { status: 400 });
-  if (!EMAIL.test(lead.email)) return NextResponse.json({ error: "Please enter a valid email address." }, { status: 400 });
-  if (!/^[^\s]+\.[^\s]{2,}/.test(lead.website)) return NextResponse.json({ error: "Please enter your website address." }, { status: 400 });
-  if (!lead.budget) return NextResponse.json({ error: "Please choose a budget range." }, { status: 400 });
-
-  // Delivery: set LEAD_WEBHOOK_URL (Zapier, Make, Slack, HubSpot form endpoint, your CRM, etc.).
-  // Without it the lead is accepted but not stored anywhere, so configure this before launch.
-  const webhook = process.env.LEAD_WEBHOOK_URL;
-  if (webhook) {
-    try {
-      const res = await fetch(webhook, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(lead),
-      });
-      if (!res.ok) throw new Error(`Webhook responded ${res.status}`);
-    } catch (err) {
-      console.error("Lead delivery failed", err);
-      return NextResponse.json({ error: "We couldn't send that just now. Please try again." }, { status: 502 });
+    await connectMongo();
+    if (!(await allowPublicLead(request))) {
+      return NextResponse.json({ error: "Too many requests. Please wait a little and try again." }, { status: 429 });
     }
-  } else if (process.env.NODE_ENV !== "production") {
-    console.warn("LEAD_WEBHOOK_URL is not set; lead was not delivered anywhere.");
+    const parsed = publicLeadSchema.safeParse(raw);
+    if (!parsed.success) {
+      return NextResponse.json({ error: parsed.error.issues[0]?.message ?? "Please review the form and try again." }, { status: 400 });
+    }
+    await receivePublicLead(parsed.data);
+    // Keep the existing optional webhook integration as a secondary delivery
+    // path. MongoDB remains the source of truth if this notification is down.
+    const webhook = process.env.LEAD_WEBHOOK_URL;
+    if (webhook) {
+      try {
+        const endpoint = new URL(webhook);
+        if (endpoint.protocol !== "https:" || endpoint.username || endpoint.password) {
+          throw new Error("Webhook endpoint must be a credential-free HTTPS URL.");
+        }
+        await fetch(webhook, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: parsed.data.name,
+            email: parsed.data.email,
+            website: parsed.data.website,
+            budget: parsed.data.budget,
+            services: parsed.data.services,
+            receivedAt: new Date().toISOString(),
+          }),
+          signal: AbortSignal.timeout(5_000),
+          redirect: "error",
+        });
+      } catch (error) {
+        console.error("Lead webhook notification failed:", error instanceof Error ? error.name : "unknown error");
+      }
+    }
+    return NextResponse.json({ ok: true });
+  } catch (error) {
+    console.error("Public lead submission failed:", error instanceof Error ? error.name : "unknown error");
+    return NextResponse.json({ error: "We couldn't send that just now. Please try again." }, { status: 503 });
   }
-
-  return NextResponse.json({ ok: true });
 }

@@ -59,11 +59,11 @@ export default function Results({ z = 50 }: { z?: number }) {
           ))}
         </Rise>
 
-        {site.showPlaceholderNotice && (
+        {/* {site.showPlaceholderNotice && (
           <p className="mt-10 text-[12px] text-bone/40">
             Sample figures and case studies shown for layout. Replace with verified client results before publishing.
           </p>
-        )}
+        )} */}
       </div>
     </Panel>
   );

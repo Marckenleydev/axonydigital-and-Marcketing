@@ -51,9 +51,9 @@ export default function Testimonials({ z = 60 }: { z?: number }) {
           ))}
         </Rise>
 
-        {site.showPlaceholderNotice && (
+        {/* {site.showPlaceholderNotice && (
           <p className="mt-10 text-[12px] text-ink/45">Sample testimonials shown for layout. Replace with real, permissioned quotes before publishing.</p>
-        )}
+        )} */}
       </div>
     </Panel>
   );

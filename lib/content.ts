@@ -43,7 +43,7 @@ export const logos = [
   "Brightline",
 ];
 
-export const certifications = [ "HubSpot Certified"];
+export const certifications = ["HubSpot Certified"];
 
 export const pains = {
   eyebrow: "Sound familiar?",
@@ -69,31 +69,54 @@ export const services = {
   eyebrow: "What we do",
   heading: "Four disciplines. One goal: revenue.",
   items: [
-     {
+    {
       title: "Performance Marketing",
-      outcome: "Paid campaigns built to hit a target cost per lead or return on spend.",
-      points: ["Google and Meta campaign management", "Offline and CRM conversion tracking", "Weekly bid and budget optimisation"],
+      outcome:
+        "Paid campaigns built to hit a target cost per lead or return on spend.",
+      points: [
+        "Google and Meta campaign management",
+        "Offline and CRM conversion tracking",
+        "Weekly bid and budget optimisation",
+      ],
     },
     {
       title: "Web Development",
-      outcome: "Premium websites and digital platforms designed to showcase your brand, simplify operations, and turn more visitors into customers.",
-      points: ["Custom website development", "E-commerce platforms", "API integrations"],
+      outcome:
+        "Premium websites and digital platforms designed to showcase your brand, simplify operations, and turn more visitors into customers.",
+      points: [
+        "Custom website development",
+        "E-commerce platforms",
+        "API integrations",
+      ],
     },
-   
+
     {
       title: "Content Production",
-      outcome: "visual content for social media and brands. From photoshoots to cinematic video, crafted to engage, convert, and elevate your digital presence",
+      outcome:
+        "visual content for social media and brands. From photoshoots to cinematic video, crafted to engage, convert, and elevate your digital presence",
       points: ["Photoshoots", "Cinematic video", "Social media content"],
     },
     {
       title: "Social Media Management",
-      outcome: "Strategic social media management to grow your audience, increase engagement, and build brand loyalty across all platforms.",
-      points: ["Content scheduling", "Community management", "Analytics and reporting"],
+      outcome:
+        "Strategic social media management to grow your audience, increase engagement, and build brand loyalty across all platforms.",
+      points: [
+        "Content scheduling",
+        "Community management",
+        "Analytics and reporting",
+      ],
     },
   ],
 };
 
-export type AdFormatId = "search" | "youtube" | "display" | "shopping" | "demandgen" | "pmax" | "local";
+export type AdFormatId =
+  | "search"
+  | "youtube"
+  | "display"
+  | "shopping"
+  | "demandgen"
+  | "pmax"
+  | "local";
 
 export const adShowcase = {
   eyebrow: "Google Ads, shown properly",
@@ -159,34 +182,66 @@ export const results = {
   eyebrow: "The proof",
   heading: "Results are the only thing we sell.",
   metrics: [
-    { to: 310, prefix: "+", suffix: "%", decimals: 0, label: "organic traffic growth" },
-    { to: 4.2, prefix: "", suffix: "x", decimals: 1, label: "average return on ad spend" },
-    { to: 38, prefix: "−", suffix: "%", decimals: 0, label: "cost per qualified lead" },
-    { to: 127, prefix: "+", suffix: "%", decimals: 0, label: "landing page conversion lift" },
+    {
+      to: 310,
+      prefix: "+",
+      suffix: "%",
+      decimals: 0,
+      label: "organic traffic growth",
+    },
+    {
+      to: 4.2,
+      prefix: "",
+      suffix: "x",
+      decimals: 1,
+      label: "average return on ad spend",
+    },
+    {
+      to: 38,
+      prefix: "−",
+      suffix: "%",
+      decimals: 0,
+      label: "cost per qualified lead",
+    },
+    {
+      to: 127,
+      prefix: "+",
+      suffix: "%",
+      decimals: 0,
+      label: "landing page conversion lift",
+    },
   ],
   cases: [
     {
-  "client": "IFM LUXURYCARS Dubai",
-  "sector": "Luxury Car Rental",
-  "challenge": "Expensive ad clicks and a severe attribution gap meant the team couldn't identify which campaigns actually drove high-value fleet bookings.",
-  "strategy": "Rebuilt search infrastructure around premium high-intent intent keywords, implemented precise server-side booking and phone tracking, and optimized geo-targeting around luxury hubs.",
-  "outcome": "Cost per confirmed luxury rental booking fell by nearly half within the first ninety days.",
-  "metric": { "value": "−46%", "label": "cost per confirmed booking" }
-},
-    {
       client: "Maison Voss",
       sector: "E-commerce",
-      challenge: "Revenue had plateaued while ad spend kept climbing and margins shrank.",
-      strategy: "Restructured Shopping and Performance Max around product margin, then rebuilt the product pages for conversion.",
+      challenge:
+        "Revenue had plateaued while ad spend kept climbing and margins shrank.",
+      strategy:
+        "Restructured Shopping and Performance Max around product margin, then rebuilt the product pages for conversion.",
       outcome: "Return on ad spend more than doubled on the same budget.",
       metric: { value: "2.3x", label: "return on ad spend" },
     },
     {
+      client: "IFM LUXURYCARS Dubai",
+      sector: "Luxury Car Rental",
+      challenge:
+        "Expensive ad clicks and a severe attribution gap meant the team couldn't identify which campaigns actually drove high-value fleet bookings.",
+      strategy:
+        "Rebuilt search infrastructure around premium high-intent intent keywords, implemented precise server-side booking and phone tracking, and optimized geo-targeting around luxury hubs.",
+      outcome:
+        "Cost per confirmed luxury rental booking fell by nearly half within the first ninety days.",
+      metric: { value: "−46%", label: "cost per confirmed booking" },
+    },
+    {
       client: "Kestrel Labs",
       sector: "B2B software",
-      challenge: "Strong product, but almost all pipeline came from outbound and referrals.",
-      strategy: "Built a topic-cluster content engine and demo-intent landing pages to capture existing search demand.",
-      outcome: "Organic became the largest source of demo requests inside six months.",
+      challenge:
+        "Strong product, but almost all pipeline came from outbound and referrals.",
+      strategy:
+        "Built a topic-cluster content engine and demo-intent landing pages to capture existing search demand.",
+      outcome:
+        "Organic became the largest source of demo requests inside six months.",
       metric: { value: "#1", label: "source of demo requests" },
     },
   ],
@@ -229,9 +284,16 @@ export const contact = {
     "Three quick wins you can act on this week",
     "A realistic 90-day growth plan with budget ranges",
   ],
-  budgets: ["Under $2k / month", "$2k – $5k / month", "$5k – $15k / month", "$15k – $50k / month", "$50k+ / month"],
+  budgets: [
+    "Under $2k / month",
+    "$2k – $5k / month",
+    "$5k – $15k / month",
+    "$15k – $50k / month",
+    "$50k+ / month",
+  ],
   button: "Get my free blueprint",
-  privacy: "We'll only use your details to send your blueprint and follow up. No spam, unsubscribe anytime.",
+  privacy:
+    "We'll only use your details to send your blueprint and follow up. No spam, unsubscribe anytime.",
 };
 
 export const faqs = {
@@ -264,7 +326,6 @@ export const faqs = {
     },
   ],
 };
-
 
 export const nav = [
   { label: "Services", href: "/services" },

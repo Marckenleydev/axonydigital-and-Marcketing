@@ -73,7 +73,7 @@ export default function AdsShowcase({ z = 40 }: { z?: number }) {
           })}
         </div>
 
-        <p className="mt-24 max-w-3xl text-[13px] leading-relaxed text-ink/50 md:mt-32">{adShowcase.disclaimer}</p>
+        {/* <p className="mt-24 max-w-3xl text-[13px] leading-relaxed text-ink/50 md:mt-32">{adShowcase.disclaimer}</p> */}
       </div>
     </Panel>
   );

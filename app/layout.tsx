@@ -11,12 +11,12 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://axonydigital.com"),
 
   title: {
-    default: "axony digital",
-    template: "%s | axony digital ",
+    default: "axony digital | Marketing Digital & Software Solutions",
+    template: "%s | axony digital | Marketing Digital & Software Solutions",
   },
 
   description:
-    "axony digital  is a premium software and digital solutions agency founded by Marckenley Dorsainvil, specializing in modern websites, AI integrations, scalable platforms, and digital experiences for businesses worldwide.",
+    "axony digital | Marketing Digital & Software Solutions is a premium software and digital solutions agency founded by Marckenley Dorsainvil, specializing in modern websites, AI integrations, scalable platforms, and digital experiences for businesses worldwide.",
 
   keywords: [
     "Marckenley Dorsainvil",

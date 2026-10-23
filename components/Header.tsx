@@ -15,10 +15,17 @@ export default function Header() {
     <header className="fixed inset-x-3 top-3 z-[100] md:inset-x-6 md:top-5">
       <div className="relative mx-auto max-w-6xl">
         <div className="flex items-center justify-between rounded-full border border-white/10 bg-ink/75 py-2 pl-5 pr-2 text-bone shadow-lg shadow-black/20 backdrop-blur-xl">
-           <Link href="/" onClick={() => setOpen(false)} className="font-display text-xl leading-none tracking-tight">
-            {site.short}
+           <Link href="/" onClick={() => setOpen(false)} className=" text-xl leading-none tracking-tight">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="inline-block h-5 w-5">
+              <path
+                d="M256 58 477 414H365L256 238 147 414H35L256 58Z"
+                fill="#c8f43a"
+                fillRule="evenodd"
+              />
+            </svg>
+            xony
             <span className="text-lime">.</span>
-            <span className="ml-1.5 font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-bone/60">Digital</span>
+            <span className="ml-1.5 font-display text-[11px] font-semibold uppercase tracking-[0.2em] text-bone/60">Digital</span>
           </Link>
 
           <nav aria-label="Main" className="hidden items-center gap-1 md:flex">

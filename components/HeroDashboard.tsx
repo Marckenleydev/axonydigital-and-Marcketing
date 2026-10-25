@@ -82,7 +82,7 @@ export default function HeroDashboard() {
             strokeLinecap="round"
           />
         </svg>
-        <p className="mt-2 text-[10px] text-bone/40">Illustrative sample data, not client results.</p>
+        {/* <p className="mt-2 text-[10px] text-bone/40">Illustrative sample data, not client results.</p> */}
       </div>
 
       <div className="float-y absolute -left-3 -top-4 hidden rounded-2xl border border-white/10 bg-ink-soft px-3.5 py-2.5 text-[11px] shadow-xl md:block">

@@ -33,13 +33,13 @@ export const hero = {
 };
 
 export const logos = [
-  "Alder & Rowe",
+  "IfmLuxury Cars Dubai",
   "Kestrel Labs",
   "Maison Voss",
-  "Tidewater",
+  "Gourmet Restaurant Dubai",
   "Orbit Fitness",
   "Lumen Dental",
-  "Fieldnote",
+  "Credance",
   "Brightline",
 ];
 

@@ -36,7 +36,7 @@ export const logos = [
   "IfmLuxury Cars Dubai",
   "Kestrel Labs",
   "Maison Voss",
-  "Gourmet Restaurant Dubai",
+  "Gourmet Corner Dubai",
   "Orbit Fitness",
   "Lumen Dental",
   "Credance",
